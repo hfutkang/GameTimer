@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlterDialogView" customModule="GameTimer" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AlterDialogView" customModule="GameTimer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3HY-ji-4HL">
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3V-cT-RqN">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="I1L-Bd-Ti3"/>
+                        <constraint firstAttribute="height" constant="150" id="jpz-Pf-g5j"/>
+                    </constraints>
+                </pickerView>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ns-GY-GeR">
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvt-RB-FAp">
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RE6-L9-c9u">
+                                    <state key="normal" title="Cancel"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atO-ep-8Dr">
+                                    <state key="normal" title="OK"/>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="atO-ep-8Dr" firstAttribute="width" secondItem="RE6-L9-c9u" secondAttribute="width" id="dUl-dy-tpC"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="dvt-RB-FAp" secondAttribute="bottom" constant="5" id="Ab4-6k-Iti"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="3HY-ji-4HL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Caz-kT-oIy"/>
+                <constraint firstItem="3ns-GY-GeR" firstAttribute="top" secondItem="H3V-cT-RqN" secondAttribute="bottom" id="DOY-CU-zSL"/>
+                <constraint firstItem="3HY-ji-4HL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="K3e-yc-jMd"/>
+                <constraint firstAttribute="trailing" secondItem="3ns-GY-GeR" secondAttribute="trailing" id="RuS-Wk-MYR"/>
+                <constraint firstAttribute="trailing" secondItem="3HY-ji-4HL" secondAttribute="trailing" id="TKz-2v-EFU"/>
+                <constraint firstItem="H3V-cT-RqN" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="iFY-ZP-soj"/>
+                <constraint firstItem="H3V-cT-RqN" firstAttribute="top" secondItem="3HY-ji-4HL" secondAttribute="bottom" id="reB-6f-1ic"/>
+                <constraint firstItem="3HY-ji-4HL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="rrb-25-h6Y"/>
+                <constraint firstAttribute="bottom" secondItem="3ns-GY-GeR" secondAttribute="bottom" constant="5" id="s4D-FN-NJM"/>
+                <constraint firstItem="3ns-GY-GeR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="uIf-WA-vfa"/>
+            </constraints>
+            <connections>
+                <outlet property="cancelButton" destination="RE6-L9-c9u" id="bxg-02-YUx"/>
+                <outlet property="okButton" destination="atO-ep-8Dr" id="q94-n5-d5g"/>
+                <outlet property="timePicker" destination="H3V-cT-RqN" id="Qs5-HQ-vBS"/>
+                <outlet property="titleLabel" destination="3HY-ji-4HL" id="Fcp-ec-J9g"/>
+            </connections>
+        </view>
+    </objects>
+</document>

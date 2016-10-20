@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>Home score up</string>
+	<string>Home score down</string>
+	<string>Away score up</string>
+	<string>Away score down</string>
+	<string>Timer zero</string>
+	<string>Positive taunt</string>
+	<string>Negative taunt</string>
+	<string>Crowd</string>
+</array>
+</plist>

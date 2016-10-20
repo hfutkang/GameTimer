@@ -7,13 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C60EE1701D994CDE0013E789 /* TabletemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60EE16F1D994CDE0013E789 /* TabletemView.swift */; };
+		C60EE1761D9A22240013E789 /* sfxList.plist in Resources */ = {isa = PBXBuildFile; fileRef = C60EE1751D9A22240013E789 /* sfxList.plist */; };
+		C60EE1781D9A56400013E789 /* SoundEffectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60EE1771D9A56400013E789 /* SoundEffectTableViewCell.swift */; };
+		C60EE17A1D9A6E8B0013E789 /* defaultSoundList.plist in Resources */ = {isa = PBXBuildFile; fileRef = C60EE1791D9A6E8B0013E789 /* defaultSoundList.plist */; };
+		C60FE9451D952D96008B8760 /* ARSegmentPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C60FE93F1D952D96008B8760 /* ARSegmentPageController.m */; };
+		C60FE9461D952D96008B8760 /* ARSegmentPageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C60FE9421D952D96008B8760 /* ARSegmentPageHeader.m */; };
+		C60FE9471D952D96008B8760 /* ARSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C60FE9441D952D96008B8760 /* ARSegmentView.m */; };
+		C60FE94B1D955736008B8760 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60FE94A1D955736008B8760 /* TableViewController.swift */; };
+		C60FE94D1D955822008B8760 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60FE94C1D955822008B8760 /* NavigationViewController.swift */; };
+		C613B1F91D9283DD006D1E92 /* bak.MicroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C613B1F81D9283DD006D1E92 /* bak.MicroViewController.swift */; };
+		C627BD1E1D9BD3AF002213BD /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C627BD1D1D9BD3AF002213BD /* VolumeView.swift */; };
+		C62DB1511D88F872000A9C1B /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62DB1501D88F872000A9C1B /* ExternalAccessory.framework */; };
+		C62DB1551D8907C0000A9C1B /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62DB1541D8907C0000A9C1B /* MenuViewController.swift */; };
+		C62DB1571D892219000A9C1B /* MuiscViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62DB1561D892219000A9C1B /* MuiscViewController.swift */; };
+		C6424A001D91125C00A15214 /* ScoreboardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64249FF1D91125C00A15214 /* ScoreboardData.swift */; };
+		C662C1591D8FDC1200844105 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = C662C1561D8FDC1200844105 /* GCDAsyncSocket.m */; };
+		C662C15A1D8FDC1200844105 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = C662C1581D8FDC1200844105 /* GCDAsyncUdpSocket.m */; };
+		C662C15F1D900A1E00844105 /* TcpData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C662C15E1D900A1E00844105 /* TcpData.swift */; };
+		C662C1611D900D7900844105 /* CommandCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C662C1601D900D7900844105 /* CommandCodes.swift */; };
+		C662C1631D90245A00844105 /* TcpConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C662C1621D90245A00844105 /* TcpConnection.swift */; };
+		C68EF0851DB645B00030B1B4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68EF0841DB645B00030B1B4 /* SignUpViewController.swift */; };
+		C68EF0871DB646330030B1B4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68EF0861DB646330030B1B4 /* SignInViewController.swift */; };
+		C68EF0891DB66CF80030B1B4 /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68EF0881DB66CF80030B1B4 /* PersonalInfoViewController.swift */; };
+		C697B3F21D9D6298005153A7 /* AlterDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C697B3F11D9D6298005153A7 /* AlterDialogView.swift */; };
+		C697B3F41D9D62DC005153A7 /* DialogView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C697B3F31D9D62DC005153A7 /* DialogView.xib */; };
+		C69B27D01DB9074500DEE743 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69B27CF1DB9074500DEE743 /* GoogleSignIn.framework */; };
+		C69B27D41DB9079600DEE743 /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C69B27D31DB9079600DEE743 /* GoogleSignIn.bundle */; };
+		C69B27D61DB907C500DEE743 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69B27D51DB907C500DEE743 /* AddressBook.framework */; };
+		C69B27D81DB907CD00DEE743 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69B27D71DB907CD00DEE743 /* SafariServices.framework */; };
+		C69B27D91DB907D900DEE743 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6544DD91DAF3E40000E4C4D /* SystemConfiguration.framework */; };
+		C69EAC3E1DA8CF86008CA325 /* SelectEffectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69EAC3D1DA8CF86008CA325 /* SelectEffectTableViewCell.swift */; };
+		C69EAC401DA920B4008CA325 /* SelectSoundEffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69EAC3F1DA920B4008CA325 /* SelectSoundEffectViewController.swift */; };
+		C6BC14711DAD337D00E9BCC2 /* MicroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BC14701DAD337D00E9BCC2 /* MicroViewController.swift */; };
+		C6BDB0FA1DABE26B00C890B8 /* RecordSoundEffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDB0F91DABE26B00C890B8 /* RecordSoundEffectViewController.swift */; };
+		C6D33A991D9515B500CFF3CC /* SFX in Resources */ = {isa = PBXBuildFile; fileRef = C6D33A981D9515B500CFF3CC /* SFX */; };
+		C6D3FC5F1D9D752900F20B06 /* timePickerList.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6D3FC5E1D9D752900F20B06 /* timePickerList.plist */; };
 		C6D49EC11D87E6E900FB5E3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D49EC01D87E6E900FB5E3A /* AppDelegate.swift */; };
-		C6D49EC31D87E6E900FB5E3A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D49EC21D87E6E900FB5E3A /* FirstViewController.swift */; };
-		C6D49EC51D87E6E900FB5E3A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D49EC41D87E6E900FB5E3A /* SecondViewController.swift */; };
+		C6D49EC31D87E6E900FB5E3A /* ScoreboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D49EC21D87E6E900FB5E3A /* ScoreboardViewController.swift */; };
+		C6D49EC51D87E6E900FB5E3A /* SFXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D49EC41D87E6E900FB5E3A /* SFXViewController.swift */; };
 		C6D49EC81D87E6E900FB5E3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6D49EC61D87E6E900FB5E3A /* Main.storyboard */; };
 		C6D49ECA1D87E6E900FB5E3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D49EC91D87E6E900FB5E3A /* Assets.xcassets */; };
 		C6D49ECD1D87E6E900FB5E3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6D49ECB1D87E6E900FB5E3A /* LaunchScreen.storyboard */; };
 		C6D49ED81D87E6E900FB5E3A /* GameTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D49ED71D87E6E900FB5E3A /* GameTimerTests.swift */; };
+		C6E62FBA1DB864C700C377B6 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E62FB71DB864C700C377B6 /* Bolts.framework */; };
+		C6E62FBB1DB864C700C377B6 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E62FB81DB864C700C377B6 /* FBSDKCoreKit.framework */; };
+		C6E62FBC1DB864C700C377B6 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E62FB91DB864C700C377B6 /* FBSDKLoginKit.framework */; };
+		C6E62FBE1DB8FA5C00C377B6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6E62FBD1DB8FA5C00C377B6 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,10 +67,55 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C60EE16F1D994CDE0013E789 /* TabletemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabletemView.swift; sourceTree = "<group>"; };
+		C60EE1751D9A22240013E789 /* sfxList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sfxList.plist; sourceTree = "<group>"; };
+		C60EE1771D9A56400013E789 /* SoundEffectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEffectTableViewCell.swift; sourceTree = "<group>"; };
+		C60EE1791D9A6E8B0013E789 /* defaultSoundList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultSoundList.plist; sourceTree = "<group>"; };
+		C60FE93D1D952D96008B8760 /* ARSegmentControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentControllerDelegate.h; sourceTree = "<group>"; };
+		C60FE93E1D952D96008B8760 /* ARSegmentPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentPageController.h; sourceTree = "<group>"; };
+		C60FE93F1D952D96008B8760 /* ARSegmentPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSegmentPageController.m; sourceTree = "<group>"; };
+		C60FE9401D952D96008B8760 /* ARSegmentPageControllerHeaderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentPageControllerHeaderProtocol.h; sourceTree = "<group>"; };
+		C60FE9411D952D96008B8760 /* ARSegmentPageHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentPageHeader.h; sourceTree = "<group>"; };
+		C60FE9421D952D96008B8760 /* ARSegmentPageHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSegmentPageHeader.m; sourceTree = "<group>"; };
+		C60FE9431D952D96008B8760 /* ARSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentView.h; sourceTree = "<group>"; };
+		C60FE9441D952D96008B8760 /* ARSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSegmentView.m; sourceTree = "<group>"; };
+		C60FE94A1D955736008B8760 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		C60FE94C1D955822008B8760 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		C613B1F81D9283DD006D1E92 /* bak.MicroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bak.MicroViewController.swift; sourceTree = "<group>"; };
+		C627BD1D1D9BD3AF002213BD /* VolumeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
+		C62DB1501D88F872000A9C1B /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		C62DB1521D88F872000A9C1B /* GameTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GameTimer.entitlements; sourceTree = "<group>"; };
+		C62DB1541D8907C0000A9C1B /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		C62DB1561D892219000A9C1B /* MuiscViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuiscViewController.swift; sourceTree = "<group>"; };
+		C64249FF1D91125C00A15214 /* ScoreboardData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardData.swift; sourceTree = "<group>"; };
+		C6544DD91DAF3E40000E4C4D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C662C1551D8FDC1200844105 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncSocket.h; path = ../../../../git/CocoaAsyncSocket/Source/GCD/GCDAsyncSocket.h; sourceTree = "<group>"; };
+		C662C1561D8FDC1200844105 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncSocket.m; path = ../../../../git/CocoaAsyncSocket/Source/GCD/GCDAsyncSocket.m; sourceTree = "<group>"; };
+		C662C1571D8FDC1200844105 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncUdpSocket.h; path = ../../../../git/CocoaAsyncSocket/Source/GCD/GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		C662C1581D8FDC1200844105 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncUdpSocket.m; path = ../../../../git/CocoaAsyncSocket/Source/GCD/GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		C662C15C1D8FDC8600844105 /* GameTimer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GameTimer-Bridging-Header.h"; sourceTree = "<group>"; };
+		C662C15E1D900A1E00844105 /* TcpData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TcpData.swift; sourceTree = "<group>"; };
+		C662C1601D900D7900844105 /* CommandCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandCodes.swift; sourceTree = "<group>"; };
+		C662C1621D90245A00844105 /* TcpConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TcpConnection.swift; sourceTree = "<group>"; };
+		C68EF0841DB645B00030B1B4 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		C68EF0861DB646330030B1B4 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		C68EF0881DB66CF80030B1B4 /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
+		C697B3F11D9D6298005153A7 /* AlterDialogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlterDialogView.swift; sourceTree = "<group>"; };
+		C697B3F31D9D62DC005153A7 /* DialogView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DialogView.xib; sourceTree = "<group>"; };
+		C69B27CF1DB9074500DEE743 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
+		C69B27D31DB9079600DEE743 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
+		C69B27D51DB907C500DEE743 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		C69B27D71DB907CD00DEE743 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		C69EAC3D1DA8CF86008CA325 /* SelectEffectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectEffectTableViewCell.swift; sourceTree = "<group>"; };
+		C69EAC3F1DA920B4008CA325 /* SelectSoundEffectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSoundEffectViewController.swift; sourceTree = "<group>"; };
+		C6BC14701DAD337D00E9BCC2 /* MicroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MicroViewController.swift; path = ../../../../Desktop/devel/testit/GameTimer/MicroViewController.swift; sourceTree = DEVELOPER_DIR; };
+		C6BDB0F91DABE26B00C890B8 /* RecordSoundEffectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordSoundEffectViewController.swift; sourceTree = "<group>"; };
+		C6D33A981D9515B500CFF3CC /* SFX */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SFX; path = ../../../../Downloads/SFX; sourceTree = "<group>"; };
+		C6D3FC5E1D9D752900F20B06 /* timePickerList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = timePickerList.plist; sourceTree = "<group>"; };
 		C6D49EBD1D87E6E900FB5E3A /* GameTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D49EC01D87E6E900FB5E3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C6D49EC21D87E6E900FB5E3A /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		C6D49EC41D87E6E900FB5E3A /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		C6D49EC21D87E6E900FB5E3A /* ScoreboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScoreboardViewController.swift; path = GameTimer/ScoreboardViewController.swift; sourceTree = "<group>"; };
+		C6D49EC41D87E6E900FB5E3A /* SFXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFXViewController.swift; path = GameTimer/SFXViewController.swift; sourceTree = "<group>"; };
 		C6D49EC71D87E6E900FB5E3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C6D49EC91D87E6E900FB5E3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6D49ECC1D87E6E900FB5E3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +123,10 @@
 		C6D49ED31D87E6E900FB5E3A /* GameTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D49ED71D87E6E900FB5E3A /* GameTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTimerTests.swift; sourceTree = "<group>"; };
 		C6D49ED91D87E6E900FB5E3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6E62FB71DB864C700C377B6 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		C6E62FB81DB864C700C377B6 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		C6E62FB91DB864C700C377B6 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		C6E62FBD1DB8FA5C00C377B6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +134,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C69B27D91DB907D900DEE743 /* SystemConfiguration.framework in Frameworks */,
+				C69B27D81DB907CD00DEE743 /* SafariServices.framework in Frameworks */,
+				C69B27D61DB907C500DEE743 /* AddressBook.framework in Frameworks */,
+				C62DB1511D88F872000A9C1B /* ExternalAccessory.framework in Frameworks */,
+				C6E62FBB1DB864C700C377B6 /* FBSDKCoreKit.framework in Frameworks */,
+				C6E62FBC1DB864C700C377B6 /* FBSDKLoginKit.framework in Frameworks */,
+				C6E62FBA1DB864C700C377B6 /* Bolts.framework in Frameworks */,
+				C69B27D01DB9074500DEE743 /* GoogleSignIn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +155,114 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C60EE16E1D994C9F0013E789 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				C60EE16F1D994CDE0013E789 /* TabletemView.swift */,
+				C627BD1D1D9BD3AF002213BD /* VolumeView.swift */,
+				C697B3F11D9D6298005153A7 /* AlterDialogView.swift */,
+			);
+			name = CustomView;
+			sourceTree = "<group>";
+		};
+		C60FE93C1D952CD3008B8760 /* SegmentPageController */ = {
+			isa = PBXGroup;
+			children = (
+				C60FE93D1D952D96008B8760 /* ARSegmentControllerDelegate.h */,
+				C60FE93E1D952D96008B8760 /* ARSegmentPageController.h */,
+				C60FE93F1D952D96008B8760 /* ARSegmentPageController.m */,
+				C60FE9401D952D96008B8760 /* ARSegmentPageControllerHeaderProtocol.h */,
+				C60FE9411D952D96008B8760 /* ARSegmentPageHeader.h */,
+				C60FE9421D952D96008B8760 /* ARSegmentPageHeader.m */,
+				C60FE9431D952D96008B8760 /* ARSegmentView.h */,
+				C60FE9441D952D96008B8760 /* ARSegmentView.m */,
+			);
+			name = SegmentPageController;
+			path = ../../../../git/ARSegmentPager/ARSegmentPageController;
+			sourceTree = "<group>";
+		};
+		C62DB14F1D88F872000A9C1B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C69B27D71DB907CD00DEE743 /* SafariServices.framework */,
+				C69B27D51DB907C500DEE743 /* AddressBook.framework */,
+				C69B27CF1DB9074500DEE743 /* GoogleSignIn.framework */,
+				C6E62FB71DB864C700C377B6 /* Bolts.framework */,
+				C6E62FB81DB864C700C377B6 /* FBSDKCoreKit.framework */,
+				C6E62FB91DB864C700C377B6 /* FBSDKLoginKit.framework */,
+				C6544DD91DAF3E40000E4C4D /* SystemConfiguration.framework */,
+				C62DB1501D88F872000A9C1B /* ExternalAccessory.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C62DB1531D88FF25000A9C1B /* UIController */ = {
+			isa = PBXGroup;
+			children = (
+				C6D49EC21D87E6E900FB5E3A /* ScoreboardViewController.swift */,
+				C6D49EC41D87E6E900FB5E3A /* SFXViewController.swift */,
+				C62DB1541D8907C0000A9C1B /* MenuViewController.swift */,
+				C62DB1561D892219000A9C1B /* MuiscViewController.swift */,
+				C613B1F81D9283DD006D1E92 /* bak.MicroViewController.swift */,
+				C6BC14701DAD337D00E9BCC2 /* MicroViewController.swift */,
+				C60FE94A1D955736008B8760 /* TableViewController.swift */,
+				C60FE94C1D955822008B8760 /* NavigationViewController.swift */,
+				C60EE1771D9A56400013E789 /* SoundEffectTableViewCell.swift */,
+				C69EAC3D1DA8CF86008CA325 /* SelectEffectTableViewCell.swift */,
+				C69EAC3F1DA920B4008CA325 /* SelectSoundEffectViewController.swift */,
+				C6BDB0F91DABE26B00C890B8 /* RecordSoundEffectViewController.swift */,
+				C68EF0841DB645B00030B1B4 /* SignUpViewController.swift */,
+				C68EF0861DB646330030B1B4 /* SignInViewController.swift */,
+				C68EF0881DB66CF80030B1B4 /* PersonalInfoViewController.swift */,
+			);
+			name = UIController;
+			sourceTree = "<group>";
+		};
+		C662C15B1D8FDC6600844105 /* BridgeHeader */ = {
+			isa = PBXGroup;
+			children = (
+				C662C15C1D8FDC8600844105 /* GameTimer-Bridging-Header.h */,
+			);
+			name = BridgeHeader;
+			sourceTree = "<group>";
+		};
+		C662C15D1D9009C400844105 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				C662C15E1D900A1E00844105 /* TcpData.swift */,
+				C662C1601D900D7900844105 /* CommandCodes.swift */,
+				C662C1621D90245A00844105 /* TcpConnection.swift */,
+				C64249FF1D91125C00A15214 /* ScoreboardData.swift */,
+			);
+			name = Connection;
+			sourceTree = "<group>";
+		};
+		C698C0931D8FD61600E1C83A /* GCDAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				C662C1551D8FDC1200844105 /* GCDAsyncSocket.h */,
+				C662C1561D8FDC1200844105 /* GCDAsyncSocket.m */,
+				C662C1571D8FDC1200844105 /* GCDAsyncUdpSocket.h */,
+				C662C1581D8FDC1200844105 /* GCDAsyncUdpSocket.m */,
+			);
+			name = GCDAsyncSocket;
+			sourceTree = "<group>";
+		};
 		C6D49EB41D87E6E900FB5E3A = {
 			isa = PBXGroup;
 			children = (
+				C69B27D31DB9079600DEE743 /* GoogleSignIn.bundle */,
+				C60EE16E1D994C9F0013E789 /* CustomView */,
+				C60FE93C1D952CD3008B8760 /* SegmentPageController */,
+				C6D33A981D9515B500CFF3CC /* SFX */,
+				C662C15D1D9009C400844105 /* Connection */,
+				C662C15B1D8FDC6600844105 /* BridgeHeader */,
+				C698C0931D8FD61600E1C83A /* GCDAsyncSocket */,
+				C62DB1531D88FF25000A9C1B /* UIController */,
 				C6D49EBF1D87E6E900FB5E3A /* GameTimer */,
 				C6D49ED61D87E6E900FB5E3A /* GameTimerTests */,
 				C6D49EBE1D87E6E900FB5E3A /* Products */,
+				C62DB14F1D88F872000A9C1B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,13 +278,17 @@
 		C6D49EBF1D87E6E900FB5E3A /* GameTimer */ = {
 			isa = PBXGroup;
 			children = (
+				C62DB1521D88F872000A9C1B /* GameTimer.entitlements */,
 				C6D49EC01D87E6E900FB5E3A /* AppDelegate.swift */,
-				C6D49EC21D87E6E900FB5E3A /* FirstViewController.swift */,
-				C6D49EC41D87E6E900FB5E3A /* SecondViewController.swift */,
 				C6D49EC61D87E6E900FB5E3A /* Main.storyboard */,
 				C6D49EC91D87E6E900FB5E3A /* Assets.xcassets */,
 				C6D49ECB1D87E6E900FB5E3A /* LaunchScreen.storyboard */,
+				C6E62FBD1DB8FA5C00C377B6 /* GoogleService-Info.plist */,
 				C6D49ECE1D87E6E900FB5E3A /* Info.plist */,
+				C60EE1751D9A22240013E789 /* sfxList.plist */,
+				C60EE1791D9A6E8B0013E789 /* defaultSoundList.plist */,
+				C697B3F31D9D62DC005153A7 /* DialogView.xib */,
+				C6D3FC5E1D9D752900F20B06 /* timePickerList.plist */,
 			);
 			path = GameTimer;
 			sourceTree = "<group>";
@@ -149,7 +352,14 @@
 				TargetAttributes = {
 					C6D49EBC1D87E6E900FB5E3A = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = UXUF8Y5Q66;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.WAC = {
+								enabled = 1;
+							};
+						};
 					};
 					C6D49ED21D87E6E900FB5E3A = {
 						CreatedOnToolsVersion = 8.0;
@@ -182,9 +392,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C60EE1761D9A22240013E789 /* sfxList.plist in Resources */,
+				C6D33A991D9515B500CFF3CC /* SFX in Resources */,
+				C6E62FBE1DB8FA5C00C377B6 /* GoogleService-Info.plist in Resources */,
+				C697B3F41D9D62DC005153A7 /* DialogView.xib in Resources */,
+				C60EE17A1D9A6E8B0013E789 /* defaultSoundList.plist in Resources */,
 				C6D49ECD1D87E6E900FB5E3A /* LaunchScreen.storyboard in Resources */,
+				C69B27D41DB9079600DEE743 /* GoogleSignIn.bundle in Resources */,
 				C6D49ECA1D87E6E900FB5E3A /* Assets.xcassets in Resources */,
 				C6D49EC81D87E6E900FB5E3A /* Main.storyboard in Resources */,
+				C6D3FC5F1D9D752900F20B06 /* timePickerList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,9 +419,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6D49EC51D87E6E900FB5E3A /* SecondViewController.swift in Sources */,
+				C6BC14711DAD337D00E9BCC2 /* MicroViewController.swift in Sources */,
+				C6424A001D91125C00A15214 /* ScoreboardData.swift in Sources */,
+				C60EE1781D9A56400013E789 /* SoundEffectTableViewCell.swift in Sources */,
+				C627BD1E1D9BD3AF002213BD /* VolumeView.swift in Sources */,
+				C68EF0891DB66CF80030B1B4 /* PersonalInfoViewController.swift in Sources */,
+				C662C1591D8FDC1200844105 /* GCDAsyncSocket.m in Sources */,
+				C662C1611D900D7900844105 /* CommandCodes.swift in Sources */,
+				C697B3F21D9D6298005153A7 /* AlterDialogView.swift in Sources */,
+				C60FE94D1D955822008B8760 /* NavigationViewController.swift in Sources */,
+				C662C15F1D900A1E00844105 /* TcpData.swift in Sources */,
+				C6D49EC51D87E6E900FB5E3A /* SFXViewController.swift in Sources */,
+				C62DB1571D892219000A9C1B /* MuiscViewController.swift in Sources */,
 				C6D49EC11D87E6E900FB5E3A /* AppDelegate.swift in Sources */,
-				C6D49EC31D87E6E900FB5E3A /* FirstViewController.swift in Sources */,
+				C662C15A1D8FDC1200844105 /* GCDAsyncUdpSocket.m in Sources */,
+				C60EE1701D994CDE0013E789 /* TabletemView.swift in Sources */,
+				C68EF0871DB646330030B1B4 /* SignInViewController.swift in Sources */,
+				C60FE9461D952D96008B8760 /* ARSegmentPageHeader.m in Sources */,
+				C69EAC3E1DA8CF86008CA325 /* SelectEffectTableViewCell.swift in Sources */,
+				C60FE9451D952D96008B8760 /* ARSegmentPageController.m in Sources */,
+				C60FE9471D952D96008B8760 /* ARSegmentView.m in Sources */,
+				C60FE94B1D955736008B8760 /* TableViewController.swift in Sources */,
+				C6D49EC31D87E6E900FB5E3A /* ScoreboardViewController.swift in Sources */,
+				C69EAC401DA920B4008CA325 /* SelectSoundEffectViewController.swift in Sources */,
+				C6BDB0FA1DABE26B00C890B8 /* RecordSoundEffectViewController.swift in Sources */,
+				C613B1F91D9283DD006D1E92 /* bak.MicroViewController.swift in Sources */,
+				C62DB1551D8907C0000A9C1B /* MenuViewController.swift in Sources */,
+				C68EF0851DB645B00030B1B4 /* SignUpViewController.swift in Sources */,
+				C662C1631D90245A00844105 /* TcpConnection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +559,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -343,10 +586,25 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = GameTimer/GameTimer.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = UXUF8Y5Q66;
+				FRAMEWORK_SEARCH_PATHS = (
+					"~/Documents/ThirtySDK",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = GameTimer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = sctek.cn.GameTimer;
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-Objc",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = sctek.cn.MGameTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GameTimer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -355,10 +613,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = GameTimer/GameTimer.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = UXUF8Y5Q66;
+				FRAMEWORK_SEARCH_PATHS = (
+					"~/Documents/ThirtySDK",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = GameTimer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = sctek.cn.GameTimer;
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-Objc",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = sctek.cn.MGameTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GameTimer-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -410,6 +682,7 @@
 				C6D49EDE1D87E6E900FB5E3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C6D49EDF1D87E6E900FB5E3A /* Build configuration list for PBXNativeTarget "GameTimerTests" */ = {
 			isa = XCConfigurationList;
@@ -418,6 +691,7 @@
 				C6D49EE11D87E6E900FB5E3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

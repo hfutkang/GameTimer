@@ -9,13 +9,28 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GCDAsyncSocketDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        print("didFinishLaunchingWithOptions\n")
+        
+        //For tcp connection
+        let tcpConnection = TcpConnection.sharedInstance
+        tcpConnection.setDelegate(delegate: self)
+        tcpConnection.connect(host: "192.168.222.254", port: 3212)
+        
+        //init default sound effect
+        _initDefaultSound()
+        
+        //Facebook
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        //Google
+        GIDSignIn.sharedInstance().clientID = "370896725852-q3jaeuuqphrqdfupslrac15p88jpiu8n.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().delegate = self
+        
         return true
     }
 
@@ -35,12 +50,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        FBSDKAppEvents.activateApp()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        //let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+        return true
+    }
+    
+    //#MARK AsncySockeDelegate
+    func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
+        print("didConnectToHost \(host) \(port)\n")
+    }
+    
+    func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
+        print("socketDidDisconnect\n")
+    }
+    
+    func _initDefaultSound() -> Void {
+        let path = Bundle.main.path(forResource: "defaultSoundList", ofType: "plist")
+        let sounds = NSDictionary(contentsOfFile: path!)
+        let temp = sounds as! [String : String]
+        var urls = [String : URL]()
+        for (key, value) in temp {
+            let url = Bundle.main.url(forResource: value, withExtension: "mp3", subdirectory: "SFX")
+            urls[key] = url
+        }
+        UserDefaults.standard.register(defaults: urls)
+    }
 
 }
 

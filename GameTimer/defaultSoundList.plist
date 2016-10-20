@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Home score up</key>
+	<string>home_score_up</string>
+	<key>Home score down</key>
+	<string>home_score_down</string>
+	<key>Away score up</key>
+	<string>away_score_up</string>
+	<key>Away score down</key>
+	<string>away_score_down</string>
+	<key>Timer zero</key>
+	<string>time_zero</string>
+	<key>Positive taunt</key>
+	<string>positive_mvp</string>
+	<key>Negative taunt</key>
+	<string>negative_goodbye</string>
+	<key>Crowd</key>
+	<string>crowd_1</string>
+</dict>
+</plist>
