@@ -15,16 +15,20 @@ class SignInViewController:UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     
     @IBOutlet weak var fbLoginButton: UIButton!
     
-    @IBOutlet weak var gpLoginButton: GIDSignInButton!
+    @IBOutlet weak var gpLoginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if FBSDKAccessToken.current() != nil {
             print("current login \(FBSDKAccessToken.current().userID)\n")
         } else {
             print("current not login\n")
         }
-        GIDSignIn.sharedInstance().s
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().delegate = self
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,8 +52,14 @@ class SignInViewController:UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         })
     }
     
+    @IBAction func siginGoogle(_ sender: UIButton) {
+        GIDSignIn.sharedInstance().signIn()
+    }
+    
+    
     //#MARK GIDSignInDelegate
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        print("didSignInFor\n")
         if error == nil {
             print("didSignInFor \(user.userID) \(user.profile.name)\n")
         } else {
@@ -59,6 +69,7 @@ class SignInViewController:UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        
         if error == nil {
             print("didDisconnectWith \(user.userID) \(user.profile.name)\n")
         } else {
@@ -67,16 +78,19 @@ class SignInViewController:UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     }
     
     //#MARK GIDSignInUIDelegate
-    func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
+    /*func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
         print("sign in will dispathc\n")
+        
     }
     
     func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
+        print("signIn dismiss\n")
         self.dismiss(animated: true, completion: nil)
     }
     
     func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
+        print("signIn present viewController\n")
         self.present(viewController, animated: true, completion: nil)
-    }
+    }*/
     
 }

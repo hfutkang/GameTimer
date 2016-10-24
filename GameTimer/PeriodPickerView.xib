@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PeriodPickerView" customModule="GameTimer" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PeriodPickerView" customModule="GameTimer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Period Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aae-6q-WBb">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="aTc-BS-xfM"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ff-3k-dxY">
+                    <frame key="frameInset" height="631"/>
+                </pickerView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJi-P8-lY9">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="f0o-Bh-eMd"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="OK"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="sJi-P8-lY9" secondAttribute="bottom" id="22R-LO-6m9"/>
+                <constraint firstItem="sJi-P8-lY9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="55M-ot-wK8"/>
+                <constraint firstAttribute="trailing" secondItem="aae-6q-WBb" secondAttribute="trailing" id="COE-oY-9Uf"/>
+                <constraint firstAttribute="trailing" secondItem="4Ff-3k-dxY" secondAttribute="trailing" id="GQs-iu-2FQ"/>
+                <constraint firstItem="4Ff-3k-dxY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bUQ-7Z-56j"/>
+                <constraint firstItem="4Ff-3k-dxY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="dQF-Es-bEQ"/>
+                <constraint firstAttribute="trailing" secondItem="sJi-P8-lY9" secondAttribute="trailing" id="hut-w4-prE"/>
+                <constraint firstItem="aae-6q-WBb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qRm-DG-P8Y"/>
+                <constraint firstItem="sJi-P8-lY9" firstAttribute="top" secondItem="4Ff-3k-dxY" secondAttribute="bottom" id="rBg-Fa-Jin"/>
+                <constraint firstItem="aae-6q-WBb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wSb-UA-8qG"/>
+            </constraints>
+            <connections>
+                <outlet property="confirm" destination="sJi-P8-lY9" id="Ymx-RA-B28"/>
+                <outlet property="picker" destination="4Ff-3k-dxY" id="4MZ-KY-pNR"/>
+            </connections>
+        </view>
+    </objects>
+</document>

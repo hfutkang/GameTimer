@@ -39,9 +39,12 @@
 		C69B27D91DB907D900DEE743 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6544DD91DAF3E40000E4C4D /* SystemConfiguration.framework */; };
 		C69EAC3E1DA8CF86008CA325 /* SelectEffectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69EAC3D1DA8CF86008CA325 /* SelectEffectTableViewCell.swift */; };
 		C69EAC401DA920B4008CA325 /* SelectSoundEffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69EAC3F1DA920B4008CA325 /* SelectSoundEffectViewController.swift */; };
+		C6AC4E541DBDB90500F6551A /* PeriodPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6AC4E531DBDB90500F6551A /* PeriodPickerView.xib */; };
+		C6AC4E561DBDB95F00F6551A /* PeriodPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AC4E551DBDB95F00F6551A /* PeriodPickerView.swift */; };
 		C6BC14711DAD337D00E9BCC2 /* MicroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BC14701DAD337D00E9BCC2 /* MicroViewController.swift */; };
 		C6BDB0FA1DABE26B00C890B8 /* RecordSoundEffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDB0F91DABE26B00C890B8 /* RecordSoundEffectViewController.swift */; };
 		C6D33A991D9515B500CFF3CC /* SFX in Resources */ = {isa = PBXBuildFile; fileRef = C6D33A981D9515B500CFF3CC /* SFX */; };
+		C6D3E0621DB9C551001A8B59 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D3E0611DB9C551001A8B59 /* CoreData.framework */; };
 		C6D3FC5F1D9D752900F20B06 /* timePickerList.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6D3FC5E1D9D752900F20B06 /* timePickerList.plist */; };
 		C6D49EC11D87E6E900FB5E3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D49EC01D87E6E900FB5E3A /* AppDelegate.swift */; };
 		C6D49EC31D87E6E900FB5E3A /* ScoreboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D49EC21D87E6E900FB5E3A /* ScoreboardViewController.swift */; };
@@ -50,6 +53,11 @@
 		C6D49ECA1D87E6E900FB5E3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D49EC91D87E6E900FB5E3A /* Assets.xcassets */; };
 		C6D49ECD1D87E6E900FB5E3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6D49ECB1D87E6E900FB5E3A /* LaunchScreen.storyboard */; };
 		C6D49ED81D87E6E900FB5E3A /* GameTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D49ED71D87E6E900FB5E3A /* GameTimerTests.swift */; };
+		C6DAEC911DB9BE9200BE248E /* GoogleAppUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DAEC8C1DB9BE9200BE248E /* GoogleAppUtilities.framework */; };
+		C6DAEC921DB9BE9200BE248E /* GoogleAuthUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DAEC8D1DB9BE9200BE248E /* GoogleAuthUtilities.framework */; };
+		C6DAEC931DB9BE9200BE248E /* GoogleNetworkingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DAEC8E1DB9BE9200BE248E /* GoogleNetworkingUtilities.framework */; };
+		C6DAEC941DB9BE9200BE248E /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DAEC8F1DB9BE9200BE248E /* GoogleSymbolUtilities.framework */; };
+		C6DAEC951DB9BE9200BE248E /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DAEC901DB9BE9200BE248E /* GoogleUtilities.framework */; };
 		C6E62FBA1DB864C700C377B6 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E62FB71DB864C700C377B6 /* Bolts.framework */; };
 		C6E62FBB1DB864C700C377B6 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E62FB81DB864C700C377B6 /* FBSDKCoreKit.framework */; };
 		C6E62FBC1DB864C700C377B6 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E62FB91DB864C700C377B6 /* FBSDKLoginKit.framework */; };
@@ -108,9 +116,12 @@
 		C69B27D71DB907CD00DEE743 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		C69EAC3D1DA8CF86008CA325 /* SelectEffectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectEffectTableViewCell.swift; sourceTree = "<group>"; };
 		C69EAC3F1DA920B4008CA325 /* SelectSoundEffectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSoundEffectViewController.swift; sourceTree = "<group>"; };
+		C6AC4E531DBDB90500F6551A /* PeriodPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PeriodPickerView.xib; sourceTree = "<group>"; };
+		C6AC4E551DBDB95F00F6551A /* PeriodPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodPickerView.swift; sourceTree = "<group>"; };
 		C6BC14701DAD337D00E9BCC2 /* MicroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MicroViewController.swift; path = ../../../../Desktop/devel/testit/GameTimer/MicroViewController.swift; sourceTree = DEVELOPER_DIR; };
 		C6BDB0F91DABE26B00C890B8 /* RecordSoundEffectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordSoundEffectViewController.swift; sourceTree = "<group>"; };
 		C6D33A981D9515B500CFF3CC /* SFX */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SFX; path = ../../../../Downloads/SFX; sourceTree = "<group>"; };
+		C6D3E0611DB9C551001A8B59 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C6D3FC5E1D9D752900F20B06 /* timePickerList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = timePickerList.plist; sourceTree = "<group>"; };
 		C6D49EBD1D87E6E900FB5E3A /* GameTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D49EC01D87E6E900FB5E3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +134,11 @@
 		C6D49ED31D87E6E900FB5E3A /* GameTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D49ED71D87E6E900FB5E3A /* GameTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTimerTests.swift; sourceTree = "<group>"; };
 		C6D49ED91D87E6E900FB5E3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6DAEC8C1DB9BE9200BE248E /* GoogleAppUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAppUtilities.framework; sourceTree = "<group>"; };
+		C6DAEC8D1DB9BE9200BE248E /* GoogleAuthUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAuthUtilities.framework; sourceTree = "<group>"; };
+		C6DAEC8E1DB9BE9200BE248E /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
+		C6DAEC8F1DB9BE9200BE248E /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+		C6DAEC901DB9BE9200BE248E /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
 		C6E62FB71DB864C700C377B6 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		C6E62FB81DB864C700C377B6 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		C6E62FB91DB864C700C377B6 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -134,13 +150,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6D3E0621DB9C551001A8B59 /* CoreData.framework in Frameworks */,
 				C69B27D91DB907D900DEE743 /* SystemConfiguration.framework in Frameworks */,
 				C69B27D81DB907CD00DEE743 /* SafariServices.framework in Frameworks */,
+				C6DAEC931DB9BE9200BE248E /* GoogleNetworkingUtilities.framework in Frameworks */,
 				C69B27D61DB907C500DEE743 /* AddressBook.framework in Frameworks */,
 				C62DB1511D88F872000A9C1B /* ExternalAccessory.framework in Frameworks */,
+				C6DAEC921DB9BE9200BE248E /* GoogleAuthUtilities.framework in Frameworks */,
+				C6DAEC941DB9BE9200BE248E /* GoogleSymbolUtilities.framework in Frameworks */,
 				C6E62FBB1DB864C700C377B6 /* FBSDKCoreKit.framework in Frameworks */,
 				C6E62FBC1DB864C700C377B6 /* FBSDKLoginKit.framework in Frameworks */,
+				C6DAEC911DB9BE9200BE248E /* GoogleAppUtilities.framework in Frameworks */,
 				C6E62FBA1DB864C700C377B6 /* Bolts.framework in Frameworks */,
+				C6DAEC951DB9BE9200BE248E /* GoogleUtilities.framework in Frameworks */,
 				C69B27D01DB9074500DEE743 /* GoogleSignIn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,6 +183,7 @@
 				C60EE16F1D994CDE0013E789 /* TabletemView.swift */,
 				C627BD1D1D9BD3AF002213BD /* VolumeView.swift */,
 				C697B3F11D9D6298005153A7 /* AlterDialogView.swift */,
+				C6AC4E551DBDB95F00F6551A /* PeriodPickerView.swift */,
 			);
 			name = CustomView;
 			sourceTree = "<group>";
@@ -184,7 +207,13 @@
 		C62DB14F1D88F872000A9C1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C6D3E0611DB9C551001A8B59 /* CoreData.framework */,
 				C69B27D71DB907CD00DEE743 /* SafariServices.framework */,
+				C6DAEC8C1DB9BE9200BE248E /* GoogleAppUtilities.framework */,
+				C6DAEC8D1DB9BE9200BE248E /* GoogleAuthUtilities.framework */,
+				C6DAEC8E1DB9BE9200BE248E /* GoogleNetworkingUtilities.framework */,
+				C6DAEC8F1DB9BE9200BE248E /* GoogleSymbolUtilities.framework */,
+				C6DAEC901DB9BE9200BE248E /* GoogleUtilities.framework */,
 				C69B27D51DB907C500DEE743 /* AddressBook.framework */,
 				C69B27CF1DB9074500DEE743 /* GoogleSignIn.framework */,
 				C6E62FB71DB864C700C377B6 /* Bolts.framework */,
@@ -289,6 +318,7 @@
 				C60EE1791D9A6E8B0013E789 /* defaultSoundList.plist */,
 				C697B3F31D9D62DC005153A7 /* DialogView.xib */,
 				C6D3FC5E1D9D752900F20B06 /* timePickerList.plist */,
+				C6AC4E531DBDB90500F6551A /* PeriodPickerView.xib */,
 			);
 			path = GameTimer;
 			sourceTree = "<group>";
@@ -393,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C60EE1761D9A22240013E789 /* sfxList.plist in Resources */,
+				C6AC4E541DBDB90500F6551A /* PeriodPickerView.xib in Resources */,
 				C6D33A991D9515B500CFF3CC /* SFX in Resources */,
 				C6E62FBE1DB8FA5C00C377B6 /* GoogleService-Info.plist in Resources */,
 				C697B3F41D9D62DC005153A7 /* DialogView.xib in Resources */,
@@ -447,6 +478,7 @@
 				C62DB1551D8907C0000A9C1B /* MenuViewController.swift in Sources */,
 				C68EF0851DB645B00030B1B4 /* SignUpViewController.swift in Sources */,
 				C662C1631D90245A00844105 /* TcpConnection.swift in Sources */,
+				C6AC4E561DBDB95F00F6551A /* PeriodPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,15 +623,16 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = UXUF8Y5Q66;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"~/Documents/ThirtySDK",
+					"~/Documents/ThirdSDK",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = GameTimer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
-					"$(OTHER_LDFLAGS)",
-					"-Objc",
+					"-lz",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sctek.cn.MGameTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -618,15 +651,16 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = UXUF8Y5Q66;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"~/Documents/ThirtySDK",
+					"~/Documents/ThirdSDK",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = GameTimer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
-					"$(OTHER_LDFLAGS)",
-					"-Objc",
+					"-lz",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sctek.cn.MGameTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
