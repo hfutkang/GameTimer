@@ -17,6 +17,7 @@
 		C60FE94B1D955736008B8760 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60FE94A1D955736008B8760 /* TableViewController.swift */; };
 		C60FE94D1D955822008B8760 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60FE94C1D955822008B8760 /* NavigationViewController.swift */; };
 		C613B1F91D9283DD006D1E92 /* bak.MicroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C613B1F81D9283DD006D1E92 /* bak.MicroViewController.swift */; };
+		C616E8A21DBE067C00E54802 /* ScoreboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C616E8A11DBE067C00E54802 /* ScoreboardViewController.swift */; };
 		C627BD1E1D9BD3AF002213BD /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C627BD1D1D9BD3AF002213BD /* VolumeView.swift */; };
 		C62DB1511D88F872000A9C1B /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62DB1501D88F872000A9C1B /* ExternalAccessory.framework */; };
 		C62DB1551D8907C0000A9C1B /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62DB1541D8907C0000A9C1B /* MenuViewController.swift */; };
@@ -47,7 +48,6 @@
 		C6D3E0621DB9C551001A8B59 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D3E0611DB9C551001A8B59 /* CoreData.framework */; };
 		C6D3FC5F1D9D752900F20B06 /* timePickerList.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6D3FC5E1D9D752900F20B06 /* timePickerList.plist */; };
 		C6D49EC11D87E6E900FB5E3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D49EC01D87E6E900FB5E3A /* AppDelegate.swift */; };
-		C6D49EC31D87E6E900FB5E3A /* ScoreboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D49EC21D87E6E900FB5E3A /* ScoreboardViewController.swift */; };
 		C6D49EC51D87E6E900FB5E3A /* SFXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D49EC41D87E6E900FB5E3A /* SFXViewController.swift */; };
 		C6D49EC81D87E6E900FB5E3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6D49EC61D87E6E900FB5E3A /* Main.storyboard */; };
 		C6D49ECA1D87E6E900FB5E3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D49EC91D87E6E900FB5E3A /* Assets.xcassets */; };
@@ -90,6 +90,7 @@
 		C60FE94A1D955736008B8760 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		C60FE94C1D955822008B8760 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		C613B1F81D9283DD006D1E92 /* bak.MicroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bak.MicroViewController.swift; sourceTree = "<group>"; };
+		C616E8A11DBE067C00E54802 /* ScoreboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardViewController.swift; sourceTree = "<group>"; };
 		C627BD1D1D9BD3AF002213BD /* VolumeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
 		C62DB1501D88F872000A9C1B /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		C62DB1521D88F872000A9C1B /* GameTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GameTimer.entitlements; sourceTree = "<group>"; };
@@ -125,7 +126,6 @@
 		C6D3FC5E1D9D752900F20B06 /* timePickerList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = timePickerList.plist; sourceTree = "<group>"; };
 		C6D49EBD1D87E6E900FB5E3A /* GameTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D49EC01D87E6E900FB5E3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C6D49EC21D87E6E900FB5E3A /* ScoreboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScoreboardViewController.swift; path = GameTimer/ScoreboardViewController.swift; sourceTree = "<group>"; };
 		C6D49EC41D87E6E900FB5E3A /* SFXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFXViewController.swift; path = GameTimer/SFXViewController.swift; sourceTree = "<group>"; };
 		C6D49EC71D87E6E900FB5E3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C6D49EC91D87E6E900FB5E3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -228,7 +228,7 @@
 		C62DB1531D88FF25000A9C1B /* UIController */ = {
 			isa = PBXGroup;
 			children = (
-				C6D49EC21D87E6E900FB5E3A /* ScoreboardViewController.swift */,
+				C616E8A11DBE067C00E54802 /* ScoreboardViewController.swift */,
 				C6D49EC41D87E6E900FB5E3A /* SFXViewController.swift */,
 				C62DB1541D8907C0000A9C1B /* MenuViewController.swift */,
 				C62DB1561D892219000A9C1B /* MuiscViewController.swift */,
@@ -471,7 +471,6 @@
 				C60FE9451D952D96008B8760 /* ARSegmentPageController.m in Sources */,
 				C60FE9471D952D96008B8760 /* ARSegmentView.m in Sources */,
 				C60FE94B1D955736008B8760 /* TableViewController.swift in Sources */,
-				C6D49EC31D87E6E900FB5E3A /* ScoreboardViewController.swift in Sources */,
 				C69EAC401DA920B4008CA325 /* SelectSoundEffectViewController.swift in Sources */,
 				C6BDB0FA1DABE26B00C890B8 /* RecordSoundEffectViewController.swift in Sources */,
 				C613B1F91D9283DD006D1E92 /* bak.MicroViewController.swift in Sources */,
@@ -479,6 +478,7 @@
 				C68EF0851DB645B00030B1B4 /* SignUpViewController.swift in Sources */,
 				C662C1631D90245A00844105 /* TcpConnection.swift in Sources */,
 				C6AC4E561DBDB95F00F6551A /* PeriodPickerView.swift in Sources */,
+				C616E8A21DBE067C00E54802 /* ScoreboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

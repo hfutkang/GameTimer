@@ -1,0 +1,43 @@
+{
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "224BD0CA974D11DD86EDE3E794D4EEE32ECE4AB5" : 9223372036854775807,
+    "D47E4A01B8FB49C5225B23FB16F17B9F80155034" : 9223372036854775807,
+    "B9B9944A8584EAFC64DFC2F7261EDF34F5CDB807" : 9223372036854775807,
+    "1C75F1C5CFCB95B3702F6F632FA05ED5244B519E" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "37492F97-F632-407A-B134-54E368B5B5C5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "224BD0CA974D11DD86EDE3E794D4EEE32ECE4AB5" : "..\/..\/..\/git\/WIFI-Swift",
+    "D47E4A01B8FB49C5225B23FB16F17B9F80155034" : "..\/..\/..\/git\/ARSegmentPager",
+    "B9B9944A8584EAFC64DFC2F7261EDF34F5CDB807" : "..\/..\/..\/git\/Scoreboard",
+    "1C75F1C5CFCB95B3702F6F632FA05ED5244B519E" : "..\/..\/..\/git\/CocoaAsyncSocket"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "GameTimer",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "GameTimer.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/robbiehanson\/CocoaAsyncSocket.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1C75F1C5CFCB95B3702F6F632FA05ED5244B519E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/schudlo\/WIFI-Swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "224BD0CA974D11DD86EDE3E794D4EEE32ECE4AB5"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/zanneth\/Scoreboard.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B9B9944A8584EAFC64DFC2F7261EDF34F5CDB807"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/AugustRush\/ARSegmentPager.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D47E4A01B8FB49C5225B23FB16F17B9F80155034"
+    }
+  ]
+}

@@ -233,18 +233,18 @@
                                                     <constraint firstItem="wvb-fP-MTe" firstAttribute="leading" secondItem="Phb-dr-NKM" secondAttribute="leading" id="wXT-oH-LKC"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Bv-Fg-KrY">
+                                            <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Bv-Fg-KrY">
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="Poss"/>
                                                 <connections>
-                                                    <action selector="switchPossToHome:" destination="9pv-A4-QxB" eventType="touchUpInside" id="w8O-YH-rud"/>
+                                                    <action selector="onPosBonusButtonClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="l1B-YG-ftl"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mE-tc-32u">
+                                            <button opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mE-tc-32u">
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="Bonus"/>
                                                 <connections>
-                                                    <action selector="lightenHomeBonus:" destination="9pv-A4-QxB" eventType="touchUpInside" id="dJp-u3-4lp"/>
+                                                    <action selector="onPosBonusButtonClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="A1V-75-vgb"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -327,18 +327,18 @@
                                                     <constraint firstItem="sV6-nD-fQk" firstAttribute="top" secondItem="MVH-rV-55m" secondAttribute="top" id="qN1-x4-n63"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SPa-cs-ker">
+                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SPa-cs-ker">
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="Poss"/>
                                                 <connections>
-                                                    <action selector="switchPossToHome:" destination="9pv-A4-QxB" eventType="touchUpInside" id="yDX-Ha-a2N"/>
+                                                    <action selector="onPosBonusButtonClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="0r8-O2-3a3"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9I-9S-XwA">
+                                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9I-9S-XwA">
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="Bonus"/>
                                                 <connections>
-                                                    <action selector="lightenHomeBonus:" destination="9pv-A4-QxB" eventType="touchUpInside" id="AJ3-UN-T4q"/>
+                                                    <action selector="onPosBonusButtonClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="cFh-Nl-7Hb"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -359,11 +359,30 @@
                                     <constraint firstAttribute="bottom" secondItem="3bd-77-jSp" secondAttribute="bottom" id="sTX-hn-f6u"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ma0-3X-eAu">
+                            <label opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFh-1I-hKf">
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="x3v-h4-2fT" appends="YES" id="tf1-pj-MdD"/>
+                                    <outletCollection property="gestureRecognizers" destination="Amh-xO-u7F" appends="YES" id="EiX-Hw-FjX"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ma0-3X-eAu">
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="65"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PERIOD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fU-a0-5Me">
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="8vD-Nv-zAn" appends="YES" id="UZ9-vX-lpv"/>
+                                </connections>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZjA-6I-Lte">
                                 <subviews>
@@ -381,25 +400,6 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="70" translatesAutoresizingMaskIntoConstraints="NO" id="VFh-1I-hKf">
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Amh-xO-u7F" appends="YES" id="8vA-gk-2ru"/>
-                                    <outletCollection property="gestureRecognizers" destination="x3v-h4-2fT" appends="YES" id="tf1-pj-MdD"/>
-                                </connections>
-                            </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PERIOD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fU-a0-5Me">
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="8vD-Nv-zAn" appends="YES" id="UZ9-vX-lpv"/>
-                                </connections>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3a-3R-tS8">
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -409,7 +409,7 @@
                                 </constraints>
                                 <state key="normal" title="Buzzer"/>
                                 <connections>
-                                    <action selector="onBuzzerButtonClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="eIV-qS-0Lx"/>
+                                    <action selector="onBuzzerButtonClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Xud-YV-QCp"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="qh0-0i-XRl">
@@ -421,9 +421,6 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31R-AU-iXh">
                                         <state key="normal" title="retry"/>
-                                        <connections>
-                                            <action selector="onConnectButtonClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="sz7-TP-Oee"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -432,101 +429,99 @@
                         <constraints>
                             <constraint firstItem="ma0-3X-eAu" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="0pr-Yt-kj5"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="N3a-3R-tS8" secondAttribute="bottom" id="3wq-el-9Fv"/>
-                            <constraint firstItem="2fU-a0-5Me" firstAttribute="leading" secondItem="ma0-3X-eAu" secondAttribute="trailing" id="EYl-sb-q8f"/>
+                            <constraint firstItem="ZjA-6I-Lte" firstAttribute="bottom" secondItem="ma0-3X-eAu" secondAttribute="bottom" id="AbB-lm-pGv"/>
+                            <constraint firstItem="ma0-3X-eAu" firstAttribute="top" secondItem="VFh-1I-hKf" secondAttribute="bottom" id="Iwk-y1-XSx"/>
                             <constraint firstItem="DAd-D8-S2e" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="LQy-Gs-mTZ"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="qh0-0i-XRl" secondAttribute="bottom" id="Osw-5R-Yi5"/>
-                            <constraint firstItem="ZjA-6I-Lte" firstAttribute="top" secondItem="ma0-3X-eAu" secondAttribute="top" id="Q4n-O0-iQf"/>
-                            <constraint firstItem="ZjA-6I-Lte" firstAttribute="trailing" secondItem="ma0-3X-eAu" secondAttribute="trailing" id="R8g-rd-OCN"/>
-                            <constraint firstItem="ma0-3X-eAu" firstAttribute="top" secondItem="VFh-1I-hKf" secondAttribute="bottom" id="RZz-pz-TlL"/>
-                            <constraint firstItem="ZjA-6I-Lte" firstAttribute="leading" secondItem="ma0-3X-eAu" secondAttribute="leading" id="TSP-TQ-6UJ"/>
                             <constraint firstItem="qh0-0i-XRl" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="Yai-oK-3Db"/>
-                            <constraint firstItem="ZjA-6I-Lte" firstAttribute="bottom" secondItem="ma0-3X-eAu" secondAttribute="bottom" id="cMl-dw-0UM"/>
+                            <constraint firstItem="2fU-a0-5Me" firstAttribute="centerY" secondItem="ma0-3X-eAu" secondAttribute="centerY" id="c77-MD-chx"/>
                             <constraint firstItem="DAd-D8-S2e" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="cOu-gQ-jf2"/>
+                            <constraint firstItem="ZjA-6I-Lte" firstAttribute="leading" secondItem="ma0-3X-eAu" secondAttribute="leading" id="dHh-cW-iSs"/>
+                            <constraint firstItem="ZjA-6I-Lte" firstAttribute="trailing" secondItem="ma0-3X-eAu" secondAttribute="trailing" id="gId-Sa-2qA"/>
+                            <constraint firstItem="ZjA-6I-Lte" firstAttribute="top" secondItem="ma0-3X-eAu" secondAttribute="top" id="iwd-SJ-ThF"/>
                             <constraint firstAttribute="trailing" secondItem="DAd-D8-S2e" secondAttribute="trailing" id="lCr-Q5-rvL"/>
                             <constraint firstItem="VFh-1I-hKf" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="20" id="lQR-gN-vhL"/>
-                            <constraint firstItem="2fU-a0-5Me" firstAttribute="centerY" secondItem="ma0-3X-eAu" secondAttribute="centerY" id="rRe-Zv-yIm"/>
+                            <constraint firstItem="2fU-a0-5Me" firstAttribute="leading" secondItem="ZjA-6I-Lte" secondAttribute="trailing" constant="5" id="pfm-Fm-9YC"/>
                             <constraint firstItem="N3a-3R-tS8" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="s3O-sr-nGg"/>
                             <constraint firstItem="VFh-1I-hKf" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="xDT-wD-pGY"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Scoreboard" image="first" id="acW-dT-cKf"/>
                     <connections>
-                        <outlet property="buzzerButton" destination="N3a-3R-tS8" id="oCn-mr-43X"/>
-                        <outlet property="connectButton" destination="31R-AU-iXh" id="npa-0x-BxC"/>
-                        <outlet property="connectStatusLabel" destination="QBd-C0-eMI" id="PCV-ml-ldm"/>
-                        <outlet property="guestBonusButton" destination="2mE-tc-32u" id="q8U-gx-wae"/>
-                        <outlet property="guestImage" destination="rG3-WY-vkR" id="qbz-47-kOo"/>
-                        <outlet property="guestNameLabel" destination="UWh-cU-u7X" id="lJX-uJ-RjX"/>
-                        <outlet property="guestPossButton" destination="2Bv-Fg-KrY" id="VXD-ds-9dW"/>
-                        <outlet property="guestScoreLabel" destination="Phb-dr-NKM" id="YuD-Un-S2S"/>
-                        <outlet property="homeBonusButton" destination="Y9I-9S-XwA" id="W4B-59-yaL"/>
-                        <outlet property="homeImage" destination="dW6-Wk-bwf" id="MhQ-4X-ZRG"/>
-                        <outlet property="homeNameLabel" destination="bY4-Fx-JdF" id="Mf5-aG-9Si"/>
-                        <outlet property="homePossButton" destination="SPa-cs-ker" id="kKG-UJ-muC"/>
-                        <outlet property="homeScoreLabel" destination="MVH-rV-55m" id="itd-Fj-JLG"/>
-                        <outlet property="periodLabel" destination="ma0-3X-eAu" id="Yar-bi-IFF"/>
-                        <outlet property="periodNameLabel" destination="2fU-a0-5Me" id="Bb3-Ag-9ig"/>
-                        <outlet property="timeLabel" destination="VFh-1I-hKf" id="xEW-ry-wsj"/>
+                        <outlet property="buzzerButton" destination="N3a-3R-tS8" id="pci-Fg-N71"/>
+                        <outlet property="guestBonus" destination="2mE-tc-32u" id="aBQ-L5-xEI"/>
+                        <outlet property="guestImage" destination="rG3-WY-vkR" id="JjS-ns-GwM"/>
+                        <outlet property="guestNameLabel" destination="UWh-cU-u7X" id="ccU-Dk-1hy"/>
+                        <outlet property="guestPoos" destination="2Bv-Fg-KrY" id="QkB-hA-wJt"/>
+                        <outlet property="guestScoreLabel" destination="Phb-dr-NKM" id="Y7t-EE-TOp"/>
+                        <outlet property="homeBonus" destination="Y9I-9S-XwA" id="NMy-01-TgJ"/>
+                        <outlet property="homeImage" destination="dW6-Wk-bwf" id="vff-XR-8pM"/>
+                        <outlet property="homeNameLabel" destination="bY4-Fx-JdF" id="BbJ-fc-zI9"/>
+                        <outlet property="homePoss" destination="SPa-cs-ker" id="Rbx-L3-bSL"/>
+                        <outlet property="homeScoreLabel" destination="MVH-rV-55m" id="DaI-c2-9Ng"/>
+                        <outlet property="periodLabel" destination="ma0-3X-eAu" id="Tmo-G4-KAI"/>
+                        <outlet property="periodNameLabel" destination="2fU-a0-5Me" id="wsW-US-pQX"/>
+                        <outlet property="timeLabel" destination="VFh-1I-hKf" id="BRS-6X-j5f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Amh-xO-u7F">
                     <connections>
-                        <action selector="onTimeLabelClicked:" destination="9pv-A4-QxB" id="tIk-4P-jaE"/>
+                        <action selector="onTimeLabelTapped:" destination="9pv-A4-QxB" id="LEe-rA-flf"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="rLw-FT-qUl">
                     <connections>
-                        <action selector="onHomeImageClicked:" destination="9pv-A4-QxB" id="abm-mS-gxb"/>
+                        <action selector="onHomeImageTapped:" destination="9pv-A4-QxB" id="Rcg-NI-eDj"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="RPc-mv-tUm">
                     <connections>
-                        <action selector="onGuestImageClicked:" destination="9pv-A4-QxB" id="RRn-be-VQb"/>
+                        <action selector="onGuestImageTapped:" destination="9pv-A4-QxB" id="HJh-aW-b9n"/>
                     </connections>
                 </tapGestureRecognizer>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="x3v-h4-2fT">
                     <connections>
-                        <action selector="onTimeLabelLongPressed:" destination="9pv-A4-QxB" id="1Iy-I2-qqM"/>
+                        <action selector="onTimeLabelLongpressed:" destination="9pv-A4-QxB" id="Egw-rs-nZ7"/>
                     </connections>
                 </pongPressGestureRecognizer>
                 <tapGestureRecognizer id="mlC-kF-7Kq">
                     <connections>
-                        <action selector="onPeriodUpTaped:" destination="9pv-A4-QxB" id="ETv-uQ-hws"/>
+                        <action selector="onPeriodUpTapped:" destination="9pv-A4-QxB" id="6YN-Lq-qEZ"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="nIp-nV-2gy">
                     <connections>
-                        <action selector="onPeriodDownTaped:" destination="9pv-A4-QxB" id="Dm0-Vz-3K3"/>
+                        <action selector="onPeriodDownTapped:" destination="9pv-A4-QxB" id="kxb-V6-hwK"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="xiM-FI-zI4">
                     <connections>
-                        <action selector="addHomeScore:" destination="9pv-A4-QxB" id="0bi-GF-WHO"/>
+                        <action selector="addHomeScore:" destination="9pv-A4-QxB" id="wjn-GV-xdy"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="wQT-wv-8RS">
                     <connections>
-                        <action selector="subHomeScore:" destination="9pv-A4-QxB" id="oEu-oc-MPO"/>
+                        <action selector="subHomeScore:" destination="9pv-A4-QxB" id="jsP-jx-TZk"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="cc6-6G-UgX">
                     <connections>
-                        <action selector="addGuestScore:" destination="9pv-A4-QxB" id="Oq3-Qa-d2g"/>
+                        <action selector="addGuestScore:" destination="9pv-A4-QxB" id="nES-Eq-nB9"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="opE-by-HAf">
                     <connections>
-                        <action selector="subGuestScore:" destination="9pv-A4-QxB" id="EAW-R3-JZf"/>
+                        <action selector="subGuestScore:" destination="9pv-A4-QxB" id="KJu-fY-8rv"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="8vD-Nv-zAn">
                     <connections>
-                        <action selector="onPeriodNameTaped:" destination="9pv-A4-QxB" id="K1A-Jf-7y8"/>
+                        <action selector="onPeriodNameTapped:" destination="9pv-A4-QxB" id="vkz-4V-5Y0"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="909.375" y="-1126.056338028169"/>
+            <point key="canvasLocation" x="964" y="-1109"/>
         </scene>
         <!--Sound Effects-->
         <scene sceneID="wg7-f3-ORb">
@@ -571,7 +566,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="73"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Lo-mE-3kj" id="WOn-Lr-9QW">
-                                            <frame key="frameInset" width="320" height="72"/>
+                                            <frame key="frameInset" width="320" height="72.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="it9-Q2-dzw"/>
@@ -678,7 +673,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hPL-dv-XDz" id="Yh8-FZ-pFp">
-                                            <frame key="frameInset" width="320" height="43"/>
+                                            <frame key="frameInset" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0R-Ri-PHW">
@@ -1184,6 +1179,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7iv-LK-fqg"/>
+        <segue reference="gg2-UR-MFj"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,9 +21,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ff-3k-dxY">
-                    <frame key="frameInset" height="631"/>
-                </pickerView>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ff-3k-dxY"/>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJi-P8-lY9">
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="f0o-Bh-eMd"/>
@@ -34,20 +33,21 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="sJi-P8-lY9" secondAttribute="bottom" id="22R-LO-6m9"/>
+                <constraint firstAttribute="trailingMargin" secondItem="4Ff-3k-dxY" secondAttribute="trailing" id="37P-fh-sCv"/>
                 <constraint firstItem="sJi-P8-lY9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="55M-ot-wK8"/>
                 <constraint firstAttribute="trailing" secondItem="aae-6q-WBb" secondAttribute="trailing" id="COE-oY-9Uf"/>
-                <constraint firstAttribute="trailing" secondItem="4Ff-3k-dxY" secondAttribute="trailing" id="GQs-iu-2FQ"/>
-                <constraint firstItem="4Ff-3k-dxY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bUQ-7Z-56j"/>
-                <constraint firstItem="4Ff-3k-dxY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="dQF-Es-bEQ"/>
+                <constraint firstItem="4Ff-3k-dxY" firstAttribute="top" secondItem="aae-6q-WBb" secondAttribute="bottom" id="D5F-u1-LoT"/>
+                <constraint firstAttribute="bottomMargin" secondItem="4Ff-3k-dxY" secondAttribute="bottom" id="PJR-43-ydJ"/>
+                <constraint firstItem="4Ff-3k-dxY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="g2Z-X5-mYB"/>
                 <constraint firstAttribute="trailing" secondItem="sJi-P8-lY9" secondAttribute="trailing" id="hut-w4-prE"/>
                 <constraint firstItem="aae-6q-WBb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qRm-DG-P8Y"/>
-                <constraint firstItem="sJi-P8-lY9" firstAttribute="top" secondItem="4Ff-3k-dxY" secondAttribute="bottom" id="rBg-Fa-Jin"/>
                 <constraint firstItem="aae-6q-WBb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wSb-UA-8qG"/>
             </constraints>
             <connections>
                 <outlet property="confirm" destination="sJi-P8-lY9" id="Ymx-RA-B28"/>
                 <outlet property="picker" destination="4Ff-3k-dxY" id="4MZ-KY-pNR"/>
             </connections>
+            <point key="canvasLocation" x="56.5" y="63.5"/>
         </view>
     </objects>
 </document>
