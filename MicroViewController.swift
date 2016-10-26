@@ -12,7 +12,7 @@ import MediaPlayer
 import AudioToolbox
 import CoreAudioKit
 
-class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSocketDelegate {
+class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSocketDelegate,GCDAsyncSocketDelegate {
     
     class RecorderState:AnyObject {
         var basicDes:AudioStreamBasicDescription
@@ -28,20 +28,6 @@ class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSoc
         }
     }
     
-    /*class PlayerState: AnyObject {
-        let basicDes:AudioStreamBasicDescription
-        var queue:AudioQueueRef? = nil
-        var buffers = [AudioQueueBufferRef]()
-        var mAudioFile:AudioFileID
-        var bufferByteSize:UInt32 = 0
-        var mCurrentPackets:Int64
-        var mNumPacketsToRead:UInt32
-        var mPacketDescs:AudioStreamPacketDescription
-        init() {
-            basicDes = AudioStreamBasicDescription(mSampleRate: 44100.0, mFormatID: kAudioFormatLinearPCM, mFormatFlags: kLinearPCMFormatFlagIsAlignedHigh|kLinearPCMFormatFlagIsSignedInteger|kLinearPCMFormatFlagIsPacked, mBytesPerPacket: 4, mFramesPerPacket: 1, mBytesPerFrame: 4, mChannelsPerFrame: 2, mBitsPerChannel: 16, mReserved: 0)
-        }
-    }*/
-    
     //MARK Attributes
     var userData = RecorderState()
     static var mUdpSocket:GCDAsyncUdpSocket?
@@ -50,11 +36,15 @@ class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSoc
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        _initVolumeView()
+        //_initVolumeView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         MicroViewController.mUdpSocket = GCDAsyncUdpSocket(delegate: self, delegateQueue: DispatchQueue.main)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        MicroViewController.mUdpSocket?.close()
         MicroViewController.mUdpSocket = nil
     }
     func  _initVolumeView() -> Void {
@@ -101,6 +91,7 @@ class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSoc
         
     }
     
+    //设置buffer大小
     func deriveBufferSize(queue: AudioQueueRef, des: UnsafePointer<AudioStreamBasicDescription>, seconds: Float64, bufferSize: UnsafeMutablePointer<UInt32>) {
         let maxBufferSize = 1024
         var maxPacketSize = des.pointee.mBytesPerPacket
@@ -119,19 +110,44 @@ class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSoc
         print("buffer size :\(numBytesForTime) \(bufferSize.pointee)\n")
     }
     
+    func onReceiveDataForDevice(data: Data) {
+        do {
+            var json:[String:String]? = nil
+            try json = JSONSerialization.jsonObject(with: data, options: []) as? [String:String]
+            if let result = json?["mic"] {
+                if result == "ok" {
+                    userData.recording = true
+                    speak.setTitle("Over", for: .normal)
+                    initAudioInputQueue()
+                    AudioQueueStart(userData.queue!, nil)
+                } else {
+                    print("mic is buzzer now\n")
+                }
+            }
+        }catch {
+            print("json error \(error)\n")
+        }
+    }
+    
     //MARK Action
     
     @IBAction func speak(_ sender: UIButton) {
         if !userData.recording {
-            userData.recording = true
-            speak.setTitle("Over", for: .normal)
-            initAudioInputQueue()
-            AudioQueueStart(userData.queue!, nil)
+            if TcpConnection.sharedInstance.isConnected() {
+                let msg = "{\"mic\":\"apply\"}"
+                TcpConnection.sharedInstance.send(data: msg.data(using: .utf8)!, tag: 0)
+            } else {
+                print("tcp disconnected\n")
+            }
         } else {
             AudioQueueStop(userData.queue!, true)
             userData.recording = false
             print("stoped\n")
             speak.setTitle("Start speak", for: .normal)
+            if TcpConnection.sharedInstance.isConnected() {
+                let msg = "{\"mic\":\"release\"}"
+                TcpConnection.sharedInstance.send(data: msg.data(using: .utf8)!, tag: 0)
+            }
         }
     }
     
@@ -172,6 +188,11 @@ class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSoc
     
     func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {
         print("udp didReceive data\n")
+    }
+    
+    //MARK GCDAsyncSocketDelegate
+    func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
+        onReceiveDataForDevice(data: data)
     }
     
 }

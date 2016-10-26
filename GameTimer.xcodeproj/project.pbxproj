@@ -28,6 +28,9 @@
 		C662C15F1D900A1E00844105 /* TcpData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C662C15E1D900A1E00844105 /* TcpData.swift */; };
 		C662C1611D900D7900844105 /* CommandCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C662C1601D900D7900844105 /* CommandCodes.swift */; };
 		C662C1631D90245A00844105 /* TcpConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C662C1621D90245A00844105 /* TcpConnection.swift */; };
+		C67CB35E1DBF8CC900D1977E /* ScoreboardViewHorizontal.xib in Resources */ = {isa = PBXBuildFile; fileRef = C67CB35C1DBF8CC900D1977E /* ScoreboardViewHorizontal.xib */; };
+		C67CB35F1DBF8CC900D1977E /* ScoreboardViewVertical.xib in Resources */ = {isa = PBXBuildFile; fileRef = C67CB35D1DBF8CC900D1977E /* ScoreboardViewVertical.xib */; };
+		C67CB3611DBF8D1300D1977E /* ScoreboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67CB3601DBF8D1300D1977E /* ScoreboardView.swift */; };
 		C68EF0851DB645B00030B1B4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68EF0841DB645B00030B1B4 /* SignUpViewController.swift */; };
 		C68EF0871DB646330030B1B4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68EF0861DB646330030B1B4 /* SignInViewController.swift */; };
 		C68EF0891DB66CF80030B1B4 /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68EF0881DB66CF80030B1B4 /* PersonalInfoViewController.swift */; };
@@ -106,6 +109,9 @@
 		C662C15E1D900A1E00844105 /* TcpData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TcpData.swift; sourceTree = "<group>"; };
 		C662C1601D900D7900844105 /* CommandCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandCodes.swift; sourceTree = "<group>"; };
 		C662C1621D90245A00844105 /* TcpConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TcpConnection.swift; sourceTree = "<group>"; };
+		C67CB35C1DBF8CC900D1977E /* ScoreboardViewHorizontal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ScoreboardViewHorizontal.xib; path = ../../AutoLayoutTest/AutoLayoutTest/ScoreboardViewHorizontal.xib; sourceTree = "<group>"; };
+		C67CB35D1DBF8CC900D1977E /* ScoreboardViewVertical.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ScoreboardViewVertical.xib; path = ../../AutoLayoutTest/AutoLayoutTest/ScoreboardViewVertical.xib; sourceTree = "<group>"; };
+		C67CB3601DBF8D1300D1977E /* ScoreboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardView.swift; sourceTree = "<group>"; };
 		C68EF0841DB645B00030B1B4 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		C68EF0861DB646330030B1B4 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		C68EF0881DB66CF80030B1B4 /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +190,7 @@
 				C627BD1D1D9BD3AF002213BD /* VolumeView.swift */,
 				C697B3F11D9D6298005153A7 /* AlterDialogView.swift */,
 				C6AC4E551DBDB95F00F6551A /* PeriodPickerView.swift */,
+				C67CB3601DBF8D1300D1977E /* ScoreboardView.swift */,
 			);
 			name = CustomView;
 			sourceTree = "<group>";
@@ -307,6 +314,8 @@
 		C6D49EBF1D87E6E900FB5E3A /* GameTimer */ = {
 			isa = PBXGroup;
 			children = (
+				C67CB35C1DBF8CC900D1977E /* ScoreboardViewHorizontal.xib */,
+				C67CB35D1DBF8CC900D1977E /* ScoreboardViewVertical.xib */,
 				C62DB1521D88F872000A9C1B /* GameTimer.entitlements */,
 				C6D49EC01D87E6E900FB5E3A /* AppDelegate.swift */,
 				C6D49EC61D87E6E900FB5E3A /* Main.storyboard */,
@@ -425,9 +434,11 @@
 				C60EE1761D9A22240013E789 /* sfxList.plist in Resources */,
 				C6AC4E541DBDB90500F6551A /* PeriodPickerView.xib in Resources */,
 				C6D33A991D9515B500CFF3CC /* SFX in Resources */,
+				C67CB35F1DBF8CC900D1977E /* ScoreboardViewVertical.xib in Resources */,
 				C6E62FBE1DB8FA5C00C377B6 /* GoogleService-Info.plist in Resources */,
 				C697B3F41D9D62DC005153A7 /* DialogView.xib in Resources */,
 				C60EE17A1D9A6E8B0013E789 /* defaultSoundList.plist in Resources */,
+				C67CB35E1DBF8CC900D1977E /* ScoreboardViewHorizontal.xib in Resources */,
 				C6D49ECD1D87E6E900FB5E3A /* LaunchScreen.storyboard in Resources */,
 				C69B27D41DB9079600DEE743 /* GoogleSignIn.bundle in Resources */,
 				C6D49ECA1D87E6E900FB5E3A /* Assets.xcassets in Resources */,
@@ -468,6 +479,7 @@
 				C68EF0871DB646330030B1B4 /* SignInViewController.swift in Sources */,
 				C60FE9461D952D96008B8760 /* ARSegmentPageHeader.m in Sources */,
 				C69EAC3E1DA8CF86008CA325 /* SelectEffectTableViewCell.swift in Sources */,
+				C67CB3611DBF8D1300D1977E /* ScoreboardView.swift in Sources */,
 				C60FE9451D952D96008B8760 /* ARSegmentPageController.m in Sources */,
 				C60FE9471D952D96008B8760 /* ARSegmentView.m in Sources */,
 				C60FE94B1D955736008B8760 /* TableViewController.swift in Sources */,
