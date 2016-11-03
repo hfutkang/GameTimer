@@ -12,7 +12,7 @@ import MediaPlayer
 import AudioToolbox
 import CoreAudioKit
 
-class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSocketDelegate,GCDAsyncSocketDelegate {
+class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSocketDelegate {
     
     class RecorderState:AnyObject {
         var basicDes:AudioStreamBasicDescription
@@ -37,15 +37,30 @@ class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSoc
     override func viewDidLoad() {
         super.viewDidLoad()
         //_initVolumeView()
+        self.navigationController?.navigationBar.barStyle = .blackTranslucent
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 20/255.0, green: 23/255.0, blue: 35/255.0, alpha: 1)
+        
+        self.tabBarController?.tabBar.isTranslucent = false
+        self.tabBarController?.tabBar.barTintColor = UIColor(red: 20/255.0, green: 23/255.0, blue: 35/255.0, alpha: 1)
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         MicroViewController.mUdpSocket = GCDAsyncUdpSocket(delegate: self, delegateQueue: DispatchQueue.main)
+        
+        _initAvSession()
+
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        stopMic()
         MicroViewController.mUdpSocket?.close()
         MicroViewController.mUdpSocket = nil
+        
+        _deinitAvSession()
+        
     }
     func  _initVolumeView() -> Void {
         
@@ -61,6 +76,15 @@ class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSoc
         do {
             try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
             try session.setActive(true)
+        } catch {
+            print("\(error)\n")
+        }
+    }
+    
+    func _deinitAvSession() -> Void {
+        let seesion = AVAudioSession.sharedInstance()
+        do {
+            try seesion.setActive(false)
         } catch {
             print("\(error)\n")
         }
@@ -110,22 +134,33 @@ class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSoc
         print("buffer size :\(numBytesForTime) \(bufferSize.pointee)\n")
     }
     
-    func onReceiveDataForDevice(data: Data) {
-        do {
-            var json:[String:String]? = nil
-            try json = JSONSerialization.jsonObject(with: data, options: []) as? [String:String]
-            if let result = json?["mic"] {
-                if result == "ok" {
-                    userData.recording = true
-                    speak.setTitle("Over", for: .normal)
-                    initAudioInputQueue()
-                    AudioQueueStart(userData.queue!, nil)
-                } else {
-                    print("mic is buzzer now\n")
-                }
+    func stopMic() {
+        if userData.recording == true {
+            AudioQueueStop(userData.queue!, true)
+            userData.recording = false
+            print("stopped\n")
+            speak.setTitle("Start speak", for: .normal)
+            
+            NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue:"sctek.cn.MGameTimer.mic"), object: nil)
+            
+            if TcpConnection.sharedInstance.isConnected() {
+                let msg = "{\"cmd\":\"mic\",\"value\":\"0\"}"
+                TcpConnection.sharedInstance.send(data: msg.data(using: .utf8)!, tag: 1)
             }
-        }catch {
-            print("json error \(error)\n")
+        }
+    }
+    
+    //MARK objc
+    @objc func onReceiveDataForDevice(sender:Notification) {
+        let result = sender.userInfo?["result"] as! String
+
+        if result == "ok" {
+            userData.recording = true
+            speak.setTitle("Over", for: .normal)
+            initAudioInputQueue()
+            AudioQueueStart(userData.queue!, nil)
+        } else {
+            print("mic is buzy now\n")
         }
     }
     
@@ -134,20 +169,17 @@ class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSoc
     @IBAction func speak(_ sender: UIButton) {
         if !userData.recording {
             if TcpConnection.sharedInstance.isConnected() {
-                let msg = "{\"mic\":\"apply\"}"
+                
+                NotificationCenter.default.addObserver(self, selector: #selector(onReceiveDataForDevice(sender:)), name: NSNotification.Name(rawValue:"sctek.cn.MGameTimer.mic"), object: nil)
+                
+                let msg = "{\"cmd\":\"mic\",\"value\":\"1\"}"
                 TcpConnection.sharedInstance.send(data: msg.data(using: .utf8)!, tag: 0)
+                
             } else {
                 print("tcp disconnected\n")
             }
         } else {
-            AudioQueueStop(userData.queue!, true)
-            userData.recording = false
-            print("stoped\n")
-            speak.setTitle("Start speak", for: .normal)
-            if TcpConnection.sharedInstance.isConnected() {
-                let msg = "{\"mic\":\"release\"}"
-                TcpConnection.sharedInstance.send(data: msg.data(using: .utf8)!, tag: 0)
-            }
+            stopMic()
         }
     }
     
@@ -188,11 +220,6 @@ class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSoc
     
     func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {
         print("udp didReceive data\n")
-    }
-    
-    //MARK GCDAsyncSocketDelegate
-    func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
-        onReceiveDataForDevice(data: data)
     }
     
 }

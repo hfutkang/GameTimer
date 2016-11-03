@@ -15,7 +15,7 @@
 		C60FE9461D952D96008B8760 /* ARSegmentPageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C60FE9421D952D96008B8760 /* ARSegmentPageHeader.m */; };
 		C60FE9471D952D96008B8760 /* ARSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C60FE9441D952D96008B8760 /* ARSegmentView.m */; };
 		C60FE94B1D955736008B8760 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60FE94A1D955736008B8760 /* TableViewController.swift */; };
-		C60FE94D1D955822008B8760 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60FE94C1D955822008B8760 /* NavigationViewController.swift */; };
+		C60FE94D1D955822008B8760 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60FE94C1D955822008B8760 /* TabBarViewController.swift */; };
 		C613B1F91D9283DD006D1E92 /* bak.MicroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C613B1F81D9283DD006D1E92 /* bak.MicroViewController.swift */; };
 		C616E8A21DBE067C00E54802 /* ScoreboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C616E8A11DBE067C00E54802 /* ScoreboardViewController.swift */; };
 		C627BD1E1D9BD3AF002213BD /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C627BD1D1D9BD3AF002213BD /* VolumeView.swift */; };
@@ -47,6 +47,8 @@
 		C6AC4E561DBDB95F00F6551A /* PeriodPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AC4E551DBDB95F00F6551A /* PeriodPickerView.swift */; };
 		C6BC14711DAD337D00E9BCC2 /* MicroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BC14701DAD337D00E9BCC2 /* MicroViewController.swift */; };
 		C6BDB0FA1DABE26B00C890B8 /* RecordSoundEffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDB0F91DABE26B00C890B8 /* RecordSoundEffectViewController.swift */; };
+		C6C1EC011DC1FA430036B783 /* SupportLandscapeUIImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C1EC001DC1FA430036B783 /* SupportLandscapeUIImagePickerController.swift */; };
+		C6CDFA311DC9E3A400AFD6B7 /* AudioUnitTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDFA301DC9E3A400AFD6B7 /* AudioUnitTestViewController.swift */; };
 		C6D33A991D9515B500CFF3CC /* SFX in Resources */ = {isa = PBXBuildFile; fileRef = C6D33A981D9515B500CFF3CC /* SFX */; };
 		C6D3E0621DB9C551001A8B59 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D3E0611DB9C551001A8B59 /* CoreData.framework */; };
 		C6D3FC5F1D9D752900F20B06 /* timePickerList.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6D3FC5E1D9D752900F20B06 /* timePickerList.plist */; };
@@ -91,7 +93,7 @@
 		C60FE9431D952D96008B8760 /* ARSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentView.h; sourceTree = "<group>"; };
 		C60FE9441D952D96008B8760 /* ARSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSegmentView.m; sourceTree = "<group>"; };
 		C60FE94A1D955736008B8760 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		C60FE94C1D955822008B8760 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		C60FE94C1D955822008B8760 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		C613B1F81D9283DD006D1E92 /* bak.MicroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bak.MicroViewController.swift; sourceTree = "<group>"; };
 		C616E8A11DBE067C00E54802 /* ScoreboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardViewController.swift; sourceTree = "<group>"; };
 		C627BD1D1D9BD3AF002213BD /* VolumeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
@@ -127,6 +129,8 @@
 		C6AC4E551DBDB95F00F6551A /* PeriodPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodPickerView.swift; sourceTree = "<group>"; };
 		C6BC14701DAD337D00E9BCC2 /* MicroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MicroViewController.swift; path = ../../../../Desktop/devel/testit/GameTimer/MicroViewController.swift; sourceTree = DEVELOPER_DIR; };
 		C6BDB0F91DABE26B00C890B8 /* RecordSoundEffectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordSoundEffectViewController.swift; sourceTree = "<group>"; };
+		C6C1EC001DC1FA430036B783 /* SupportLandscapeUIImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportLandscapeUIImagePickerController.swift; sourceTree = "<group>"; };
+		C6CDFA301DC9E3A400AFD6B7 /* AudioUnitTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioUnitTestViewController.swift; sourceTree = "<group>"; };
 		C6D33A981D9515B500CFF3CC /* SFX */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SFX; path = ../../../../Downloads/SFX; sourceTree = "<group>"; };
 		C6D3E0611DB9C551001A8B59 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C6D3FC5E1D9D752900F20B06 /* timePickerList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = timePickerList.plist; sourceTree = "<group>"; };
@@ -242,7 +246,7 @@
 				C613B1F81D9283DD006D1E92 /* bak.MicroViewController.swift */,
 				C6BC14701DAD337D00E9BCC2 /* MicroViewController.swift */,
 				C60FE94A1D955736008B8760 /* TableViewController.swift */,
-				C60FE94C1D955822008B8760 /* NavigationViewController.swift */,
+				C60FE94C1D955822008B8760 /* TabBarViewController.swift */,
 				C60EE1771D9A56400013E789 /* SoundEffectTableViewCell.swift */,
 				C69EAC3D1DA8CF86008CA325 /* SelectEffectTableViewCell.swift */,
 				C69EAC3F1DA920B4008CA325 /* SelectSoundEffectViewController.swift */,
@@ -250,6 +254,7 @@
 				C68EF0841DB645B00030B1B4 /* SignUpViewController.swift */,
 				C68EF0861DB646330030B1B4 /* SignInViewController.swift */,
 				C68EF0881DB66CF80030B1B4 /* PersonalInfoViewController.swift */,
+				C6CDFA301DC9E3A400AFD6B7 /* AudioUnitTestViewController.swift */,
 			);
 			name = UIController;
 			sourceTree = "<group>";
@@ -318,6 +323,7 @@
 				C67CB35D1DBF8CC900D1977E /* ScoreboardViewVertical.xib */,
 				C62DB1521D88F872000A9C1B /* GameTimer.entitlements */,
 				C6D49EC01D87E6E900FB5E3A /* AppDelegate.swift */,
+				C6C1EC001DC1FA430036B783 /* SupportLandscapeUIImagePickerController.swift */,
 				C6D49EC61D87E6E900FB5E3A /* Main.storyboard */,
 				C6D49EC91D87E6E900FB5E3A /* Assets.xcassets */,
 				C6D49ECB1D87E6E900FB5E3A /* LaunchScreen.storyboard */,
@@ -468,8 +474,9 @@
 				C68EF0891DB66CF80030B1B4 /* PersonalInfoViewController.swift in Sources */,
 				C662C1591D8FDC1200844105 /* GCDAsyncSocket.m in Sources */,
 				C662C1611D900D7900844105 /* CommandCodes.swift in Sources */,
+				C6CDFA311DC9E3A400AFD6B7 /* AudioUnitTestViewController.swift in Sources */,
 				C697B3F21D9D6298005153A7 /* AlterDialogView.swift in Sources */,
-				C60FE94D1D955822008B8760 /* NavigationViewController.swift in Sources */,
+				C60FE94D1D955822008B8760 /* TabBarViewController.swift in Sources */,
 				C662C15F1D900A1E00844105 /* TcpData.swift in Sources */,
 				C6D49EC51D87E6E900FB5E3A /* SFXViewController.swift in Sources */,
 				C62DB1571D892219000A9C1B /* MuiscViewController.swift in Sources */,
@@ -477,6 +484,7 @@
 				C662C15A1D8FDC1200844105 /* GCDAsyncUdpSocket.m in Sources */,
 				C60EE1701D994CDE0013E789 /* TabletemView.swift in Sources */,
 				C68EF0871DB646330030B1B4 /* SignInViewController.swift in Sources */,
+				C6C1EC011DC1FA430036B783 /* SupportLandscapeUIImagePickerController.swift in Sources */,
 				C60FE9461D952D96008B8760 /* ARSegmentPageHeader.m in Sources */,
 				C69EAC3E1DA8CF86008CA325 /* SelectEffectTableViewCell.swift in Sources */,
 				C67CB3611DBF8D1300D1977E /* ScoreboardView.swift in Sources */,
@@ -648,6 +656,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sctek.cn.MGameTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "GameTimer-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -676,6 +685,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sctek.cn.MGameTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "GameTimer-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

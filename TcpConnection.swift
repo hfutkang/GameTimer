@@ -25,7 +25,7 @@ class TcpConnection {
     //#MARK funs
     func connect(host:String, port:UInt16) -> Bool {
         do {
-            try tcpSocket.connect(toHost: host, onPort: port)
+            try tcpSocket.connect(toHost: host, onPort: port, withTimeout:5)
         } catch {
             print("error connect to \(host)\n")
             return false

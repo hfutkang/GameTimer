@@ -24,5 +24,6 @@ class SignUpViewController:UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationBar.isTranslucent = false
     }
 }

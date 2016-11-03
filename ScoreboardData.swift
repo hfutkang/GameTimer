@@ -20,6 +20,7 @@ struct ScoreboardData {
     let bonus:Poss
     
     init?(json:[String:Any]) {
+        print("ScorboardData \(json)\n")
         guard let hscore = json["host"] as? Int,
             let gscroe = json["guest"] as? Int,
             let time = json["time"] as? String,

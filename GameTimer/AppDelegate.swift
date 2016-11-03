@@ -1,4 +1,4 @@
-//
+        //
 //  AppDelegate.swift
 //  GameTimer
 //
@@ -17,10 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GCDAsyncSocketDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         print("didFinishLaunchingWithOptions\n")
         
+        application.setStatusBarStyle(.lightContent, animated: true)
+        
         //For tcp connection
         let tcpConnection = TcpConnection.sharedInstance
         tcpConnection.setDelegate(delegate: self)
-        tcpConnection.connect(host: "192.168.222.254", port: 3212)
+        tcpConnection.tcpSocket.readData(withTimeout: -1, tag: 0)
+        tcpConnection.connect(host: "192.168.222.254", port: 0x8888)
         
         //init default sound effect
         _initDefaultSound()
@@ -58,12 +61,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GCDAsyncSocketDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+    /*func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         if enableLandscape {
             return .allButUpsideDown
         }
         return .portrait
-    }
+    }*/
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)||GIDSignIn.sharedInstance().handle(url, sourceApplication: options[.sourceApplication] as! String, annotation: options[.annotation])
@@ -76,10 +79,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GCDAsyncSocketDelegate {
     //#MARK AsncySockeDelegate
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
         print("didConnectToHost \(host) \(port)\n")
+        let notification = Notification.init(name: NSNotification.Name(rawValue: "sctek.cn.MGameTimer.connectStateChanged"), object: nil, userInfo: ["state":"connected"])
+        NotificationCenter.default.post(notification)
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, didWriteDataWithTag tag: Int) {
+        sock.readData(withTimeout: -1, tag: 0)
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
+        print("didRead \(String(data: data, encoding: .utf8)) \(tag)\n)")
+        /*do {
+            let msg = try JSONSerialization.jsonObject(with: data, options: []) as! [String:String]
+            let result = msg["mic"]
+            if let r = result {
+                let notification = Notification.init(name: NSNotification.Name(rawValue: "sctek.cn.MGameTimer.mic"), object: nil, userInfo: ["result":r])
+                NotificationCenter.default.post(notification)
+            }
+            
+        } catch {
+            print("read data error \(error)\n")
+        }
+        */
+         do {
+            let msg = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
+            let result = msg["cmd"] as! String
+            switch result {
+            case "mic":
+                if tag == 0 {
+                    let res = msg["res"] as! String
+                    let notification = Notification.init(name: NSNotification.Name(rawValue: "sctek.cn.MGameTimer.mic"), object: nil, userInfo: ["result":res])
+                    NotificationCenter.default.post(notification)
+                }
+                break;
+            default:
+                break
+            }
+         } catch {
+            print("read data error \(error)\n")
+         }
+        
     }
     
     func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
         print("socketDidDisconnect\n")
+        let notification = Notification.init(name: NSNotification.Name(rawValue: "sctek.cn.MGameTimer.connectStateChanged"), object: nil, userInfo: ["state":"disconnected"])
+        NotificationCenter.default.post(notification)
     }
     
     func _initDefaultSound() -> Void {
@@ -92,6 +137,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GCDAsyncSocketDelegate {
             urls[key] = url
         }
         UserDefaults.standard.register(defaults: urls)
+    }
+    
+    func _initStatusBar() {
+        //设置导航栏背景颜色
+        
     }
 
 }

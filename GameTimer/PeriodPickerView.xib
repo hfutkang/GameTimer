@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,18 +13,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Period Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aae-6q-WBb">
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="aTc-BS-xfM"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ff-3k-dxY"/>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJi-P8-lY9">
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ff-3k-dxY">
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="f0o-Bh-eMd"/>
+                        <constraint firstAttribute="height" constant="200" id="oyd-gZ-Dpg"/>
+                        <constraint firstAttribute="width" constant="200" id="vlp-AW-2Ra"/>
                     </constraints>
+                </pickerView>
+                <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="period" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJi-P8-lY9">
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="OK"/>
                 </button>
@@ -33,12 +31,12 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="sJi-P8-lY9" secondAttribute="bottom" id="22R-LO-6m9"/>
-                <constraint firstAttribute="trailingMargin" secondItem="4Ff-3k-dxY" secondAttribute="trailing" id="37P-fh-sCv"/>
                 <constraint firstItem="sJi-P8-lY9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="55M-ot-wK8"/>
                 <constraint firstAttribute="trailing" secondItem="aae-6q-WBb" secondAttribute="trailing" id="COE-oY-9Uf"/>
-                <constraint firstItem="4Ff-3k-dxY" firstAttribute="top" secondItem="aae-6q-WBb" secondAttribute="bottom" id="D5F-u1-LoT"/>
-                <constraint firstAttribute="bottomMargin" secondItem="4Ff-3k-dxY" secondAttribute="bottom" id="PJR-43-ydJ"/>
-                <constraint firstItem="4Ff-3k-dxY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="g2Z-X5-mYB"/>
+                <constraint firstItem="sJi-P8-lY9" firstAttribute="top" secondItem="4Ff-3k-dxY" secondAttribute="bottom" id="EFK-Hu-lo0"/>
+                <constraint firstItem="4Ff-3k-dxY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Opz-gh-vPG"/>
+                <constraint firstItem="4Ff-3k-dxY" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Rhc-ab-5Od"/>
+                <constraint firstItem="4Ff-3k-dxY" firstAttribute="top" secondItem="aae-6q-WBb" secondAttribute="bottom" id="hN7-aP-NAv"/>
                 <constraint firstAttribute="trailing" secondItem="sJi-P8-lY9" secondAttribute="trailing" id="hut-w4-prE"/>
                 <constraint firstItem="aae-6q-WBb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qRm-DG-P8Y"/>
                 <constraint firstItem="aae-6q-WBb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wSb-UA-8qG"/>

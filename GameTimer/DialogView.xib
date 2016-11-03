@@ -19,7 +19,7 @@
                 </label>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3V-cT-RqN">
                     <constraints>
-                        <constraint firstAttribute="width" constant="150" id="I1L-Bd-Ti3"/>
+                        <constraint firstAttribute="width" constant="100" id="I1L-Bd-Ti3"/>
                         <constraint firstAttribute="height" constant="150" id="jpz-Pf-g5j"/>
                     </constraints>
                 </pickerView>
@@ -40,15 +40,29 @@
                         </stackView>
                     </subviews>
                 </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUA-Ae-SLt">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qz6-JV-z5a">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="qz6-JV-z5a" firstAttribute="leading" secondItem="H3V-cT-RqN" secondAttribute="trailing" constant="5" id="5bv-VG-hz1"/>
                 <constraint firstItem="3HY-ji-4HL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Caz-kT-oIy"/>
                 <constraint firstItem="3ns-GY-GeR" firstAttribute="top" secondItem="H3V-cT-RqN" secondAttribute="bottom" id="DOY-CU-zSL"/>
                 <constraint firstItem="3HY-ji-4HL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="K3e-yc-jMd"/>
+                <constraint firstItem="H3V-cT-RqN" firstAttribute="centerY" secondItem="ZUA-Ae-SLt" secondAttribute="centerY" id="RmE-vP-h8a"/>
                 <constraint firstAttribute="trailing" secondItem="3ns-GY-GeR" secondAttribute="trailing" id="RuS-Wk-MYR"/>
                 <constraint firstAttribute="trailing" secondItem="3HY-ji-4HL" secondAttribute="trailing" id="TKz-2v-EFU"/>
+                <constraint firstItem="H3V-cT-RqN" firstAttribute="leading" secondItem="ZUA-Ae-SLt" secondAttribute="trailing" constant="5" id="VGM-fg-9NC"/>
                 <constraint firstItem="H3V-cT-RqN" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="iFY-ZP-soj"/>
+                <constraint firstItem="qz6-JV-z5a" firstAttribute="centerY" secondItem="ZUA-Ae-SLt" secondAttribute="centerY" id="kYc-A7-d4N"/>
                 <constraint firstItem="H3V-cT-RqN" firstAttribute="top" secondItem="3HY-ji-4HL" secondAttribute="bottom" id="reB-6f-1ic"/>
                 <constraint firstItem="3HY-ji-4HL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="rrb-25-h6Y"/>
                 <constraint firstAttribute="bottom" secondItem="3ns-GY-GeR" secondAttribute="bottom" constant="5" id="s4D-FN-NJM"/>
@@ -56,6 +70,8 @@
             </constraints>
             <connections>
                 <outlet property="cancelButton" destination="RE6-L9-c9u" id="bxg-02-YUx"/>
+                <outlet property="label1" destination="ZUA-Ae-SLt" id="IOa-XK-7bl"/>
+                <outlet property="label2" destination="qz6-JV-z5a" id="OOO-We-M2Z"/>
                 <outlet property="okButton" destination="atO-ep-8Dr" id="q94-n5-d5g"/>
                 <outlet property="timePicker" destination="H3V-cT-RqN" id="Qs5-HQ-vBS"/>
                 <outlet property="titleLabel" destination="3HY-ji-4HL" id="Fcp-ec-J9g"/>

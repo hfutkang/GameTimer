@@ -39,8 +39,6 @@ class SelectSoundEffectViewController: UIViewController, UITableViewDelegate, UI
         tableView.delegate = self
         tableView.dataSource = self
         
-        self.tabBarController?.tabBar.isHidden = true
-        
         appUrls = Bundle.main.urls(forResourcesWithExtension: "mp3", subdirectory: "SFX")!
         _initAvSession()
         _initPhoneUrls()

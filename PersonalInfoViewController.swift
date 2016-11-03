@@ -17,5 +17,9 @@ class PersonalInfoViewController:UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //设置导航栏背景颜色
+        self.navigationController?.navigationBar.barStyle = .blackTranslucent
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 16/255.0, green: 18/255.0, blue: 26/255.0, alpha: 1)
     }
 }

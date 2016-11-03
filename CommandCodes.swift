@@ -31,6 +31,12 @@ class CommandCodes {
     static let CMD_GUEST_BUNUS:UInt8 = 0x15
     static let CMD_RESET_SCORE:UInt8 = 0x09
     static let CMD_RESET_TIMER:UInt8 = 0x10
+    static let CMD_BUZZER_MUTE_ON = 0x16
+    static let CMD_BUZZER_MUTE_OFF = 0x17
+    static let CMD_TIMER_COUNT_UP = 0x18
+    static let CMD_TIMER_COUNT_DOWN = 0x19
+    static let CMD_BUZZERONLY_ON = 0x1a
+    static let CMD_BUZZERONLY_OFF = 0x1b
     
     class func compositeDataFor(command:UInt8, length:UInt8, data:Data) -> Data {
         var tempData = Data()

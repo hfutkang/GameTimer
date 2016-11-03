@@ -14,4 +14,8 @@ class AlterDialogView: UIView {
     @IBOutlet weak var cancelButton: UIButton!
     
     @IBOutlet weak var okButton: UIButton!
+    
+    @IBOutlet weak var label1: UILabel!
+    
+    @IBOutlet weak var label2: UILabel!
 }

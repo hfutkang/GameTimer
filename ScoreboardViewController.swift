@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-class ScoreboardViewController: UIViewController, GCDAsyncUdpSocketDelegate {
+class ScoreboardViewController: UIViewController, GCDAsyncUdpSocketDelegate, UIImagePickerControllerDelegate {
     
     //#MARK Attributes
     var hours:[String]!
@@ -26,6 +26,11 @@ class ScoreboardViewController: UIViewController, GCDAsyncUdpSocketDelegate {
     var mUdpSocket:GCDAsyncUdpSocket!
     
     var scoreboardView:ScoreboardView!
+    
+    var willShowImagePicker = false//打开图库页面支持横竖屏
+    
+    var verticalView:ScoreboardView!
+    var horizontalView:ScoreboardView!
     
     //MARK Outlets
     @IBOutlet weak var timeLabel: UILabel!
@@ -59,28 +64,24 @@ class ScoreboardViewController: UIViewController, GCDAsyncUdpSocketDelegate {
         
         //监听屏幕方向变化
         NotificationCenter.default.addObserver(self, selector: #selector(statusBarOrientationChanged(sender:)), name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(connectStatusChanged(sender:)), name: NSNotification.Name(rawValue: "sctek.cn.MGameTimer.connectStateChanged"), object: nil)
+        
+        //设置tab bar背景
+        self.tabBarController?.tabBar.isTranslucent = false
+        self.tabBarController?.tabBar.barTintColor = UIColor(red: 20/255.0, green: 23/255.0, blue: 35/255.0, alpha: 1)
         
     }
-    
-    @objc func statusBarOrientationChanged(sender: Notification) {
-        print("statusBarOrientationChanged \(UIApplication.shared.statusBarOrientation)\n")
-        let orientation = UIApplication.shared.statusBarOrientation
-        if orientation != .landscapeLeft && orientation != .landscapeRight && orientation != .portrait {
-            return
-        }
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation, object: nil)
-        self.viewDidLoad()
-    }
 
-    
     override func viewWillAppear(_ animated: Bool) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.enableLandscape = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.enableLandscape = false
+        if !willShowImagePicker {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.enableLandscape = false
+        }
     }
     
     //初始化scoreboard
@@ -89,22 +90,35 @@ class ScoreboardViewController: UIViewController, GCDAsyncUdpSocketDelegate {
         let orientation = UIApplication.shared.statusBarOrientation
         if orientation == .landscapeRight || orientation == .landscapeLeft {
             print("orientation landscape\n")
-            if scoreboardView != nil {
-                scoreboardView.removeFromSuperview()
+            if verticalView != nil {
+                verticalView.removeFromSuperview()
             }
-            let nib = Bundle.main.loadNibNamed("ScoreboardViewHorizontal", owner: nil, options: nil)
-            scoreboardView = nib?[0] as! ScoreboardView
-            
+            if horizontalView == nil {
+                let nib = Bundle.main.loadNibNamed("ScoreboardViewHorizontal", owner: nil, options: nil)
+                horizontalView = nib?[0] as! ScoreboardView
+                horizontalView.initTimerPickerComponents()
+                horizontalView.controller = self
+                horizontalView.initLabelFontSize()
+            }
+            scoreboardView = horizontalView
             self.tabBarController?.tabBar.isHidden = true
-            
+            scoreboardView.initViewStatus(sourceView: verticalView)
         } else if orientation == .portrait {
             print("orientation portrait\n")
-            if scoreboardView != nil {
-                scoreboardView.removeFromSuperview()
+            if horizontalView != nil {
+                horizontalView.removeFromSuperview()
             }
-            let nib = Bundle.main.loadNibNamed("ScoreboardViewVertical", owner: nil, options: nil)
-            scoreboardView = nib?[0] as! ScoreboardView
+            
+            if verticalView == nil {
+                let nib = Bundle.main.loadNibNamed("ScoreboardViewVertical", owner: nil, options: nil)
+                verticalView = nib?[0] as! ScoreboardView
+                verticalView.initTimerPickerComponents()
+                verticalView.controller = self
+                verticalView.initLabelFontSize()
+            }
+            scoreboardView = verticalView
             self.tabBarController?.tabBar.isHidden = false
+            scoreboardView.initViewStatus(sourceView: horizontalView)
         } else {
             return
         }
@@ -112,15 +126,11 @@ class ScoreboardViewController: UIViewController, GCDAsyncUdpSocketDelegate {
         scoreboardView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(scoreboardView)
         
-        self.view.addConstraint(NSLayoutConstraint(item:scoreboardView, attribute: .top, relatedBy: .equal, toItem: topLayoutGuide, attribute: .bottom, multiplier: 1, constant: 0))
+        self.view.addConstraint(NSLayoutConstraint(item:scoreboardView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 20))
         self.view.addConstraint(NSLayoutConstraint(item: scoreboardView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0))
         self.view.addConstraint(NSLayoutConstraint(item: scoreboardView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0))
         self.view.addConstraint(NSLayoutConstraint(item: scoreboardView, attribute: .bottom, relatedBy: .equal, toItem: bottomLayoutGuide, attribute: .top , multiplier: 1, constant: 0))
         
-        //初始化timerPicker元素数组
-        scoreboardView.initTimerPickerComponents()
-        scoreboardView.controller = self
-        scoreboardView.initLabelFontSize()
     }
     
     //初始化udp接口
@@ -141,12 +151,37 @@ class ScoreboardViewController: UIViewController, GCDAsyncUdpSocketDelegate {
     //通过Tcp发送命令数据
     func sendData(cmd: UInt8) {
         if TcpConnection.sharedInstance.isConnected() {
-            let data = "{\"button\":}\(cmd)"
+            let data = "{\"cmd\":\"button\",\"value\":\"\(cmd)\"}"
             TcpConnection.sharedInstance.send(data: data.data(using: .utf8)!, tag: 0)
         } else {
             print("tcp disconnected\n")
         }
     }
+    
+    //MARK Objc
+    @objc func statusBarOrientationChanged(sender: Notification) {
+        print("statusBarOrientationChanged \(UIApplication.shared.statusBarOrientation)\n")
+        let orientation = UIApplication.shared.statusBarOrientation
+        if orientation != .landscapeLeft && orientation != .landscapeRight && orientation != .portrait {
+            return
+        }
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "sctek.cn.MGameTimer.connectStateChanged"), object: nil)
+        self.viewDidLoad()
+    }
+    
+    @objc func connectStatusChanged(sender:Notification) {
+        print("connectStatusChanged\n")
+        let state = sender.userInfo?["state"] as! String
+        if state == "connected" {
+            scoreboardView.connectStatusButton.isSelected = true
+            scoreboardView.connectStatusButton.setTitle("Connected", for: .normal)
+        } else if state == "disconnected" {
+            scoreboardView.connectStatusButton.isSelected = false
+            scoreboardView.connectStatusButton.setTitle("Disconnected", for: .normal)
+        }
+    }
+
     
     //MARK GCDAsyncUdpSocketDelegate
     func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {

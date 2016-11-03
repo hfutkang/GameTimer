@@ -20,12 +20,16 @@ class SFXViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     var isBazzserOnly = false
     
+    var slientMode = false
+    
     var soundPlayer:AVAudioPlayer!
     
     var playingRow:Int = -1
 
     //#MARK outlets
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var buzzerOnlySw: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +39,14 @@ class SFXViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         sfxs = loadSFXs()
         
         initSwitchs(sfxs: sfxs)
+        
+        //设置导航栏背景颜色
+        self.navigationController?.navigationBar.barStyle = .blackTranslucent
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 20/255.0, green: 23/255.0, blue: 35/255.0, alpha: 1)
+        
+        self.tabBarController?.tabBar.isTranslucent = true
+        self.tabBarController?.tabBar.barTintColor = UIColor(red: 20/255.0, green: 23/255.0, blue: 35/255.0, alpha: 1)
         
     }
 
@@ -99,7 +111,34 @@ class SFXViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     //#MARK actions
     
     @IBAction func onSwitchValueChanged(_ sender: UISwitch) {
-        isBazzserOnly = sender.isOn
+        if sender.tag == 0 {
+            isBazzserOnly = sender.isOn
+            if TcpConnection.sharedInstance.isConnected() {
+                var msg:String? = nil
+                if sender.isOn {
+                    msg = "{\"cmd\":\"button\",\"value\":\"\(CommandCodes.CMD_BUZZERONLY_ON)\"}"
+                } else {
+                    msg = "{\"cmd\":\"button\",\"value\":\"\(CommandCodes.CMD_BUZZERONLY_OFF)\"}"
+                }
+                TcpConnection.sharedInstance.send(data: (msg?.data(using: .utf8)!)!, tag: 0)
+            } else {
+                print("tcp disconnected\n")
+            }
+        } else if sender.tag == 1 {
+            slientMode = sender.isOn
+            buzzerOnlySw.isEnabled = !sender.isOn
+            if TcpConnection.sharedInstance.isConnected() {
+                var msg:String? = nil
+                if sender.isOn {
+                    msg = "{\"cmd\":\"button\",\"value\":\"\(CommandCodes.CMD_BUZZER_MUTE_ON)\"}"
+                } else {
+                    msg = "{\"cmd\":\"button\",\"value\":\"\(CommandCodes.CMD_BUZZER_MUTE_OFF)\"}"
+                }
+                TcpConnection.sharedInstance.send(data: (msg?.data(using: .utf8)!)!, tag: 0)
+            } else {
+                print("tcp disconnected\n")
+            }
+        }
         tableView.reloadData()
     }
     
@@ -244,13 +283,8 @@ class SFXViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         cell.play.tag = indexPath.row
         cell.play.addTarget(self, action: #selector(onPlayClicked(sender:)), for: .touchUpInside)
         
-        if isBazzserOnly {
-            cell.switchButton.isEnabled = false
-            cell.play.isEnabled = false
-        } else {
-            cell.switchButton.isEnabled = true
-            cell.play.isEnabled = true
-        }
+        cell.switchButton.isEnabled = !(isBazzserOnly || slientMode)
+        cell.play.isEnabled = !(isBazzserOnly || slientMode)
         
         return cell
     }
