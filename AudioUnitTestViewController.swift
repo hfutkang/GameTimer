@@ -20,6 +20,7 @@ class AudioUnitTestViewController: UIViewController {
     class UserData: AnyObject {
         var audioUnit:AudioUnit? = nil
         var grap:AUGraph? = nil
+        var recording = false
     }
     
     override func viewDidLoad() {

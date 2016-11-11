@@ -11,47 +11,50 @@ import UIKit
 import MediaPlayer
 import AudioToolbox
 import CoreAudioKit
+import AudioUnit
 
 class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSocketDelegate {
     
-    class RecorderState:AnyObject {
-        var basicDes:AudioStreamBasicDescription
-        var queue:AudioQueueRef? = nil
-        var buffers = [AudioQueueBufferRef]()
-        var mAudioFile:AudioFileID? = nil
-        var bufferByteSize:UInt32 = 0
+    class UserData: AnyObject {
+        var audioUnit:AudioUnit? = nil
+        var grap:AUGraph? = nil
         var recording = false
-        var inPackets:Int64 = 0
-        
-        init() {
-            basicDes = AudioStreamBasicDescription(mSampleRate: 44100, mFormatID: kAudioFormatLinearPCM, mFormatFlags: kLinearPCMFormatFlagIsAlignedHigh|kLinearPCMFormatFlagIsSignedInteger|kLinearPCMFormatFlagIsPacked, mBytesPerPacket: 4, mFramesPerPacket: 1, mBytesPerFrame: 4, mChannelsPerFrame: 2, mBitsPerChannel: 16, mReserved: 0)
-        }
     }
     
     //MARK Attributes
-    var userData = RecorderState()
+    var userData = UserData()
     static var mUdpSocket:GCDAsyncUdpSocket?
     //MARK Outlets
     @IBOutlet weak var speak: UIButton!
+    @IBOutlet var accessView: UIView!
+    
+    @IBOutlet weak var volumeSlider: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //_initVolumeView()
+        print("MicroViewController viewDidLoad\n")
+        
+        iniAUGrap()
+        initAudioUnit()
+        
+        //设置导航栏背景
         self.navigationController?.navigationBar.barStyle = .blackTranslucent
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 20/255.0, green: 23/255.0, blue: 35/255.0, alpha: 1)
         
+        //设置Tabbar背景
         self.tabBarController?.tabBar.isTranslucent = false
         self.tabBarController?.tabBar.barTintColor = UIColor(red: 20/255.0, green: 23/255.0, blue: 35/255.0, alpha: 1)
         
+        speak.setImage(#imageLiteral(resourceName: "icon_mic_normal"), for: .normal)
+        speak.setImage(#imageLiteral(resourceName: "icon_mic_clicked"), for: .highlighted)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         MicroViewController.mUdpSocket = GCDAsyncUdpSocket(delegate: self, delegateQueue: DispatchQueue.main)
-        
-        _initAvSession()
-
+        accessView.isHidden = ModeCheckUtils.canControlMic()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -59,16 +62,15 @@ class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSoc
         MicroViewController.mUdpSocket?.close()
         MicroViewController.mUdpSocket = nil
         
-        _deinitAvSession()
-        
     }
+    
     func  _initVolumeView() -> Void {
         
-        let vv = MPVolumeView(frame: CGRect(x: 30, y: 50, width: self.view.frame.width - 50, height: 30))
-        vv.sizeToFit()
+        let vv = MPVolumeView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         vv.showsRouteButton = true
-        vv.showsVolumeSlider = true
-        self.view.addSubview(vv)
+        vv.showsVolumeSlider = false
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: vv)
+        //self.view.addSubview(vv)
     }
     
     func _initAvSession() -> Void {
@@ -90,57 +92,13 @@ class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSoc
         }
     }
     
-    func initAudioInputQueue() {
-        print("\(userData.basicDes)\n")
-        let code = AudioQueueNewInput(&userData.basicDes, audioQueueCallback, &userData, nil, nil, 0, &userData.queue)
-        print("\(code)\n")
-        var desSize = UInt32(MemoryLayout<AudioStreamBasicDescription>.size)
-        if userData.queue == nil {
-            print("queue is nil\n")
-        } else {
-            print("\(userData.queue!)\n")
-        }
-        AudioQueueGetProperty(userData.queue!, kAudioQueueProperty_StreamDescription, &userData.basicDes, &desSize)
-        deriveBufferSize(queue: userData.queue!, des: &userData.basicDes, seconds: 0.01, bufferSize: &userData.bufferByteSize)
-        print("\(userData.bufferByteSize)\n")
-        for i in 0...2 {
-            var buffer:AudioQueueBufferRef?
-            let code = AudioQueueAllocateBuffer(userData.queue!, userData.bufferByteSize, &buffer)
-            
-            print("\(code)\n")
-            AudioQueueEnqueueBuffer(userData.queue!, buffer!, 0, nil)
-            userData.buffers.append(buffer!)
-        }
-        AudioQueueSetParameter(userData.queue!, kAudioQueueParam_Volume, 0.3)
-        
-    }
-    
-    //设置buffer大小
-    func deriveBufferSize(queue: AudioQueueRef, des: UnsafePointer<AudioStreamBasicDescription>, seconds: Float64, bufferSize: UnsafeMutablePointer<UInt32>) {
-        let maxBufferSize = 1024
-        var maxPacketSize = des.pointee.mBytesPerPacket
-        if maxPacketSize == 0 {
-            var maxVBRPacketSize = UInt32(MemoryLayout<UInt32>.size)
-            AudioQueueGetProperty(queue, kAudioQueueProperty_MaximumOutputPacketSize, &maxPacketSize, &maxVBRPacketSize)
-            
-        }
-        let numBytesForTime:Float64 = des.pointee.mSampleRate * Float64(maxPacketSize) * seconds
-        if numBytesForTime < Float64(maxPacketSize) {
-            bufferSize.pointee = UInt32(numBytesForTime)
-        } else {
-            bufferSize.pointee = UInt32(maxBufferSize)
-        }
-        
-        print("buffer size :\(numBytesForTime) \(bufferSize.pointee)\n")
-    }
     
     func stopMic() {
         if userData.recording == true {
-            AudioQueueStop(userData.queue!, true)
             userData.recording = false
             print("stopped\n")
-            speak.setTitle("Start speak", for: .normal)
-            
+            //speak.setTitle("Start speak", for: .normal)
+            stopGrap()
             NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue:"sctek.cn.MGameTimer.mic"), object: nil)
             
             if TcpConnection.sharedInstance.isConnected() {
@@ -150,31 +108,103 @@ class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSoc
         }
     }
     
+    //启动AUGraph，开始录音
+    func startGrap() {
+        let status = AUGraphStart(userData.grap!)
+        print("AudioUnit AUGraphStart \(status)\n")
+        
+    }
+    
+    //停止录音
+    func stopGrap() -> Void {
+        let status = AUGraphStop(userData.grap!)
+        print("AudioUnit AUGraphStop \(status)\n")
+    }
+    
+    //初始化AUGraph
+    func iniAUGrap() {
+        var status = NewAUGraph(&userData.grap)
+        print("AudioUnit NewAUGraph \(status)\n")
+        
+        var acd = AudioComponentDescription(componentType: kAudioUnitType_Output, componentSubType: kAudioUnitSubType_VoiceProcessingIO, componentManufacturer: kAudioUnitManufacturer_Apple, componentFlags: 0, componentFlagsMask: 0)
+        
+        var auNode = AUNode(bigEndian: 1)
+        status = AUGraphAddNode(userData.grap!, &acd, &auNode)
+        print("AudioUnit AUGraphAddNode \(status)\n")
+        
+        status = AUGraphOpen(userData.grap!)
+        print("AudioUnit AUGraphOpen \(status)\n")
+        
+        status = AUGraphNodeInfo(userData.grap!, auNode, &acd, &userData.audioUnit)
+        print("AudioUnit AUGraphNodeInfo \(status)\n")
+        
+    }
+    
+    //初始化AudioUnit
+    func initAudioUnit() -> Void {
+        print("initAudioUnit\n")
+        
+        var enable:UInt32 = 1
+        var status = AudioUnitSetProperty(userData.audioUnit!, kAudioOutputUnitProperty_EnableIO, kAudioUnitScope_Input, 1, &enable, UInt32(MemoryLayout<UInt32>.size))
+        print("AudioUnit AudioUnitSetProperty enable \(status)\n")
+        
+        var basicDes = AudioStreamBasicDescription(mSampleRate: 44100, mFormatID: kAudioFormatLinearPCM, mFormatFlags: kLinearPCMFormatFlagIsSignedInteger|kLinearPCMFormatFlagIsPacked, mBytesPerPacket: 4, mFramesPerPacket: 1, mBytesPerFrame: 4, mChannelsPerFrame: 2, mBitsPerChannel: 16, mReserved: 0)
+        
+        //设置音频数据参数
+        status = AudioUnitSetProperty(userData.audioUnit!, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 1, &basicDes, UInt32(MemoryLayout<AudioStreamBasicDescription>.size))
+        print("AudioUnit AudioUnitSetProperty format \(status)\n")
+        
+        var callbackStruct = AURenderCallbackStruct(inputProc: audioUnitInputCallback, inputProcRefCon: &userData)
+        status = AudioUnitSetProperty(userData.audioUnit!, kAudioOutputUnitProperty_SetInputCallback, kAudioUnitScope_Global, 0, &callbackStruct, UInt32(MemoryLayout<AURenderCallbackStruct>.size))
+        print("AudioUnit AudioUnitSetProperty callback \(status)\n")
+        
+        status = AUGraphInitialize(userData.grap!)
+        print("AudioUnit AUGraphInitialize \(status)\n")
+    }
+    
+    //Audiounit输入回调，在这里获取pcm数据。
+    let audioUnitInputCallback:AURenderCallback = {
+        (inRefCon: UnsafeMutableRawPointer, ioActionFlags: UnsafeMutablePointer<AudioUnitRenderActionFlags>, inTimeStamp: UnsafePointer<AudioTimeStamp>, inBusNumber: UInt32, inNumberFrames: UInt32, ioData: UnsafeMutablePointer<AudioBufferList>?) in
+        print("AudioUnit AURenderCallback \(inBusNumber) \(inNumberFrames) \(ioData)\n")
+        
+        let userD = inRefCon.bindMemory(to: UserData.self, capacity: 1).pointee
+        
+        let audioBuffer = AudioBuffer(mNumberChannels: 2, mDataByteSize: inNumberFrames*4, mData: nil)
+        var bufferList = AudioBufferList(mNumberBuffers: 1, mBuffers: audioBuffer)
+        
+        AudioUnitRender(userD.audioUnit!, ioActionFlags, inTimeStamp, 1, inNumberFrames, &bufferList)
+        let data = bufferList.mBuffers
+        
+        let i8s = UnsafeBufferPointer(start: data.mData?.assumingMemoryBound(to: UInt8.self), count: Int(data.mDataByteSize))
+        let cc = Data(buffer: i8s)
+        //print("data bytes:\(abuffer?.mDataByteSize)\n")
+        
+        MicroViewController.mUdpSocket?.send(cc, toHost: "192.168.222.254", port: 7072, withTimeout: 1.0, tag: 0)
+        
+        return 0;
+    }
+    
     //MARK objc
     @objc func onReceiveDataForDevice(sender:Notification) {
         let result = sender.userInfo?["result"] as! String
 
         if result == "ok" {
             userData.recording = true
-            speak.setTitle("Over", for: .normal)
-            initAudioInputQueue()
-            AudioQueueStart(userData.queue!, nil)
+            //speak.setTitle("Over", for: .normal)
+            startGrap()
         } else {
             print("mic is buzy now\n")
         }
     }
     
     //MARK Action
-    
     @IBAction func speak(_ sender: UIButton) {
         if !userData.recording {
             if TcpConnection.sharedInstance.isConnected() {
-                
                 NotificationCenter.default.addObserver(self, selector: #selector(onReceiveDataForDevice(sender:)), name: NSNotification.Name(rawValue:"sctek.cn.MGameTimer.mic"), object: nil)
                 
                 let msg = "{\"cmd\":\"mic\",\"value\":\"1\"}"
                 TcpConnection.sharedInstance.send(data: msg.data(using: .utf8)!, tag: 0)
-                
             } else {
                 print("tcp disconnected\n")
             }
@@ -183,27 +213,11 @@ class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSoc
         }
     }
     
-    //Audio queue service input callback
-    let audioQueueCallback:AudioQueueInputCallback = {
-        (inUserData, inAQ, inBuffer, inStartTime, inNumberPackets, inPacketDescs) in
-        print("AudioQueueInputCallback\n")
-        let data:UnsafeMutableRawPointer = inBuffer.pointee.mAudioData
-        let dataSize = Int(inBuffer.pointee.mAudioDataByteSize)
-        let userD = Unmanaged<RecorderState>.fromOpaque(inUserData!).takeUnretainedValue()
-        var inNumPackets = inNumberPackets
-        
-        let i8s = UnsafeBufferPointer(start: data.assumingMemoryBound(to: UInt8.self), count: dataSize)
-        let cc = Data(buffer: i8s)
-        print("data bytes:\(dataSize)\n")
-        //TcpConnection.sharedInstance.send(data: cc, tag: 0)
-        MicroViewController.mUdpSocket?.send(cc, toHost: "192.168.222.254", port: 7072, withTimeout: 1.0, tag: 0)
-        AudioQueueEnqueueBuffer(inAQ, inBuffer, 0, nil)
+    @IBAction func onSliderValueChanged(_ sender: UISlider) {
+        print("onSliderValueChanged\n")
+        TcpConnection.sharedInstance.send(cmd: "vol", value: "\(Int(sender.value))", extra: nil)
     }
-
     
-    /*let audioOutQueueCallback:AudioQueueOutputCallback = {(inUserData, outQueue, outBuffer) in
-        
-    }*/
     
     //MARK GCDAsyncUdpSocketDelegate
     func udpSocket(_ sock: GCDAsyncUdpSocket, didNotConnect error: Error?) {

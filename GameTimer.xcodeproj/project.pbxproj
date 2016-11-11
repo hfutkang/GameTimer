@@ -11,18 +11,21 @@
 		C60EE1761D9A22240013E789 /* sfxList.plist in Resources */ = {isa = PBXBuildFile; fileRef = C60EE1751D9A22240013E789 /* sfxList.plist */; };
 		C60EE1781D9A56400013E789 /* SoundEffectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60EE1771D9A56400013E789 /* SoundEffectTableViewCell.swift */; };
 		C60EE17A1D9A6E8B0013E789 /* defaultSoundList.plist in Resources */ = {isa = PBXBuildFile; fileRef = C60EE1791D9A6E8B0013E789 /* defaultSoundList.plist */; };
-		C60FE9451D952D96008B8760 /* ARSegmentPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C60FE93F1D952D96008B8760 /* ARSegmentPageController.m */; };
-		C60FE9461D952D96008B8760 /* ARSegmentPageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C60FE9421D952D96008B8760 /* ARSegmentPageHeader.m */; };
-		C60FE9471D952D96008B8760 /* ARSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C60FE9441D952D96008B8760 /* ARSegmentView.m */; };
 		C60FE94B1D955736008B8760 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60FE94A1D955736008B8760 /* TableViewController.swift */; };
 		C60FE94D1D955822008B8760 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60FE94C1D955822008B8760 /* TabBarViewController.swift */; };
 		C613B1F91D9283DD006D1E92 /* bak.MicroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C613B1F81D9283DD006D1E92 /* bak.MicroViewController.swift */; };
 		C616E8A21DBE067C00E54802 /* ScoreboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C616E8A11DBE067C00E54802 /* ScoreboardViewController.swift */; };
+		C61C84B71DCC753700D354AD /* ConnectControllViewContrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C84B61DCC753700D354AD /* ConnectControllViewContrller.swift */; };
 		C627BD1E1D9BD3AF002213BD /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C627BD1D1D9BD3AF002213BD /* VolumeView.swift */; };
 		C62DB1511D88F872000A9C1B /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62DB1501D88F872000A9C1B /* ExternalAccessory.framework */; };
 		C62DB1551D8907C0000A9C1B /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62DB1541D8907C0000A9C1B /* MenuViewController.swift */; };
-		C62DB1571D892219000A9C1B /* MuiscViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62DB1561D892219000A9C1B /* MuiscViewController.swift */; };
+		C62DB1571D892219000A9C1B /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62DB1561D892219000A9C1B /* MusicViewController.swift */; };
+		C6345EEE1DD02237007EF5D2 /* ModeCheckUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6345EED1DD02237007EF5D2 /* ModeCheckUtils.swift */; };
+		C6345EF01DD0854B007EF5D2 /* ConnectedDeviceHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6345EEF1DD0854B007EF5D2 /* ConnectedDeviceHeaderView.xib */; };
+		C6345EF21DD08777007EF5D2 /* ConnectedDeviceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6345EF11DD08777007EF5D2 /* ConnectedDeviceHeaderView.swift */; };
 		C6424A001D91125C00A15214 /* ScoreboardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64249FF1D91125C00A15214 /* ScoreboardData.swift */; };
+		C64903451DCCCD8A00F8F9B5 /* BlackModeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64903441DCCCD8A00F8F9B5 /* BlackModeTableViewCell.swift */; };
+		C64903471DCCCDC400F8F9B5 /* LedBrightnessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64903461DCCCDC400F8F9B5 /* LedBrightnessTableViewCell.swift */; };
 		C662C1591D8FDC1200844105 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = C662C1561D8FDC1200844105 /* GCDAsyncSocket.m */; };
 		C662C15A1D8FDC1200844105 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = C662C1581D8FDC1200844105 /* GCDAsyncUdpSocket.m */; };
 		C662C15F1D900A1E00844105 /* TcpData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C662C15E1D900A1E00844105 /* TcpData.swift */; };
@@ -31,6 +34,11 @@
 		C67CB35E1DBF8CC900D1977E /* ScoreboardViewHorizontal.xib in Resources */ = {isa = PBXBuildFile; fileRef = C67CB35C1DBF8CC900D1977E /* ScoreboardViewHorizontal.xib */; };
 		C67CB35F1DBF8CC900D1977E /* ScoreboardViewVertical.xib in Resources */ = {isa = PBXBuildFile; fileRef = C67CB35D1DBF8CC900D1977E /* ScoreboardViewVertical.xib */; };
 		C67CB3611DBF8D1300D1977E /* ScoreboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67CB3601DBF8D1300D1977E /* ScoreboardView.swift */; };
+		C67E6F041DD41A8F00D2DD14 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67E6F031DD41A8F00D2DD14 /* StartViewController.swift */; };
+		C68AF3AE1DCC7DA6009D2EDE /* WifiNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68AF3AD1DCC7DA6009D2EDE /* WifiNameTableViewCell.swift */; };
+		C68AF3B01DCC7DE3009D2EDE /* PermissionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68AF3AF1DCC7DE3009D2EDE /* PermissionTableViewCell.swift */; };
+		C68AF3B21DCCAEF7009D2EDE /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68AF3B11DCCAEF7009D2EDE /* MyAccountViewController.swift */; };
+		C68AF3B41DCCAF6E009D2EDE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68AF3B31DCCAF6D009D2EDE /* SettingsViewController.swift */; };
 		C68EF0851DB645B00030B1B4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68EF0841DB645B00030B1B4 /* SignUpViewController.swift */; };
 		C68EF0871DB646330030B1B4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68EF0861DB646330030B1B4 /* SignInViewController.swift */; };
 		C68EF0891DB66CF80030B1B4 /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68EF0881DB66CF80030B1B4 /* PersonalInfoViewController.swift */; };
@@ -43,11 +51,10 @@
 		C69B27D91DB907D900DEE743 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6544DD91DAF3E40000E4C4D /* SystemConfiguration.framework */; };
 		C69EAC3E1DA8CF86008CA325 /* SelectEffectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69EAC3D1DA8CF86008CA325 /* SelectEffectTableViewCell.swift */; };
 		C69EAC401DA920B4008CA325 /* SelectSoundEffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69EAC3F1DA920B4008CA325 /* SelectSoundEffectViewController.swift */; };
-		C6AC4E541DBDB90500F6551A /* PeriodPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6AC4E531DBDB90500F6551A /* PeriodPickerView.xib */; };
-		C6AC4E561DBDB95F00F6551A /* PeriodPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AC4E551DBDB95F00F6551A /* PeriodPickerView.swift */; };
+		C6AC4E541DBDB90500F6551A /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6AC4E531DBDB90500F6551A /* PickerView.xib */; };
+		C6AC4E561DBDB95F00F6551A /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AC4E551DBDB95F00F6551A /* PickerView.swift */; };
 		C6BC14711DAD337D00E9BCC2 /* MicroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BC14701DAD337D00E9BCC2 /* MicroViewController.swift */; };
 		C6BDB0FA1DABE26B00C890B8 /* RecordSoundEffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDB0F91DABE26B00C890B8 /* RecordSoundEffectViewController.swift */; };
-		C6C1EC011DC1FA430036B783 /* SupportLandscapeUIImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C1EC001DC1FA430036B783 /* SupportLandscapeUIImagePickerController.swift */; };
 		C6CDFA311DC9E3A400AFD6B7 /* AudioUnitTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDFA301DC9E3A400AFD6B7 /* AudioUnitTestViewController.swift */; };
 		C6D33A991D9515B500CFF3CC /* SFX in Resources */ = {isa = PBXBuildFile; fileRef = C6D33A981D9515B500CFF3CC /* SFX */; };
 		C6D3E0621DB9C551001A8B59 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D3E0611DB9C551001A8B59 /* CoreData.framework */; };
@@ -63,6 +70,7 @@
 		C6DAEC931DB9BE9200BE248E /* GoogleNetworkingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DAEC8E1DB9BE9200BE248E /* GoogleNetworkingUtilities.framework */; };
 		C6DAEC941DB9BE9200BE248E /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DAEC8F1DB9BE9200BE248E /* GoogleSymbolUtilities.framework */; };
 		C6DAEC951DB9BE9200BE248E /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DAEC901DB9BE9200BE248E /* GoogleUtilities.framework */; };
+		C6E095981DD17E02005FC0D9 /* ConnectedDevicePermissionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6E095971DD17E02005FC0D9 /* ConnectedDevicePermissionCell.xib */; };
 		C6E62FBA1DB864C700C377B6 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E62FB71DB864C700C377B6 /* Bolts.framework */; };
 		C6E62FBB1DB864C700C377B6 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E62FB81DB864C700C377B6 /* FBSDKCoreKit.framework */; };
 		C6E62FBC1DB864C700C377B6 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E62FB91DB864C700C377B6 /* FBSDKLoginKit.framework */; };
@@ -84,24 +92,22 @@
 		C60EE1751D9A22240013E789 /* sfxList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sfxList.plist; sourceTree = "<group>"; };
 		C60EE1771D9A56400013E789 /* SoundEffectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEffectTableViewCell.swift; sourceTree = "<group>"; };
 		C60EE1791D9A6E8B0013E789 /* defaultSoundList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultSoundList.plist; sourceTree = "<group>"; };
-		C60FE93D1D952D96008B8760 /* ARSegmentControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentControllerDelegate.h; sourceTree = "<group>"; };
-		C60FE93E1D952D96008B8760 /* ARSegmentPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentPageController.h; sourceTree = "<group>"; };
-		C60FE93F1D952D96008B8760 /* ARSegmentPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSegmentPageController.m; sourceTree = "<group>"; };
-		C60FE9401D952D96008B8760 /* ARSegmentPageControllerHeaderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentPageControllerHeaderProtocol.h; sourceTree = "<group>"; };
-		C60FE9411D952D96008B8760 /* ARSegmentPageHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentPageHeader.h; sourceTree = "<group>"; };
-		C60FE9421D952D96008B8760 /* ARSegmentPageHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSegmentPageHeader.m; sourceTree = "<group>"; };
-		C60FE9431D952D96008B8760 /* ARSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentView.h; sourceTree = "<group>"; };
-		C60FE9441D952D96008B8760 /* ARSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARSegmentView.m; sourceTree = "<group>"; };
 		C60FE94A1D955736008B8760 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		C60FE94C1D955822008B8760 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		C613B1F81D9283DD006D1E92 /* bak.MicroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bak.MicroViewController.swift; sourceTree = "<group>"; };
 		C616E8A11DBE067C00E54802 /* ScoreboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardViewController.swift; sourceTree = "<group>"; };
+		C61C84B61DCC753700D354AD /* ConnectControllViewContrller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectControllViewContrller.swift; sourceTree = "<group>"; };
 		C627BD1D1D9BD3AF002213BD /* VolumeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
 		C62DB1501D88F872000A9C1B /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		C62DB1521D88F872000A9C1B /* GameTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GameTimer.entitlements; sourceTree = "<group>"; };
 		C62DB1541D8907C0000A9C1B /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		C62DB1561D892219000A9C1B /* MuiscViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MuiscViewController.swift; sourceTree = "<group>"; };
+		C62DB1561D892219000A9C1B /* MusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
+		C6345EED1DD02237007EF5D2 /* ModeCheckUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeCheckUtils.swift; sourceTree = "<group>"; };
+		C6345EEF1DD0854B007EF5D2 /* ConnectedDeviceHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectedDeviceHeaderView.xib; sourceTree = "<group>"; };
+		C6345EF11DD08777007EF5D2 /* ConnectedDeviceHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedDeviceHeaderView.swift; sourceTree = "<group>"; };
 		C64249FF1D91125C00A15214 /* ScoreboardData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardData.swift; sourceTree = "<group>"; };
+		C64903441DCCCD8A00F8F9B5 /* BlackModeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackModeTableViewCell.swift; sourceTree = "<group>"; };
+		C64903461DCCCDC400F8F9B5 /* LedBrightnessTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LedBrightnessTableViewCell.swift; sourceTree = "<group>"; };
 		C6544DD91DAF3E40000E4C4D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C662C1551D8FDC1200844105 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncSocket.h; path = ../../../../git/CocoaAsyncSocket/Source/GCD/GCDAsyncSocket.h; sourceTree = "<group>"; };
 		C662C1561D8FDC1200844105 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncSocket.m; path = ../../../../git/CocoaAsyncSocket/Source/GCD/GCDAsyncSocket.m; sourceTree = "<group>"; };
@@ -111,25 +117,29 @@
 		C662C15E1D900A1E00844105 /* TcpData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TcpData.swift; sourceTree = "<group>"; };
 		C662C1601D900D7900844105 /* CommandCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandCodes.swift; sourceTree = "<group>"; };
 		C662C1621D90245A00844105 /* TcpConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TcpConnection.swift; sourceTree = "<group>"; };
-		C67CB35C1DBF8CC900D1977E /* ScoreboardViewHorizontal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ScoreboardViewHorizontal.xib; path = ../../AutoLayoutTest/AutoLayoutTest/ScoreboardViewHorizontal.xib; sourceTree = "<group>"; };
-		C67CB35D1DBF8CC900D1977E /* ScoreboardViewVertical.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ScoreboardViewVertical.xib; path = ../../AutoLayoutTest/AutoLayoutTest/ScoreboardViewVertical.xib; sourceTree = "<group>"; };
+		C67CB35C1DBF8CC900D1977E /* ScoreboardViewHorizontal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ScoreboardViewHorizontal.xib; path = ../AutoLayoutTest/AutoLayoutTest/ScoreboardViewHorizontal.xib; sourceTree = "<group>"; };
+		C67CB35D1DBF8CC900D1977E /* ScoreboardViewVertical.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ScoreboardViewVertical.xib; path = ../AutoLayoutTest/AutoLayoutTest/ScoreboardViewVertical.xib; sourceTree = "<group>"; };
 		C67CB3601DBF8D1300D1977E /* ScoreboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardView.swift; sourceTree = "<group>"; };
+		C67E6F031DD41A8F00D2DD14 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		C68AF3AD1DCC7DA6009D2EDE /* WifiNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WifiNameTableViewCell.swift; sourceTree = "<group>"; };
+		C68AF3AF1DCC7DE3009D2EDE /* PermissionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionTableViewCell.swift; sourceTree = "<group>"; };
+		C68AF3B11DCCAEF7009D2EDE /* MyAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyAccountViewController.swift; path = GameTimer/MyAccountViewController.swift; sourceTree = "<group>"; };
+		C68AF3B31DCCAF6D009D2EDE /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C68EF0841DB645B00030B1B4 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		C68EF0861DB646330030B1B4 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		C68EF0881DB66CF80030B1B4 /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
 		C697B3F11D9D6298005153A7 /* AlterDialogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlterDialogView.swift; sourceTree = "<group>"; };
-		C697B3F31D9D62DC005153A7 /* DialogView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DialogView.xib; sourceTree = "<group>"; };
+		C697B3F31D9D62DC005153A7 /* DialogView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DialogView.xib; path = GameTimer/DialogView.xib; sourceTree = "<group>"; };
 		C69B27CF1DB9074500DEE743 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
 		C69B27D31DB9079600DEE743 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
 		C69B27D51DB907C500DEE743 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		C69B27D71DB907CD00DEE743 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		C69EAC3D1DA8CF86008CA325 /* SelectEffectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectEffectTableViewCell.swift; sourceTree = "<group>"; };
 		C69EAC3F1DA920B4008CA325 /* SelectSoundEffectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSoundEffectViewController.swift; sourceTree = "<group>"; };
-		C6AC4E531DBDB90500F6551A /* PeriodPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PeriodPickerView.xib; sourceTree = "<group>"; };
-		C6AC4E551DBDB95F00F6551A /* PeriodPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodPickerView.swift; sourceTree = "<group>"; };
+		C6AC4E531DBDB90500F6551A /* PickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PickerView.xib; path = GameTimer/PickerView.xib; sourceTree = "<group>"; };
+		C6AC4E551DBDB95F00F6551A /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		C6BC14701DAD337D00E9BCC2 /* MicroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MicroViewController.swift; path = ../../../../Desktop/devel/testit/GameTimer/MicroViewController.swift; sourceTree = DEVELOPER_DIR; };
 		C6BDB0F91DABE26B00C890B8 /* RecordSoundEffectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordSoundEffectViewController.swift; sourceTree = "<group>"; };
-		C6C1EC001DC1FA430036B783 /* SupportLandscapeUIImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportLandscapeUIImagePickerController.swift; sourceTree = "<group>"; };
 		C6CDFA301DC9E3A400AFD6B7 /* AudioUnitTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioUnitTestViewController.swift; sourceTree = "<group>"; };
 		C6D33A981D9515B500CFF3CC /* SFX */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SFX; path = ../../../../Downloads/SFX; sourceTree = "<group>"; };
 		C6D3E0611DB9C551001A8B59 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -149,6 +159,7 @@
 		C6DAEC8E1DB9BE9200BE248E /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
 		C6DAEC8F1DB9BE9200BE248E /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
 		C6DAEC901DB9BE9200BE248E /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
+		C6E095971DD17E02005FC0D9 /* ConnectedDevicePermissionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectedDevicePermissionCell.xib; sourceTree = "<group>"; };
 		C6E62FB71DB864C700C377B6 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		C6E62FB81DB864C700C377B6 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		C6E62FB91DB864C700C377B6 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -193,26 +204,17 @@
 				C60EE16F1D994CDE0013E789 /* TabletemView.swift */,
 				C627BD1D1D9BD3AF002213BD /* VolumeView.swift */,
 				C697B3F11D9D6298005153A7 /* AlterDialogView.swift */,
-				C6AC4E551DBDB95F00F6551A /* PeriodPickerView.swift */,
+				C6AC4E551DBDB95F00F6551A /* PickerView.swift */,
 				C67CB3601DBF8D1300D1977E /* ScoreboardView.swift */,
+				C60EE1771D9A56400013E789 /* SoundEffectTableViewCell.swift */,
+				C69EAC3D1DA8CF86008CA325 /* SelectEffectTableViewCell.swift */,
+				C68AF3AD1DCC7DA6009D2EDE /* WifiNameTableViewCell.swift */,
+				C68AF3AF1DCC7DE3009D2EDE /* PermissionTableViewCell.swift */,
+				C64903441DCCCD8A00F8F9B5 /* BlackModeTableViewCell.swift */,
+				C64903461DCCCDC400F8F9B5 /* LedBrightnessTableViewCell.swift */,
+				C6345EF11DD08777007EF5D2 /* ConnectedDeviceHeaderView.swift */,
 			);
 			name = CustomView;
-			sourceTree = "<group>";
-		};
-		C60FE93C1D952CD3008B8760 /* SegmentPageController */ = {
-			isa = PBXGroup;
-			children = (
-				C60FE93D1D952D96008B8760 /* ARSegmentControllerDelegate.h */,
-				C60FE93E1D952D96008B8760 /* ARSegmentPageController.h */,
-				C60FE93F1D952D96008B8760 /* ARSegmentPageController.m */,
-				C60FE9401D952D96008B8760 /* ARSegmentPageControllerHeaderProtocol.h */,
-				C60FE9411D952D96008B8760 /* ARSegmentPageHeader.h */,
-				C60FE9421D952D96008B8760 /* ARSegmentPageHeader.m */,
-				C60FE9431D952D96008B8760 /* ARSegmentView.h */,
-				C60FE9441D952D96008B8760 /* ARSegmentView.m */,
-			);
-			name = SegmentPageController;
-			path = ../../../../git/ARSegmentPager/ARSegmentPageController;
 			sourceTree = "<group>";
 		};
 		C62DB14F1D88F872000A9C1B /* Frameworks */ = {
@@ -242,21 +244,44 @@
 				C616E8A11DBE067C00E54802 /* ScoreboardViewController.swift */,
 				C6D49EC41D87E6E900FB5E3A /* SFXViewController.swift */,
 				C62DB1541D8907C0000A9C1B /* MenuViewController.swift */,
-				C62DB1561D892219000A9C1B /* MuiscViewController.swift */,
+				C68AF3B31DCCAF6D009D2EDE /* SettingsViewController.swift */,
+				C61C84B61DCC753700D354AD /* ConnectControllViewContrller.swift */,
+				C62DB1561D892219000A9C1B /* MusicViewController.swift */,
 				C613B1F81D9283DD006D1E92 /* bak.MicroViewController.swift */,
 				C6BC14701DAD337D00E9BCC2 /* MicroViewController.swift */,
 				C60FE94A1D955736008B8760 /* TableViewController.swift */,
 				C60FE94C1D955822008B8760 /* TabBarViewController.swift */,
-				C60EE1771D9A56400013E789 /* SoundEffectTableViewCell.swift */,
-				C69EAC3D1DA8CF86008CA325 /* SelectEffectTableViewCell.swift */,
 				C69EAC3F1DA920B4008CA325 /* SelectSoundEffectViewController.swift */,
 				C6BDB0F91DABE26B00C890B8 /* RecordSoundEffectViewController.swift */,
 				C68EF0841DB645B00030B1B4 /* SignUpViewController.swift */,
+				C68AF3B11DCCAEF7009D2EDE /* MyAccountViewController.swift */,
 				C68EF0861DB646330030B1B4 /* SignInViewController.swift */,
 				C68EF0881DB66CF80030B1B4 /* PersonalInfoViewController.swift */,
 				C6CDFA301DC9E3A400AFD6B7 /* AudioUnitTestViewController.swift */,
+				C67E6F031DD41A8F00D2DD14 /* StartViewController.swift */,
 			);
 			name = UIController;
+			sourceTree = "<group>";
+		};
+		C6345EEB1DD02027007EF5D2 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				C6345EEF1DD0854B007EF5D2 /* ConnectedDeviceHeaderView.xib */,
+				C67CB35C1DBF8CC900D1977E /* ScoreboardViewHorizontal.xib */,
+				C67CB35D1DBF8CC900D1977E /* ScoreboardViewVertical.xib */,
+				C697B3F31D9D62DC005153A7 /* DialogView.xib */,
+				C6AC4E531DBDB90500F6551A /* PickerView.xib */,
+				C6E095971DD17E02005FC0D9 /* ConnectedDevicePermissionCell.xib */,
+			);
+			name = Xibs;
+			sourceTree = "<group>";
+		};
+		C6345EEC1DD021BD007EF5D2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C6345EED1DD02237007EF5D2 /* ModeCheckUtils.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		C662C15B1D8FDC6600844105 /* BridgeHeader */ = {
@@ -292,13 +317,14 @@
 		C6D49EB41D87E6E900FB5E3A = {
 			isa = PBXGroup;
 			children = (
+				C6345EEC1DD021BD007EF5D2 /* Utils */,
 				C69B27D31DB9079600DEE743 /* GoogleSignIn.bundle */,
 				C60EE16E1D994C9F0013E789 /* CustomView */,
-				C60FE93C1D952CD3008B8760 /* SegmentPageController */,
 				C6D33A981D9515B500CFF3CC /* SFX */,
 				C662C15D1D9009C400844105 /* Connection */,
 				C662C15B1D8FDC6600844105 /* BridgeHeader */,
 				C698C0931D8FD61600E1C83A /* GCDAsyncSocket */,
+				C6345EEB1DD02027007EF5D2 /* Xibs */,
 				C62DB1531D88FF25000A9C1B /* UIController */,
 				C6D49EBF1D87E6E900FB5E3A /* GameTimer */,
 				C6D49ED61D87E6E900FB5E3A /* GameTimerTests */,
@@ -319,11 +345,8 @@
 		C6D49EBF1D87E6E900FB5E3A /* GameTimer */ = {
 			isa = PBXGroup;
 			children = (
-				C67CB35C1DBF8CC900D1977E /* ScoreboardViewHorizontal.xib */,
-				C67CB35D1DBF8CC900D1977E /* ScoreboardViewVertical.xib */,
 				C62DB1521D88F872000A9C1B /* GameTimer.entitlements */,
 				C6D49EC01D87E6E900FB5E3A /* AppDelegate.swift */,
-				C6C1EC001DC1FA430036B783 /* SupportLandscapeUIImagePickerController.swift */,
 				C6D49EC61D87E6E900FB5E3A /* Main.storyboard */,
 				C6D49EC91D87E6E900FB5E3A /* Assets.xcassets */,
 				C6D49ECB1D87E6E900FB5E3A /* LaunchScreen.storyboard */,
@@ -331,9 +354,7 @@
 				C6D49ECE1D87E6E900FB5E3A /* Info.plist */,
 				C60EE1751D9A22240013E789 /* sfxList.plist */,
 				C60EE1791D9A6E8B0013E789 /* defaultSoundList.plist */,
-				C697B3F31D9D62DC005153A7 /* DialogView.xib */,
 				C6D3FC5E1D9D752900F20B06 /* timePickerList.plist */,
-				C6AC4E531DBDB90500F6551A /* PeriodPickerView.xib */,
 			);
 			path = GameTimer;
 			sourceTree = "<group>";
@@ -437,14 +458,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6345EF01DD0854B007EF5D2 /* ConnectedDeviceHeaderView.xib in Resources */,
 				C60EE1761D9A22240013E789 /* sfxList.plist in Resources */,
-				C6AC4E541DBDB90500F6551A /* PeriodPickerView.xib in Resources */,
+				C6AC4E541DBDB90500F6551A /* PickerView.xib in Resources */,
 				C6D33A991D9515B500CFF3CC /* SFX in Resources */,
 				C67CB35F1DBF8CC900D1977E /* ScoreboardViewVertical.xib in Resources */,
 				C6E62FBE1DB8FA5C00C377B6 /* GoogleService-Info.plist in Resources */,
 				C697B3F41D9D62DC005153A7 /* DialogView.xib in Resources */,
 				C60EE17A1D9A6E8B0013E789 /* defaultSoundList.plist in Resources */,
 				C67CB35E1DBF8CC900D1977E /* ScoreboardViewHorizontal.xib in Resources */,
+				C6E095981DD17E02005FC0D9 /* ConnectedDevicePermissionCell.xib in Resources */,
 				C6D49ECD1D87E6E900FB5E3A /* LaunchScreen.storyboard in Resources */,
 				C69B27D41DB9079600DEE743 /* GoogleSignIn.bundle in Resources */,
 				C6D49ECA1D87E6E900FB5E3A /* Assets.xcassets in Resources */,
@@ -468,6 +491,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6BC14711DAD337D00E9BCC2 /* MicroViewController.swift in Sources */,
+				C68AF3AE1DCC7DA6009D2EDE /* WifiNameTableViewCell.swift in Sources */,
 				C6424A001D91125C00A15214 /* ScoreboardData.swift in Sources */,
 				C60EE1781D9A56400013E789 /* SoundEffectTableViewCell.swift in Sources */,
 				C627BD1E1D9BD3AF002213BD /* VolumeView.swift in Sources */,
@@ -476,28 +500,33 @@
 				C662C1611D900D7900844105 /* CommandCodes.swift in Sources */,
 				C6CDFA311DC9E3A400AFD6B7 /* AudioUnitTestViewController.swift in Sources */,
 				C697B3F21D9D6298005153A7 /* AlterDialogView.swift in Sources */,
+				C6345EF21DD08777007EF5D2 /* ConnectedDeviceHeaderView.swift in Sources */,
 				C60FE94D1D955822008B8760 /* TabBarViewController.swift in Sources */,
+				C64903471DCCCDC400F8F9B5 /* LedBrightnessTableViewCell.swift in Sources */,
 				C662C15F1D900A1E00844105 /* TcpData.swift in Sources */,
 				C6D49EC51D87E6E900FB5E3A /* SFXViewController.swift in Sources */,
-				C62DB1571D892219000A9C1B /* MuiscViewController.swift in Sources */,
+				C62DB1571D892219000A9C1B /* MusicViewController.swift in Sources */,
 				C6D49EC11D87E6E900FB5E3A /* AppDelegate.swift in Sources */,
 				C662C15A1D8FDC1200844105 /* GCDAsyncUdpSocket.m in Sources */,
 				C60EE1701D994CDE0013E789 /* TabletemView.swift in Sources */,
 				C68EF0871DB646330030B1B4 /* SignInViewController.swift in Sources */,
-				C6C1EC011DC1FA430036B783 /* SupportLandscapeUIImagePickerController.swift in Sources */,
-				C60FE9461D952D96008B8760 /* ARSegmentPageHeader.m in Sources */,
+				C6345EEE1DD02237007EF5D2 /* ModeCheckUtils.swift in Sources */,
 				C69EAC3E1DA8CF86008CA325 /* SelectEffectTableViewCell.swift in Sources */,
+				C68AF3B01DCC7DE3009D2EDE /* PermissionTableViewCell.swift in Sources */,
 				C67CB3611DBF8D1300D1977E /* ScoreboardView.swift in Sources */,
-				C60FE9451D952D96008B8760 /* ARSegmentPageController.m in Sources */,
-				C60FE9471D952D96008B8760 /* ARSegmentView.m in Sources */,
+				C68AF3B41DCCAF6E009D2EDE /* SettingsViewController.swift in Sources */,
+				C64903451DCCCD8A00F8F9B5 /* BlackModeTableViewCell.swift in Sources */,
 				C60FE94B1D955736008B8760 /* TableViewController.swift in Sources */,
+				C68AF3B21DCCAEF7009D2EDE /* MyAccountViewController.swift in Sources */,
 				C69EAC401DA920B4008CA325 /* SelectSoundEffectViewController.swift in Sources */,
 				C6BDB0FA1DABE26B00C890B8 /* RecordSoundEffectViewController.swift in Sources */,
+				C61C84B71DCC753700D354AD /* ConnectControllViewContrller.swift in Sources */,
 				C613B1F91D9283DD006D1E92 /* bak.MicroViewController.swift in Sources */,
 				C62DB1551D8907C0000A9C1B /* MenuViewController.swift in Sources */,
+				C67E6F041DD41A8F00D2DD14 /* StartViewController.swift in Sources */,
 				C68EF0851DB645B00030B1B4 /* SignUpViewController.swift in Sources */,
 				C662C1631D90245A00844105 /* TcpConnection.swift in Sources */,
-				C6AC4E561DBDB95F00F6551A /* PeriodPickerView.swift in Sources */,
+				C6AC4E561DBDB95F00F6551A /* PickerView.swift in Sources */,
 				C616E8A21DBE067C00E54802 /* ScoreboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

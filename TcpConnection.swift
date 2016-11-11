@@ -44,4 +44,16 @@ class TcpConnection {
     func send(data: Data, tag: Int) -> Void {
         tcpSocket.write(data, withTimeout: -1  , tag: tag)
     }
+    
+    func send(cmd:String, value:String, extra:[String:String]?) {
+        var msg = "{"
+        msg = msg + "\"cmd\":\"\(cmd)\", \"value\":\"\(value)\""
+        if let ex = extra {
+            for (key, value) in ex {
+                msg = msg + ",\"\(key)\":\"\(value)\""
+            }
+        }
+        msg = msg + "}"
+        tcpSocket.write(msg.data(using: .utf8)!, withTimeout: -1, tag: 0)
+    }
 }

@@ -13,22 +13,27 @@ class SignInViewController:UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var siginButton: UIButton!
+    
     @IBOutlet weak var fbLoginButton: UIButton!
     
     @IBOutlet weak var gpLoginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("SignInViewController viewDidLoad\n")
         if FBSDKAccessToken.current() != nil {
             print("current login \(FBSDKAccessToken.current().userID)\n")
         } else {
             print("current not login\n")
         }
         
+        initViewStatus()
+        
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
         //设置导航栏背景颜色
+        self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.barStyle = .blackTranslucent
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 20/255.0, green: 23/255.0, blue: 35/255.0, alpha: 1)
@@ -38,6 +43,21 @@ class SignInViewController:UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    func initViewStatus() -> Void {
+        let imageView1 = UIImageView(image: UIImage(named: "icon_email"))
+        
+        let imageView2 = UIImageView(image: UIImage(named: "icon_password"))
+        
+        emailTextField.leftViewMode = .always
+        emailTextField.leftView = imageView1
+        
+        passwordTextField.leftViewMode = .always
+        passwordTextField.leftView = imageView2
+        
+        siginButton.layer.cornerRadius = 10
+        
     }
     
     //MARK Actions
@@ -59,7 +79,6 @@ class SignInViewController:UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
     @IBAction func siginGoogle(_ sender: UIButton) {
         GIDSignIn.sharedInstance().signIn()
     }
-    
     
     //#MARK GIDSignInDelegate
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {

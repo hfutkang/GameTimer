@@ -55,6 +55,7 @@ class ScoreboardViewController: UIViewController, GCDAsyncUdpSocketDelegate, UII
     //MARK Funcs
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("ScoreboardViewController viewDidLoad\n")
         
         //初始化upd socket
         initUdpSocket()

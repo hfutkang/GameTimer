@@ -9,11 +9,9 @@
 #ifndef GameTimer_Bridging_Header_h
 #define GameTimer_Bridging_Header_h
 
+//For socket connection
 #import "GCDAsyncSocket.h"
 #import "GCDAsyncUdpSocket.h"
-#import "ARSegmentPageController.h"
-#import "ARSegmentControllerDelegate.h"
-#import "ARSegmentPageControllerHeaderProtocol.h"
 
 //Facebook sdk
 #import <FBSDKLoginKit/FBSDKLoginKit.h>

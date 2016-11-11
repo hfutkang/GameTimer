@@ -7,8 +7,10 @@
 //
 
 import UIKit
-class PeriodPickerView: UIView {
+class PickerView: UIView {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    
     @IBOutlet weak var picker: UIPickerView!
     
     @IBOutlet weak var confirm: UIButton!

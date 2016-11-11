@@ -22,7 +22,9 @@ class CommandCodes {
     static let CMD_PERIOD_SUB:UInt8 = 0x0c
     static let CMD_HOME_POSS:UInt8 = 0x08
     static let CMD_GUEST_POSS:UInt8 = 0x14
-    static let CMD_BUZZER:UInt8 = 0x08
+    static let CMD_BUZZER:UInt8 = 0x02
+    static let CMD_BUZZER_LONGPRESSED = 0x02 + 0x20
+    static let CMD_BUZZER_LONGPRESS_RELEASE = 0x02 + 0xa0
     static let CMD_HOME_SCORE_UP:UInt8 = 0x06
     static let CMD_HOME_SCORE_DOWN:UInt8 = 0x07
     static let CMD_GUEST_SCORE_UP:UInt8 = 0x12

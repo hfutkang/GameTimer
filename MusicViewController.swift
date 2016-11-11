@@ -10,14 +10,19 @@ import Foundation
 import UIKit
 import MediaPlayer
 
-class MuiscViewController: UIViewController {
+class MusicViewController: UIViewController {
     
     //#MARK Attributes
     var player:MPMusicPlayerController! = nil
     
+    //#MARK Outlets
+    
+    @IBOutlet weak var accessView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        print("MuiscViewController viewDidLoad\n")
         initMPPlayer()
         
         self.navigationController?.navigationBar.barStyle = .blackTranslucent
@@ -26,6 +31,10 @@ class MuiscViewController: UIViewController {
         
         self.tabBarController?.tabBar.isTranslucent = false
         self.tabBarController?.tabBar.barTintColor = UIColor(red: 20/255.0, green: 23/255.0, blue: 35/255.0, alpha: 1)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        accessView.isHidden = ModeCheckUtils.canPlayMusic()
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,10 +54,8 @@ class MuiscViewController: UIViewController {
     @IBAction func play(_ sender: UIButton) {
         if player.playbackState != .playing {
             player.play()
-            sender.setTitle("stop", for: .normal)
         } else {
             player.pause()
-            sender.setTitle("play", for: .normal)
         }
     }
     

@@ -11,7 +11,7 @@ import MediaPlayer
 class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
-        print("viewDilLoad\n")
+        print("viewDidLoad\n")
     }
     
     override func didReceiveMemoryWarning() {

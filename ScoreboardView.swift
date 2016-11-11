@@ -31,6 +31,8 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
     
     var homeGuestSwitch = false
     
+    var buzzerLongPressed = false
+    
     //MARK Outlets
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var periodLabel: UILabel!
@@ -56,6 +58,8 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
     @IBOutlet weak var connectStatusButton: UIButton!
     
     
+    
+    
     //MARK Funcs
     //从Bundle中读出时间项
     func initTimerPickerComponents() {
@@ -74,6 +78,9 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
             connectStatusButton.isSelected = false
             connectStatusButton.setTitle("Disconnected", for: .normal)
         }
+        
+        initPossBonusView()
+        
         if let view = sourceView {
             
             self.homeGuestSwitch = view.homeGuestSwitch
@@ -92,6 +99,25 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
             self.guestPoss.isSelected = view.guestPoss.isSelected
             self.guestBonus.isSelected = view.guestBonus.isSelected
         }
+        
+        //设置客队poss箭头在文字右边
+        guestPoss.titleEdgeInsets = UIEdgeInsets(top: 0, left: -(guestPoss.imageView?.frame.size.width)!, bottom: 0, right: (guestPoss.imageView?.frame.size.width)!)
+        guestPoss.imageEdgeInsets = UIEdgeInsets(top: 0, left: (guestPoss.titleLabel?.frame.size.width)!, bottom: 0, right:-(guestPoss.titleLabel?.frame.size.width)!)
+        
+    }
+    
+    func initPossBonusView() -> Void {
+        homePoss.setImage(#imageLiteral(resourceName: "icon_left_poss_dark"), for: .normal)
+        homePoss.setImage(#imageLiteral(resourceName: "icon_left_poss_light"), for: .selected)
+        
+        guestPoss.setImage(#imageLiteral(resourceName: "icon_right_poss_dark"), for: .normal)
+        guestPoss.setImage(#imageLiteral(resourceName: "icon_right_poss_light"), for: .selected)
+        
+        homeBonus.setImage(#imageLiteral(resourceName: "icon_bonus_dark"), for: .normal)
+        homeBonus.setImage(#imageLiteral(resourceName: "icon_bonus_light"), for: .selected)
+        
+        guestBonus.setImage(#imageLiteral(resourceName: "icon_bonus_dark"), for: .normal)
+        guestBonus.setImage(#imageLiteral(resourceName: "icon_bonus_light"), for: .selected)
     }
     
     //收到设备端广播后，更新UI显示
@@ -131,26 +157,26 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
     //根据手机型号设置字体
     func initLabelFontSize() {
         if UIScreen.main.bounds.height == 480 {//iphone 4
+            timeLabel.font = timeLabel.font.withSize(55)
+            periodLabel.font = periodLabel.font.withSize(50)
+            homeScoreLabel.font = homeScoreLabel.font.withSize(55)
+            guestScoreLabel.font = guestScoreLabel.font.withSize(55)
+            
+            homeLabel.font = homeLabel.font.withSize(20)
+            guestLabel.font = guestLabel.font.withSize(20)
+            homeImage.frame.size = CGSize(width: 45, height: 45)
+            homeImage.frame.size = CGSize(width: 45, height: 45)
+            
+        } else if UIScreen.main.bounds.height == 568 {//iphone 5
             timeLabel.font = timeLabel.font.withSize(65)
             periodLabel.font = periodLabel.font.withSize(60)
             homeScoreLabel.font = homeScoreLabel.font.withSize(65)
             guestScoreLabel.font = guestScoreLabel.font.withSize(65)
             
-            homeLabel.font = homeLabel.font.withSize(20)
-            guestLabel.font = guestLabel.font.withSize(20)
+            homeLabel.font = homeLabel.font.withSize(30)
+            guestLabel.font = guestLabel.font.withSize(30)
             homeImage.frame.size = CGSize(width: 50, height: 50)
             homeImage.frame.size = CGSize(width: 50, height: 50)
-            
-        } else if UIScreen.main.bounds.height == 568 {//iphone 5
-            timeLabel.font = timeLabel.font.withSize(70)
-            periodLabel.font = periodLabel.font.withSize(65)
-            homeScoreLabel.font = homeScoreLabel.font.withSize(70)
-            guestScoreLabel.font = guestScoreLabel.font.withSize(70)
-            
-            homeLabel.font = homeLabel.font.withSize(20)
-            guestLabel.font = guestLabel.font.withSize(20)
-            homeImage.frame.size = CGSize(width: 60, height: 60)
-            homeImage.frame.size = CGSize(width: 60, height: 60)
             
         } else if UIScreen.main.bounds.width == 375 {//iphone 6
             timeLabel.font = timeLabel.font.withSize(80)
@@ -158,36 +184,48 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
             homeScoreLabel.font = homeScoreLabel.font.withSize(80)
             guestScoreLabel.font = guestScoreLabel.font.withSize(80)
             
-            homeLabel.font = homeLabel.font.withSize(20)
-            guestLabel.font = guestLabel.font.withSize(20)
-            homeImage.frame.size = CGSize(width: 70, height: 70)
-            homeImage.frame.size = CGSize(width: 70, height: 70)
+            homeLabel.font = homeLabel.font.withSize(35)
+            guestLabel.font = guestLabel.font.withSize(35)
+            homeImage.frame.size = CGSize(width: 65, height: 65)
+            homeImage.frame.size = CGSize(width: 65, height: 65)
             
         } else if UIScreen.main.bounds.width == 414 {//iphone 6s
-            timeLabel.font = timeLabel.font.withSize(90)
-            periodLabel.font = periodLabel.font.withSize(75)
-            homeScoreLabel.font = homeScoreLabel.font.withSize(90)
-            guestScoreLabel.font = guestScoreLabel.font.withSize(90)
+            timeLabel.font = timeLabel.font.withSize(110)
+            periodLabel.font = periodLabel.font.withSize(80)
+            homeScoreLabel.font = homeScoreLabel.font.withSize(110)
+            guestScoreLabel.font = guestScoreLabel.font.withSize(110)
             
-            homeLabel.font = homeLabel.font.withSize(25)
-            guestLabel.font = guestLabel.font.withSize(25)
-            homeImage.frame.size = CGSize(width: 90, height: 90)
-            homeImage.frame.size = CGSize(width: 90, height: 90)
+            homeNameLabel.font = homeNameLabel.font.withSize(25)
+            guestNameLabel.font = guestNameLabel.font.withSize(25)
+            
+            //设置poss bonus字体
+            homePoss.titleLabel?.font = homePoss.titleLabel?.font.withSize(23)
+            guestPoss.titleLabel?.font = guestPoss.titleLabel?.font.withSize(23)
+            
+            homeBonus.titleLabel?.font = homeBonus.titleLabel?.font.withSize(23)
+            guestBonus.titleLabel?.font = guestBonus.titleLabel?.font.withSize(23)
+            
+            homeLabel.font = homeLabel.font.withSize(40)
+            guestLabel.font = guestLabel.font.withSize(40)
+            homeImage.frame.size = CGSize(width: 80, height: 80)
+            homeImage.frame.size = CGSize(width: 80, height: 80)
         }
     }
 
     func showTimerPickerActionSheet() {
-        let alert = UIAlertController(title: "Timer", message: "", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "GameTimer", message: "", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Set Timer", style: .default, handler: {(_) in
-            self.setTimer = true
-            self.showTimerPickerDialog()}))
         alert.addAction(UIAlertAction(title: "Timer Count Down", style: .default, handler: {(_) in
             self.showTimerCountDownDialog()}))
         alert.addAction(UIAlertAction(title: "Timer Count Up", style: .default, handler: {_ in self.showTimerCountUpDialog()}))
+        alert.addAction(UIAlertAction(title: "Set Timer", style: .default, handler: {(_) in
+            self.setTimer = true
+            self.showTimerPickerDialog()}))
         alert.addAction(UIAlertAction(title: "Set Clock", style: .default, handler: {(_) in
             self.setTimer = false
             self.showTimerPickerDialog()}))
+        alert.addAction(UIAlertAction(title: "Reset", style: .default, handler: {(_) in
+            self.showResetDialog()}))
         controller.present(alert, animated: true, completion: nil)
     }
     
@@ -226,8 +264,8 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
         alert.restorationIdentifier = "period"
         
-        let views = Bundle.main.loadNibNamed("PeriodPickerView", owner: nil, options: nil)
-        let view = views?[0] as! PeriodPickerView
+        let views = Bundle.main.loadNibNamed("PickerView", owner: nil, options: nil)
+        let view = views?[0] as! PickerView
         view.picker.dataSource = self
         view.picker.delegate = self
         
@@ -272,6 +310,54 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
         controller.present(alert, animated: true, completion: nil)
     }
     
+    func showResetDialog() -> Void {
+        let alert = UIAlertController(title: "Reset", message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Reset All", style: .default, handler: { _ in
+            let at = UIAlertController(title: "Reset All", message: "Do you want to Reset the Timer,Home Score,Away score and the Period?", preferredStyle: .alert)
+            at.addAction(UIAlertAction(title: "NO", style: .cancel, handler: nil))
+            at.addAction(UIAlertAction(title: "YES", style: .default, handler: { _ in
+                TcpConnection.sharedInstance.send(cmd: "reset", value: "0", extra: nil)
+            }))
+            self.controller.present(at, animated: true, completion: nil)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Reset Timer", style: .default, handler: { _ in
+            let at = UIAlertController(title: "Reset Timer", message: "Do you want to Reset the Timer?", preferredStyle: .alert)
+            at.addAction(UIAlertAction(title: "NO", style: .cancel, handler: nil))
+            at.addAction(UIAlertAction(title: "YES", style: .default, handler: { _ in
+                TcpConnection.sharedInstance.send(cmd: "reset", value: "1", extra: nil)
+            }))
+            self.controller.present(at, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Reset Home Score", style: .default, handler: { _ in
+            let at = UIAlertController(title: "Reset Home Score", message: "Do you want to Reset Home Score?", preferredStyle: .alert)
+            at.addAction(UIAlertAction(title: "NO", style: .cancel, handler: nil))
+            at.addAction(UIAlertAction(title: "YES", style: .default, handler: { _ in
+                TcpConnection.sharedInstance.send(cmd: "reset", value: "2", extra: nil)
+            }))
+            self.controller.present(at, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Reset Away Score", style: .default, handler: {_ in
+            let at = UIAlertController(title: "Reset Away Score", message: "Do you want to Reset Away Score?", preferredStyle: .alert)
+            at.addAction(UIAlertAction(title: "NO", style: .cancel, handler: nil))
+            at.addAction(UIAlertAction(title: "YES", style: .default, handler: { _ in
+                TcpConnection.sharedInstance.send(cmd: "reset", value: "3", extra: nil)
+            }))
+            self.controller.present(at, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Reset Period", style: .default, handler: { _ in
+            let at = UIAlertController(title: "Reset Period", message: "Do you want to Reset the Period?", preferredStyle: .alert)
+            at.addAction(UIAlertAction(title: "NO", style: .cancel, handler: nil))
+            at.addAction(UIAlertAction(title: "YES", style: .default, handler: { _ in
+                TcpConnection.sharedInstance.send(cmd: "reset", value: "4", extra: nil)
+            }))
+            self.controller.present(at, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        controller.present(alert, animated: true, completion: nil)
+    }
+    
     //调整图片大小
     func scaleImage(image: UIImage) -> UIImage {
         var size:CGSize = CGSize(width: 60, height: 60)
@@ -309,7 +395,7 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
         if TcpConnection.sharedInstance.isConnected() {
             var msg:String? = nil
             if setTimer {
-                msg = "{\"cmd\":\"circle\",\"value\":\(secs),\"data\":\"24\"}"
+                msg = "{\"cmd\":\"circle\",\"value\":\"\(secs)\"}"
             } else {
                 msg = "{\"cmd\":\"time\",\"value\":\"\(secs)\"}"
             }
@@ -322,10 +408,16 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
     
     //MARK Actions
     @IBAction func onTimeLabelTapped(_ sender: UITapGestureRecognizer) {
+        if !ModeCheckUtils.canControlScoreboard() {
+            return
+        }
         controller.sendData(cmd: CommandCodes.CMD_TIMER_PLAY)
     }
     
     @IBAction func onTimeLabelLongpressed(_ sender: UILongPressGestureRecognizer) {
+        if !ModeCheckUtils.canControlScoreboard() {
+            return
+        }
         if sender.state == .began {
             showTimerPickerActionSheet()
         }
@@ -363,16 +455,25 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
     
     @IBAction func onPeriodUpTapped(_ sender: UITapGestureRecognizer) {
         print("onPeriodUpTapped\n")
+        if !ModeCheckUtils.canControlScoreboard() {
+            return
+        }
         controller.sendData(cmd: CommandCodes.CMD_PERIOD_ADD)
     }
     
     @IBAction func onPeriodDownTapped(_ sender: UITapGestureRecognizer) {
         print("onPeriodDownTapped\n")
+        if !ModeCheckUtils.canControlScoreboard() {
+            return
+        }
         controller.sendData(cmd: CommandCodes.CMD_PERIOD_SUB)
     }
     
     @IBAction func addHomeScore(_ sender: UITapGestureRecognizer) {
         print("addHomeScore\n")
+        if !ModeCheckUtils.canControlScoreboard() {
+            return
+        }
         if !homeGuestSwitch {
             controller.sendData(cmd: CommandCodes.CMD_HOME_SCORE_UP)
         } else {
@@ -382,6 +483,9 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
     
     @IBAction func subHomeScore(_ sender: UITapGestureRecognizer) {
         print("subHomeScore\n")
+        if !ModeCheckUtils.canControlScoreboard() {
+            return
+        }
         if !homeGuestSwitch {
             controller.sendData(cmd: CommandCodes.CMD_HOME_SCORE_DOWN)
         } else {
@@ -391,6 +495,9 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
     
     @IBAction func addGuestScore(_ sender: UITapGestureRecognizer) {
         print("addGuestScore\n")
+        if !ModeCheckUtils.canControlScoreboard() {
+            return
+        }
         if !homeGuestSwitch {
             controller.sendData(cmd: CommandCodes.CMD_GUEST_SCORE_UP)
         } else {
@@ -400,6 +507,9 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
     
     @IBAction func subGuestScore(_ sender: UITapGestureRecognizer) {
         print("subGuestScore\n")
+        if !ModeCheckUtils.canControlScoreboard() {
+            return
+        }
         if !homeGuestSwitch {
             controller.sendData(cmd: CommandCodes.CMD_GUEST_SCORE_DOWN)
         } else {
@@ -416,6 +526,9 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
     @IBAction func onPosBonusButtonClicked(_ sender: UIButton) {
         print("onPosBonusButtonClicked\n")
         //Button的tag值为相应的命令码
+        if !ModeCheckUtils.canControlScoreboard() {
+            return
+        }
         var cmd = UInt8(sender.tag)
         if homeGuestSwitch {
             switch  UInt8(sender.tag) {
@@ -440,13 +553,30 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
     
     @IBAction func onBuzzerButtonClicked(_ sender: UIButton) {
         print("onBuzzerButtonClicked\n")
+        if !ModeCheckUtils.canControlScoreboard() || buzzerLongPressed {
+            return
+        }
         if TcpConnection.sharedInstance.isConnected() {
-            let msg = "{\"cmd\":\"effect\",\"value\":\"08.mp3\"}"
-            TcpConnection.sharedInstance.send(data: msg.data(using: .utf8)!, tag: 0)
+            TcpConnection.sharedInstance.send(cmd: "button", value: "\(CommandCodes.CMD_BUZZER)", extra: nil)
         } else {
             print("tcp disconnectd\n")
         }
     }
+    
+    @IBAction func onBuzzerLongPressed(_ sender: UILongPressGestureRecognizer) {
+        print("onBuzzerLongPressed\n")
+        if !ModeCheckUtils.canControlScoreboard() {
+            return
+        }
+        if sender.state == .began {
+            buzzerLongPressed = true
+            TcpConnection.sharedInstance.send(cmd: "button", value: "\(CommandCodes.CMD_BUZZER_LONGPRESSED)", extra: nil)
+        } else if sender.state == .ended {
+            buzzerLongPressed = false
+            TcpConnection.sharedInstance.send(cmd: "button", value: "\(CommandCodes.CMD_BUZZER_LONGPRESS_RELEASE)", extra: nil)
+        }
+    }
+    
     
     @IBAction func connectToDevice(_ sender: UIButton) {
         print("connectToDevice\n")
@@ -461,7 +591,7 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
     }
     
     @IBAction func homeGuestSwitch(_ sender: UIButton) {
-        print("connectToDevice\n")
+        print("homeGuestSwitch\n")
         homeGuestSwitch = !homeGuestSwitch
         let tempImage = homeImage.image
         homeImage.image = guestImage.image

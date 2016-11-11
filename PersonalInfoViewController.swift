@@ -17,6 +17,7 @@ class PersonalInfoViewController:UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("PersonalInfoViewController viewDidLoad\n")
         //设置导航栏背景颜色
         self.navigationController?.navigationBar.barStyle = .blackTranslucent
         self.navigationController?.navigationBar.isTranslucent = false

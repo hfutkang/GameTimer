@@ -9,7 +9,7 @@
 import UIKit
 import MediaPlayer
 
-class SelectSoundEffectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MPMediaPickerControllerDelegate, UITextFieldDelegate {
+class SelectSoundEffectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MPMediaPickerControllerDelegate, UITextFieldDelegate, AVAudioPlayerDelegate {
     
     //MARK attributes
     var appUrls = [URL]()
@@ -36,11 +36,13 @@ class SelectSoundEffectViewController: UIViewController, UITableViewDelegate, UI
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        print("SelectSoundEffectViewController viewDidLoad\n")
+        
         tableView.delegate = self
         tableView.dataSource = self
         
         appUrls = Bundle.main.urls(forResourcesWithExtension: "mp3", subdirectory: "SFX")!
-        _initAvSession()
         _initPhoneUrls()
         _initMicUrls()
         
@@ -59,6 +61,14 @@ class SelectSoundEffectViewController: UIViewController, UITableViewDelegate, UI
         do {
             try session.setCategory(AVAudioSessionCategoryPlayback)
             try session.setActive(true)
+        } catch {
+            print("\(error)\n")
+        }
+    }
+    
+    func _deinitAvSession() -> Void {
+        do {
+            try AVAudioSession.sharedInstance().setActive(false)
         } catch {
             print("\(error)\n")
         }
@@ -108,10 +118,9 @@ class SelectSoundEffectViewController: UIViewController, UITableViewDelegate, UI
         
         for sound in soundFiles {
             let url = URL(fileURLWithPath: micSoundPath + "/" + sound)
-            micUrls.append(url)
+            micUrls.append(url) 
         }
     }
-
     
     func copySoundToApp(item: MPMediaItem, withName: String) -> Void {
         let dirUrl = docUrl.appendingPathComponent("phoneSound")
@@ -213,7 +222,7 @@ class SelectSoundEffectViewController: UIViewController, UITableViewDelegate, UI
         default:
             break
         }
-        
+        play(url: selectedUrl)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -257,11 +266,11 @@ class SelectSoundEffectViewController: UIViewController, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "From app"
+            return "From app:"
         case 1:
-            return "From phome"
+            return "From phome:"
         case 2:
-            return "From mic"
+            return "From mic:"
         default:
             return nil
         }
@@ -274,6 +283,14 @@ class SelectSoundEffectViewController: UIViewController, UITableViewDelegate, UI
         default:
             return true
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 69.0
     }
     
     /*func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -358,5 +375,44 @@ class SelectSoundEffectViewController: UIViewController, UITableViewDelegate, UI
     //MARK UITextFieldDelegate
     func textFieldDidEndEditing(_ textField: UITextField) {
         soundName = textField.text
+    }
+    
+    //AVAudioPlayerDelegate
+    func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
+        _deinitAvSession()
+        soundPlayer = nil
+    }
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        _deinitAvSession()
+        soundPlayer = nil
+    }
+    func play(url: URL) {
+        
+        if soundPlayer != nil && soundPlayer.isPlaying {
+            soundPlayer.stop()
+            if soundPlayer.url == url {//如果当前音效正在播放，则暂停返回
+                _deinitAvSession()
+                soundPlayer = nil
+                return
+            } else {//否则停止上一首，播放当前音效
+                do {
+                    try soundPlayer = AVAudioPlayer(contentsOf: url)
+                    soundPlayer.delegate = self
+                    soundPlayer.play()
+                } catch {
+                    print("init player error \(error)\n")
+                }
+            }
+        } else if soundPlayer == nil {
+            _initAvSession()
+            do {
+                try soundPlayer = AVAudioPlayer(contentsOf: url)
+                soundPlayer.delegate = self
+                soundPlayer.play()
+            } catch {
+                print("init player error \(error)\n")
+            }
+        }
     }
 }

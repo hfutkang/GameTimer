@@ -46,13 +46,18 @@ class RecordSoundEffectViewController: UIViewController, AVAudioRecorderDelegate
     @IBOutlet weak var secLable: UILabel!
     @IBOutlet weak var micSecLabel: UILabel!
     @IBOutlet weak var record: UIButton!
+    @IBOutlet weak var recDotImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("RecordSoundEffectViewController viewDidLoad\n")
         //设置导航栏背景颜色
         self.navigationController?.navigationBar.barStyle = .blackTranslucent
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 20/255.0, green: 23/255.0, blue: 35/255.0, alpha: 1)
+        
+        record.setImage(#imageLiteral(resourceName: "icon_rec_play_normal"), for: .normal)
+        record.setImage(#imageLiteral(resourceName: "icon_rec_play_clicked"), for: .highlighted)
     }
     
     func initRecord() -> Bool {
@@ -130,11 +135,16 @@ class RecordSoundEffectViewController: UIViewController, AVAudioRecorderDelegate
     
     //停止录音，条件为到达最长录音时间或手动停止
     func stopRecord(t: Timer) -> Void {
+        
+        record.setImage(#imageLiteral(resourceName: "icon_rec_play_normal"), for: .normal)
+        record.setImage(#imageLiteral(resourceName: "icon_rec_play_clicked"), for: .highlighted)
+        recDotImage.image = #imageLiteral(resourceName: "icon_rec_dot_dark")
+        
         t.invalidate()
-        record.setTitle("Record", for: .normal)
         timer = nil
         seconds = 0
         microsesonds = 0
+        
         recorder.stop()
         recorder = nil
         do {
@@ -157,7 +167,10 @@ class RecordSoundEffectViewController: UIViewController, AVAudioRecorderDelegate
             timer = Timer(timeInterval: 0.01, target: self, selector: #selector(timeChanged(sender:)), userInfo: nil, repeats: true)
             RunLoop.main.add(timer, forMode: .defaultRunLoopMode)
             timer.fire()
-            record.setTitle("Stop", for: .normal)
+            
+            record.setImage(#imageLiteral(resourceName: "icon_rec_stop_normal"), for: .normal)
+            record.setImage(#imageLiteral(resourceName: "icon_rec_stop_clicked"), for: .highlighted)
+            recDotImage.image = #imageLiteral(resourceName: "icon_rec_dot_blue")
         }
     }
     

@@ -14,10 +14,11 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3HY-ji-4HL">
                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" red="0.062745098040000002" green="0.26274509800000001" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3V-cT-RqN">
+                    <color key="backgroundColor" red="0.066666666666666666" green="0.070588235294117646" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="I1L-Bd-Ti3"/>
                         <constraint firstAttribute="height" constant="150" id="jpz-Pf-g5j"/>
@@ -42,16 +43,16 @@
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUA-Ae-SLt">
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" red="0.84705882352941175" green="0.84313725490196079" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qz6-JV-z5a">
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" red="0.84705882352941175" green="0.84313725490196079" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.066666666669999999" green="0.070588235289999995" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="qz6-JV-z5a" firstAttribute="leading" secondItem="H3V-cT-RqN" secondAttribute="trailing" constant="5" id="5bv-VG-hz1"/>
                 <constraint firstItem="3HY-ji-4HL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Caz-kT-oIy"/>
