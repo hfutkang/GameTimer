@@ -26,6 +26,7 @@
 		C6345EF01DD0854B007EF5D2 /* ConnectedDeviceHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6345EEF1DD0854B007EF5D2 /* ConnectedDeviceHeaderView.xib */; };
 		C6345EF21DD08777007EF5D2 /* ConnectedDeviceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6345EF11DD08777007EF5D2 /* ConnectedDeviceHeaderView.swift */; };
 		C6424A001D91125C00A15214 /* ScoreboardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64249FF1D91125C00A15214 /* ScoreboardData.swift */; };
+		C64423FB1DDC108400F3810A /* MicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64423FA1DDC108400F3810A /* MicViewController.swift */; };
 		C64903451DCCCD8A00F8F9B5 /* BlackModeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64903441DCCCD8A00F8F9B5 /* BlackModeTableViewCell.swift */; };
 		C64903471DCCCDC400F8F9B5 /* LedBrightnessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64903461DCCCDC400F8F9B5 /* LedBrightnessTableViewCell.swift */; };
 		C662C1591D8FDC1200844105 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = C662C1561D8FDC1200844105 /* GCDAsyncSocket.m */; };
@@ -110,6 +111,7 @@
 		C6345EEF1DD0854B007EF5D2 /* ConnectedDeviceHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectedDeviceHeaderView.xib; sourceTree = "<group>"; };
 		C6345EF11DD08777007EF5D2 /* ConnectedDeviceHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedDeviceHeaderView.swift; sourceTree = "<group>"; };
 		C64249FF1D91125C00A15214 /* ScoreboardData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardData.swift; sourceTree = "<group>"; };
+		C64423FA1DDC108400F3810A /* MicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicViewController.swift; sourceTree = "<group>"; };
 		C64903441DCCCD8A00F8F9B5 /* BlackModeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackModeTableViewCell.swift; sourceTree = "<group>"; };
 		C64903461DCCCDC400F8F9B5 /* LedBrightnessTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LedBrightnessTableViewCell.swift; sourceTree = "<group>"; };
 		C6544DD91DAF3E40000E4C4D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -258,6 +260,7 @@
 				C69EAC3F1DA920B4008CA325 /* SelectSoundEffectViewController.swift */,
 				C6BDB0F91DABE26B00C890B8 /* RecordSoundEffectViewController.swift */,
 				C68EF0841DB645B00030B1B4 /* SignUpViewController.swift */,
+				C64423FA1DDC108400F3810A /* MicViewController.swift */,
 				C68AF3B11DCCAEF7009D2EDE /* MyAccountViewController.swift */,
 				C68EF0861DB646330030B1B4 /* SignInViewController.swift */,
 				C68EF0881DB66CF80030B1B4 /* PersonalInfoViewController.swift */,
@@ -515,6 +518,7 @@
 				C6D49EC11D87E6E900FB5E3A /* AppDelegate.swift in Sources */,
 				C662C15A1D8FDC1200844105 /* GCDAsyncUdpSocket.m in Sources */,
 				C60EE1701D994CDE0013E789 /* TabletemView.swift in Sources */,
+				C64423FB1DDC108400F3810A /* MicViewController.swift in Sources */,
 				C68EF0871DB646330030B1B4 /* SignInViewController.swift in Sources */,
 				C6345EEE1DD02237007EF5D2 /* ModeCheckUtils.swift in Sources */,
 				C69EAC3E1DA8CF86008CA325 /* SelectEffectTableViewCell.swift in Sources */,
