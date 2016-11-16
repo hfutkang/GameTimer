@@ -29,8 +29,10 @@ class CommandCodes {
     static let CMD_HOME_SCORE_DOWN:UInt8 = 0x07
     static let CMD_GUEST_SCORE_UP:UInt8 = 0x12
     static let CMD_GUEST_SCORE_DOWN:UInt8 = 0x13
-    static let CMD_HOME_BUNUS:UInt8 = 0x09
-    static let CMD_GUEST_BUNUS:UInt8 = 0x15
+    static let CMD_HOME_BONUS:UInt8 = 0x09
+    static let CMD_HOME_BONUS_LONGPRESSED:UInt8 = 0x09 + 0x20
+    static let CMD_GUEST_BONUS:UInt8 = 0x15
+    static let CMD_GUEST_BONUS_LONGPRESSED:UInt8 = 0x15 + 0x20
     static let CMD_RESET_SCORE:UInt8 = 0x09
     static let CMD_RESET_TIMER:UInt8 = 0x10
     static let CMD_BUZZER_MUTE_ON = 0x16

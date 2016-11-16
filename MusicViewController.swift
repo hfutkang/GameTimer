@@ -16,6 +16,7 @@ class MusicViewController: UIViewController {
     var player:MPMusicPlayerController! = nil
     
     //#MARK Outlets
+    @IBOutlet weak var playButton: UIButton!
     
     @IBOutlet weak var accessView: UIView!
     
@@ -71,11 +72,13 @@ class MusicViewController: UIViewController {
             switch player.playbackState {
             case .paused:
                 print("music paused\n")
+                playButton.setImage(#imageLiteral(resourceName: "icon_music_play"), for: .normal)
             case .playing:
                 print("music playing\n")
-                
+                playButton.setImage(#imageLiteral(resourceName: "icon_music_stop"), for: .normal)
             case .stopped:
                 print("music stopped\n")
+                playButton.setImage(#imageLiteral(resourceName: "icon_music_play"), for: .normal)
             default:
                 break
             }

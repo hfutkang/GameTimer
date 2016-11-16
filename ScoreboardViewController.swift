@@ -78,6 +78,10 @@ class ScoreboardViewController: UIViewController, GCDAsyncUdpSocketDelegate, UII
         appDelegate.enableLandscape = true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         if !willShowImagePicker {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -100,6 +104,7 @@ class ScoreboardViewController: UIViewController, GCDAsyncUdpSocketDelegate, UII
                 horizontalView.initTimerPickerComponents()
                 horizontalView.controller = self
                 horizontalView.initLabelFontSize()
+                horizontalView.isVertical = false
             }
             scoreboardView = horizontalView
             self.tabBarController?.tabBar.isHidden = true
@@ -116,6 +121,7 @@ class ScoreboardViewController: UIViewController, GCDAsyncUdpSocketDelegate, UII
                 verticalView.initTimerPickerComponents()
                 verticalView.controller = self
                 verticalView.initLabelFontSize()
+                verticalView.isVertical = true
             }
             scoreboardView = verticalView
             self.tabBarController?.tabBar.isHidden = false
@@ -176,10 +182,8 @@ class ScoreboardViewController: UIViewController, GCDAsyncUdpSocketDelegate, UII
         let state = sender.userInfo?["state"] as! String
         if state == "connected" {
             scoreboardView.connectStatusButton.isSelected = true
-            scoreboardView.connectStatusButton.setTitle("Connected", for: .normal)
         } else if state == "disconnected" {
             scoreboardView.connectStatusButton.isSelected = false
-            scoreboardView.connectStatusButton.setTitle("Disconnected", for: .normal)
         }
     }
 

@@ -17,6 +17,8 @@
 		C616E8A21DBE067C00E54802 /* ScoreboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C616E8A11DBE067C00E54802 /* ScoreboardViewController.swift */; };
 		C61C84B71DCC753700D354AD /* ConnectControllViewContrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C84B61DCC753700D354AD /* ConnectControllViewContrller.swift */; };
 		C627BD1E1D9BD3AF002213BD /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C627BD1D1D9BD3AF002213BD /* VolumeView.swift */; };
+		C62A939E1DD9A5700071C390 /* BonusCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62A939D1DD9A5700071C390 /* BonusCountView.swift */; };
+		C62A93A21DD9A9370071C390 /* BonusCountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C62A93A11DD9A9370071C390 /* BonusCountView.xib */; };
 		C62DB1511D88F872000A9C1B /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62DB1501D88F872000A9C1B /* ExternalAccessory.framework */; };
 		C62DB1551D8907C0000A9C1B /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62DB1541D8907C0000A9C1B /* MenuViewController.swift */; };
 		C62DB1571D892219000A9C1B /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62DB1561D892219000A9C1B /* MusicViewController.swift */; };
@@ -53,10 +55,10 @@
 		C69EAC401DA920B4008CA325 /* SelectSoundEffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69EAC3F1DA920B4008CA325 /* SelectSoundEffectViewController.swift */; };
 		C6AC4E541DBDB90500F6551A /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6AC4E531DBDB90500F6551A /* PickerView.xib */; };
 		C6AC4E561DBDB95F00F6551A /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AC4E551DBDB95F00F6551A /* PickerView.swift */; };
-		C6BC14711DAD337D00E9BCC2 /* MicroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BC14701DAD337D00E9BCC2 /* MicroViewController.swift */; };
 		C6BDB0FA1DABE26B00C890B8 /* RecordSoundEffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDB0F91DABE26B00C890B8 /* RecordSoundEffectViewController.swift */; };
 		C6CDFA311DC9E3A400AFD6B7 /* AudioUnitTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDFA301DC9E3A400AFD6B7 /* AudioUnitTestViewController.swift */; };
 		C6D33A991D9515B500CFF3CC /* SFX in Resources */ = {isa = PBXBuildFile; fileRef = C6D33A981D9515B500CFF3CC /* SFX */; };
+		C6D361AF1DDAE9BE000E12C7 /* WifiUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D361AE1DDAE9BE000E12C7 /* WifiUtils.swift */; };
 		C6D3E0621DB9C551001A8B59 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D3E0611DB9C551001A8B59 /* CoreData.framework */; };
 		C6D3FC5F1D9D752900F20B06 /* timePickerList.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6D3FC5E1D9D752900F20B06 /* timePickerList.plist */; };
 		C6D49EC11D87E6E900FB5E3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D49EC01D87E6E900FB5E3A /* AppDelegate.swift */; };
@@ -98,6 +100,8 @@
 		C616E8A11DBE067C00E54802 /* ScoreboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardViewController.swift; sourceTree = "<group>"; };
 		C61C84B61DCC753700D354AD /* ConnectControllViewContrller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectControllViewContrller.swift; sourceTree = "<group>"; };
 		C627BD1D1D9BD3AF002213BD /* VolumeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
+		C62A939D1DD9A5700071C390 /* BonusCountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusCountView.swift; sourceTree = "<group>"; };
+		C62A93A11DD9A9370071C390 /* BonusCountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BonusCountView.xib; sourceTree = "<group>"; };
 		C62DB1501D88F872000A9C1B /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		C62DB1521D88F872000A9C1B /* GameTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GameTimer.entitlements; sourceTree = "<group>"; };
 		C62DB1541D8907C0000A9C1B /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -138,10 +142,10 @@
 		C69EAC3F1DA920B4008CA325 /* SelectSoundEffectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSoundEffectViewController.swift; sourceTree = "<group>"; };
 		C6AC4E531DBDB90500F6551A /* PickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PickerView.xib; path = GameTimer/PickerView.xib; sourceTree = "<group>"; };
 		C6AC4E551DBDB95F00F6551A /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
-		C6BC14701DAD337D00E9BCC2 /* MicroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MicroViewController.swift; path = ../../../../Desktop/devel/testit/GameTimer/MicroViewController.swift; sourceTree = DEVELOPER_DIR; };
 		C6BDB0F91DABE26B00C890B8 /* RecordSoundEffectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordSoundEffectViewController.swift; sourceTree = "<group>"; };
 		C6CDFA301DC9E3A400AFD6B7 /* AudioUnitTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioUnitTestViewController.swift; sourceTree = "<group>"; };
 		C6D33A981D9515B500CFF3CC /* SFX */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SFX; path = ../../../../Downloads/SFX; sourceTree = "<group>"; };
+		C6D361AE1DDAE9BE000E12C7 /* WifiUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WifiUtils.swift; sourceTree = "<group>"; };
 		C6D3E0611DB9C551001A8B59 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C6D3FC5E1D9D752900F20B06 /* timePickerList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = timePickerList.plist; sourceTree = "<group>"; };
 		C6D49EBD1D87E6E900FB5E3A /* GameTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,6 +217,7 @@
 				C64903441DCCCD8A00F8F9B5 /* BlackModeTableViewCell.swift */,
 				C64903461DCCCDC400F8F9B5 /* LedBrightnessTableViewCell.swift */,
 				C6345EF11DD08777007EF5D2 /* ConnectedDeviceHeaderView.swift */,
+				C62A939D1DD9A5700071C390 /* BonusCountView.swift */,
 			);
 			name = CustomView;
 			sourceTree = "<group>";
@@ -248,7 +253,6 @@
 				C61C84B61DCC753700D354AD /* ConnectControllViewContrller.swift */,
 				C62DB1561D892219000A9C1B /* MusicViewController.swift */,
 				C613B1F81D9283DD006D1E92 /* bak.MicroViewController.swift */,
-				C6BC14701DAD337D00E9BCC2 /* MicroViewController.swift */,
 				C60FE94A1D955736008B8760 /* TableViewController.swift */,
 				C60FE94C1D955822008B8760 /* TabBarViewController.swift */,
 				C69EAC3F1DA920B4008CA325 /* SelectSoundEffectViewController.swift */,
@@ -272,6 +276,7 @@
 				C697B3F31D9D62DC005153A7 /* DialogView.xib */,
 				C6AC4E531DBDB90500F6551A /* PickerView.xib */,
 				C6E095971DD17E02005FC0D9 /* ConnectedDevicePermissionCell.xib */,
+				C62A93A11DD9A9370071C390 /* BonusCountView.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -280,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				C6345EED1DD02237007EF5D2 /* ModeCheckUtils.swift */,
+				C6D361AE1DDAE9BE000E12C7 /* WifiUtils.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -472,6 +478,7 @@
 				C69B27D41DB9079600DEE743 /* GoogleSignIn.bundle in Resources */,
 				C6D49ECA1D87E6E900FB5E3A /* Assets.xcassets in Resources */,
 				C6D49EC81D87E6E900FB5E3A /* Main.storyboard in Resources */,
+				C62A93A21DD9A9370071C390 /* BonusCountView.xib in Resources */,
 				C6D3FC5F1D9D752900F20B06 /* timePickerList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,7 +497,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6BC14711DAD337D00E9BCC2 /* MicroViewController.swift in Sources */,
 				C68AF3AE1DCC7DA6009D2EDE /* WifiNameTableViewCell.swift in Sources */,
 				C6424A001D91125C00A15214 /* ScoreboardData.swift in Sources */,
 				C60EE1781D9A56400013E789 /* SoundEffectTableViewCell.swift in Sources */,
@@ -516,6 +522,7 @@
 				C67CB3611DBF8D1300D1977E /* ScoreboardView.swift in Sources */,
 				C68AF3B41DCCAF6E009D2EDE /* SettingsViewController.swift in Sources */,
 				C64903451DCCCD8A00F8F9B5 /* BlackModeTableViewCell.swift in Sources */,
+				C6D361AF1DDAE9BE000E12C7 /* WifiUtils.swift in Sources */,
 				C60FE94B1D955736008B8760 /* TableViewController.swift in Sources */,
 				C68AF3B21DCCAEF7009D2EDE /* MyAccountViewController.swift in Sources */,
 				C69EAC401DA920B4008CA325 /* SelectSoundEffectViewController.swift in Sources */,
@@ -525,6 +532,7 @@
 				C62DB1551D8907C0000A9C1B /* MenuViewController.swift in Sources */,
 				C67E6F041DD41A8F00D2DD14 /* StartViewController.swift in Sources */,
 				C68EF0851DB645B00030B1B4 /* SignUpViewController.swift in Sources */,
+				C62A939E1DD9A5700071C390 /* BonusCountView.swift in Sources */,
 				C662C1631D90245A00844105 /* TcpConnection.swift in Sources */,
 				C6AC4E561DBDB95F00F6551A /* PickerView.swift in Sources */,
 				C616E8A21DBE067C00E54802 /* ScoreboardViewController.swift in Sources */,

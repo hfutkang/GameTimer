@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BonusCountView" customModule="GameTimer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="7eS-uW-efy">
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_dot_dark_horizontal" translatesAutoresizingMaskIntoConstraints="NO" id="T7B-6C-LIf"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_dot_dark_horizontal" translatesAutoresizingMaskIntoConstraints="NO" id="mBC-3Y-rZS"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_dot_dark_horizontal" translatesAutoresizingMaskIntoConstraints="NO" id="7sP-o7-fjF"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_dot_dark_horizontal" translatesAutoresizingMaskIntoConstraints="NO" id="Q9I-EB-7d9"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_dot_dark_horizontal" translatesAutoresizingMaskIntoConstraints="NO" id="ntj-0c-8yl"/>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="7eS-uW-efy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="E0u-LH-i4A"/>
+                <constraint firstItem="7eS-uW-efy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Gut-Qr-YnU"/>
+                <constraint firstAttribute="trailing" secondItem="7eS-uW-efy" secondAttribute="trailing" id="hJC-rZ-gek"/>
+                <constraint firstAttribute="bottom" secondItem="7eS-uW-efy" secondAttribute="bottom" id="z1F-sX-jXQ"/>
+            </constraints>
+            <connections>
+                <outlet property="dot1" destination="T7B-6C-LIf" id="lE9-Uf-5BO"/>
+                <outlet property="dot2" destination="mBC-3Y-rZS" id="wFq-uu-kFr"/>
+                <outlet property="dot3" destination="7sP-o7-fjF" id="6Cu-Qd-EXY"/>
+                <outlet property="dot4" destination="Q9I-EB-7d9" id="4QG-yq-zwI"/>
+                <outlet property="dot5" destination="ntj-0c-8yl" id="0lA-FF-iTr"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_dot_dark_horizontal" width="8" height="8"/>
+    </resources>
+</document>

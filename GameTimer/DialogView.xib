@@ -18,9 +18,8 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3V-cT-RqN">
-                    <color key="backgroundColor" red="0.066666666666666666" green="0.070588235294117646" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="100" id="I1L-Bd-Ti3"/>
+                        <constraint firstAttribute="width" constant="120" id="I1L-Bd-Ti3"/>
                         <constraint firstAttribute="height" constant="150" id="jpz-Pf-g5j"/>
                     </constraints>
                 </pickerView>

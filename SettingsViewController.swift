@@ -156,8 +156,8 @@ class SettingsViewController:UIViewController, UITableViewDelegate, UITableViewD
     }
     
     //MAKR UIPickerViewDelegate
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return levelNames[row + 1]
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        return NSAttributedString(string: levelNames[row + 1], attributes: [NSForegroundColorAttributeName:UIColor.white])
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

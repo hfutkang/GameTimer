@@ -40,9 +40,17 @@
 				<string>sctek.cn.MGameTimer</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>prefs</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.5</string>
+	<string>1.6</string>
 	<key>FacebookAppID</key>
 	<string>529144547279560</string>
 	<key>FacebookDisplayName</key>

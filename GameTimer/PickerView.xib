@@ -18,7 +18,6 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ff-3k-dxY">
-                    <color key="backgroundColor" red="0.066666666666666666" green="0.070588235294117646" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="oyd-gZ-Dpg"/>
                         <constraint firstAttribute="width" constant="200" id="vlp-AW-2Ra"/>

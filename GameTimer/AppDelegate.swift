@@ -79,7 +79,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GCDAsyncSocketDelegate, U
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation) || GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation)
+        print("open url:\(url)\n")
+        let result = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation) || GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation)
+        print("open url \(result)\n")
+        return result
     }
     
     //UNUserNotificationCenterDelegate
@@ -143,7 +146,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GCDAsyncSocketDelegate, U
                 NotificationCenter.default.post(notification)
                 break
             case "getLevel":
-                let level = msg["value"] as! Int
+                let level = msg["res"] as! Int
                 let notification = Notification.init(name: NSNotification.Name("sctek.cn.MGameTimer.brightnessLevel"), object: nil, userInfo: ["level":level])
                 NotificationCenter.default.post(notification)
             case "soundStatus":

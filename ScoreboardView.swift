@@ -16,7 +16,7 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
     var minutes:[String]!
     var seconds:[String]!
     
-    let periodNames = ["PERIOD", "HALF", "QUARTER", "INNING", "SET", "ROUND"]
+    let periodNames = ["PERIOD", "HALF", "QUARTER", "INNING", "SET", "ROUND","BASKETBALL"]
     
     var hour = 0
     var minute = 0
@@ -31,7 +31,44 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
     
     var homeGuestSwitch = false
     
-    var buzzerLongPressed = false
+    var buttonLongPressed = false
+    
+    var isVertical = true
+    
+    var basketballMode = false {
+        didSet {
+            homeDotStack.isHidden = !basketballMode
+            guestDotStack.isHidden = !basketballMode
+        }
+    }
+    
+    var homeBonusCount:Int = 0 {//主队犯规次数
+        didSet {
+            homeDot1.image = homeBonusCount >= 1 ? #imageLiteral(resourceName: "icon_dot_light_horizontal") : #imageLiteral(resourceName: "icon_dot_dark_horizontal")
+            homeDot2.image = homeBonusCount >= 2 ? #imageLiteral(resourceName: "icon_dot_light_horizontal") :
+            #imageLiteral(resourceName: "icon_dot_dark_horizontal")
+            homeDot3.image = homeBonusCount >= 3 ? #imageLiteral(resourceName: "icon_dot_light_horizontal") :
+            #imageLiteral(resourceName: "icon_dot_dark_horizontal")
+            homeDot4.image = homeBonusCount >= 4 ? #imageLiteral(resourceName: "icon_dot_light_horizontal") :
+            #imageLiteral(resourceName: "icon_dot_dark_horizontal")
+            homeDot5.image = homeBonusCount >= 5 ? #imageLiteral(resourceName: "icon_dot_light_horizontal") :
+            #imageLiteral(resourceName: "icon_dot_dark_horizontal")
+        }
+    }
+    
+    var guestBonusCount:Int = 0 {
+        didSet {
+            guestDot1.image = homeBonusCount >= 1 ? #imageLiteral(resourceName: "icon_dot_light_horizontal") : #imageLiteral(resourceName: "icon_dot_dark_horizontal")
+            guestDot2.image = homeBonusCount >= 2 ? #imageLiteral(resourceName: "icon_dot_light_horizontal") :
+                #imageLiteral(resourceName: "icon_dot_dark_horizontal")
+            guestDot3.image = homeBonusCount >= 3 ? #imageLiteral(resourceName: "icon_dot_light_horizontal") :
+                #imageLiteral(resourceName: "icon_dot_dark_horizontal")
+            guestDot4.image = homeBonusCount >= 4 ? #imageLiteral(resourceName: "icon_dot_light_horizontal") :
+                #imageLiteral(resourceName: "icon_dot_dark_horizontal")
+            guestDot5.image = homeBonusCount >= 5 ? #imageLiteral(resourceName: "icon_dot_light_horizontal") :
+                #imageLiteral(resourceName: "icon_dot_dark_horizontal")
+        }
+    }
     
     //MARK Outlets
     @IBOutlet weak var timeLabel: UILabel!
@@ -57,7 +94,21 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
     
     @IBOutlet weak var connectStatusButton: UIButton!
     
+    @IBOutlet weak var homeDotStack: UIStackView!
+    @IBOutlet weak var homeDot1: UIImageView!
+    @IBOutlet weak var homeDot2: UIImageView!
+    @IBOutlet weak var homeDot3: UIImageView!
+    @IBOutlet weak var homeDot4: UIImageView!
+    @IBOutlet weak var homeDot5: UIImageView!
     
+    @IBOutlet weak var guestDotStack: UIStackView!
+    @IBOutlet weak var guestDot1: UIImageView!
+    @IBOutlet weak var guestDot2: UIImageView!
+    @IBOutlet weak var guestDot3: UIImageView!
+    @IBOutlet weak var guestDot4: UIImageView!
+    @IBOutlet weak var guestDot5: UIImageView!
+    
+    @IBOutlet weak var infoView: UIImageView!
     
     
     //MARK Funcs
@@ -71,13 +122,9 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
     }
     
     func initViewStatus(sourceView: ScoreboardView?) {
-        if TcpConnection.sharedInstance.isConnected() {
-            connectStatusButton.isSelected = true
-            connectStatusButton.setTitle("Connected", for: .normal)
-        } else {
-            connectStatusButton.isSelected = false
-            connectStatusButton.setTitle("Disconnected", for: .normal)
-        }
+        
+        connectStatusButton.setImage(#imageLiteral(resourceName: "icon_connected_horizontal"), for: .selected)
+        connectStatusButton.setImage(#imageLiteral(resourceName: "icon_disconnect_horizontal"), for: .normal)
         
         initPossBonusView()
         
@@ -98,26 +145,53 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
             self.homeBonus.isSelected = view.homeBonus.isSelected
             self.guestPoss.isSelected = view.guestPoss.isSelected
             self.guestBonus.isSelected = view.guestBonus.isSelected
+            
+            self.basketballMode = view.basketballMode
+            self.homeBonusCount = view.homeBonusCount
+            self.guestBonusCount = view.guestBonusCount
+            
+            self.infoView.isHidden = view.infoView.isHidden
+        }
+        
+        if TcpConnection.sharedInstance.isConnected() {
+            connectStatusButton.isSelected = true
+        } else {
+            connectStatusButton.isSelected = false
         }
         
         //设置客队poss箭头在文字右边
-        guestPoss.titleEdgeInsets = UIEdgeInsets(top: 0, left: -(guestPoss.imageView?.frame.size.width)!, bottom: 0, right: (guestPoss.imageView?.frame.size.width)!)
-        guestPoss.imageEdgeInsets = UIEdgeInsets(top: 0, left: (guestPoss.titleLabel?.frame.size.width)!, bottom: 0, right:-(guestPoss.titleLabel?.frame.size.width)!)
+        //guestPoss.titleEdgeInsets = UIEdgeInsets(top: 0, left: -(guestPoss.imageView?.frame.size.width)!, bottom: 0, right: (guestPoss.imageView?.frame.size.width)!)
+        //guestPoss.imageEdgeInsets = UIEdgeInsets(top: 0, left: (guestPoss.titleLabel?.frame.size.width)!, bottom: 0, right:-(guestPoss.titleLabel?.frame.size.width)!)
         
     }
     
     func initPossBonusView() -> Void {
-        homePoss.setImage(#imageLiteral(resourceName: "icon_left_poss_dark"), for: .normal)
-        homePoss.setImage(#imageLiteral(resourceName: "icon_left_poss_light"), for: .selected)
+        if isVertical {
+            homePoss.setImage(#imageLiteral(resourceName: "icon_poss_dark_left_vertical"), for: .normal)
+            homePoss.setImage(#imageLiteral(resourceName: "icon_poss_light_left_vertical"), for: .selected)
         
-        guestPoss.setImage(#imageLiteral(resourceName: "icon_right_poss_dark"), for: .normal)
-        guestPoss.setImage(#imageLiteral(resourceName: "icon_right_poss_light"), for: .selected)
+            guestPoss.setImage(#imageLiteral(resourceName: "icon_poss_dark_right_vertical"), for: .normal)
+            guestPoss.setImage(#imageLiteral(resourceName: "icon_poss_light_right_vertical"), for: .selected)
         
-        homeBonus.setImage(#imageLiteral(resourceName: "icon_bonus_dark"), for: .normal)
-        homeBonus.setImage(#imageLiteral(resourceName: "icon_bonus_light"), for: .selected)
+            homeBonus.setImage(#imageLiteral(resourceName: "icon_bonus_dark_vertical"), for: .normal)
+            homeBonus.setImage(#imageLiteral(resourceName: "icon_bonus_light_vertical"), for: .selected)
         
-        guestBonus.setImage(#imageLiteral(resourceName: "icon_bonus_dark"), for: .normal)
-        guestBonus.setImage(#imageLiteral(resourceName: "icon_bonus_light"), for: .selected)
+            guestBonus.setImage(#imageLiteral(resourceName: "icon_bonus_dark_vertical"), for: .normal)
+            guestBonus.setImage(#imageLiteral(resourceName: "icon_bonus_light_vertical"), for: .selected)
+        } else {
+            homePoss.setImage(#imageLiteral(resourceName: "icon_poss_dark_left_horizotal"), for: .normal)
+            homePoss.setImage(#imageLiteral(resourceName: "icon_poss_light_left_horizotal"), for: .selected)
+            
+            guestPoss.setImage(#imageLiteral(resourceName: "icon_poss_dark_right_horizotal"), for: .normal)
+            guestPoss.setImage(#imageLiteral(resourceName: "icon_poss_light_right_horizotal"), for: .selected)
+            
+            homeBonus.setImage(#imageLiteral(resourceName: "icon_bonus_dark_horizontal"), for: .normal)
+            homeBonus.setImage(#imageLiteral(resourceName: "icon_bonus_light_horizontal"), for: .selected)
+            
+            guestBonus.setImage(#imageLiteral(resourceName: "icon_bonus_dark_horizontal"), for: .normal)
+            guestBonus.setImage(#imageLiteral(resourceName: "icon_bonus_light_horizontal"), for: .selected)
+
+        }
     }
     
     //收到设备端广播后，更新UI显示
@@ -165,7 +239,7 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
             homeLabel.font = homeLabel.font.withSize(20)
             guestLabel.font = guestLabel.font.withSize(20)
             homeImage.frame.size = CGSize(width: 45, height: 45)
-            homeImage.frame.size = CGSize(width: 45, height: 45)
+            guestImage.frame.size = CGSize(width: 45, height: 45)
             
         } else if UIScreen.main.bounds.height == 568 {//iphone 5
             timeLabel.font = timeLabel.font.withSize(65)
@@ -176,7 +250,7 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
             homeLabel.font = homeLabel.font.withSize(30)
             guestLabel.font = guestLabel.font.withSize(30)
             homeImage.frame.size = CGSize(width: 50, height: 50)
-            homeImage.frame.size = CGSize(width: 50, height: 50)
+            guestImage.frame.size = CGSize(width: 50, height: 50)
             
         } else if UIScreen.main.bounds.width == 375 {//iphone 6
             timeLabel.font = timeLabel.font.withSize(80)
@@ -187,7 +261,7 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
             homeLabel.font = homeLabel.font.withSize(35)
             guestLabel.font = guestLabel.font.withSize(35)
             homeImage.frame.size = CGSize(width: 65, height: 65)
-            homeImage.frame.size = CGSize(width: 65, height: 65)
+            guestImage.frame.size = CGSize(width: 65, height: 65)
             
         } else if UIScreen.main.bounds.width == 414 {//iphone 6s
             timeLabel.font = timeLabel.font.withSize(110)
@@ -208,7 +282,7 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
             homeLabel.font = homeLabel.font.withSize(40)
             guestLabel.font = guestLabel.font.withSize(40)
             homeImage.frame.size = CGSize(width: 80, height: 80)
-            homeImage.frame.size = CGSize(width: 80, height: 80)
+            guestImage.frame.size = CGSize(width: 80, height: 80)
         }
     }
 
@@ -247,10 +321,17 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
             view.label1.text = "Min"
             view.label2.text = "Sec"
             view.titleLabel.text = "Timer Count Down"
+            view.timePicker.selectRow(20, inComponent: 0, animated: true)
         } else {
             view.label1.text = "HR"
             view.label2.text = "Min"
             view.titleLabel.text = "Clock"
+            let calender = Calendar.autoupdatingCurrent
+            let component = calender.dateComponents([.hour,.minute], from: Date())
+            let hour = component.hour
+            let minute = component.minute
+            view.timePicker.selectRow(hour!, inComponent: 0, animated: true)
+            view.timePicker.selectRow(minute!, inComponent: 1, animated: true)
         }
         
         view.frame = alert.view.frame
@@ -358,18 +439,26 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
         controller.present(alert, animated: true, completion: nil)
     }
     
+    //提醒连接GameTimer的wifi热点
+    func openWifiSettingsDialog() -> Void {
+        print("openWifiSettingsDialog\n")
+        let alert = UIAlertController(title: "Join GameTimer`s network", message: "Please go to the WIFI Settings panel and select the GameTimer`s network.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Know it", style: .default, handler: nil))
+        controller.present(alert, animated: true, completion: nil)
+    }
+    
     //调整图片大小
     func scaleImage(image: UIImage) -> UIImage {
         var size:CGSize = CGSize(width: 60, height: 60)
         if UIScreen.main.bounds.height == 480 {//iphone 4
+            size.width = 45
+            size.height = 45
+        } else if UIScreen.main.bounds.height == 568 {//iphone 5
             size.width = 50
             size.height = 50
-        } else if UIScreen.main.bounds.height == 568 {//iphone 5
-            size.width = 60
-            size.height = 60
         } else if UIScreen.main.bounds.width == 375 {//iphone 6
-            size.width = 70
-            size.height = 70
+            size.width = 65
+            size.height = 65
         } else if UIScreen.main.bounds.width == 414 {//iphone 6s
             size.width = 90
             size.height = 90
@@ -526,7 +615,7 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
     @IBAction func onPosBonusButtonClicked(_ sender: UIButton) {
         print("onPosBonusButtonClicked\n")
         //Button的tag值为相应的命令码
-        if !ModeCheckUtils.canControlScoreboard() {
+        if !ModeCheckUtils.canControlScoreboard() || buttonLongPressed {
             return
         }
         var cmd = UInt8(sender.tag)
@@ -538,11 +627,11 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
             case CommandCodes.CMD_GUEST_POSS:
                 cmd = CommandCodes.CMD_HOME_POSS
                 break;
-            case CommandCodes.CMD_HOME_BUNUS:
-                cmd = CommandCodes.CMD_GUEST_BUNUS
+            case CommandCodes.CMD_HOME_BONUS:
+                cmd = CommandCodes.CMD_GUEST_BONUS
                 break;
-            case CommandCodes.CMD_GUEST_BUNUS:
-                cmd = CommandCodes.CMD_HOME_BUNUS
+            case CommandCodes.CMD_GUEST_BONUS:
+                cmd = CommandCodes.CMD_HOME_BONUS
                 break;
             default:
                 break;
@@ -551,9 +640,28 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
         controller.sendData(cmd: cmd)
     }
     
+    @IBAction func onHomeBonusLongPressed(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            buttonLongPressed = true
+            controller.sendData(cmd: CommandCodes.CMD_HOME_BONUS_LONGPRESSED)
+        } else {
+            buttonLongPressed = false
+        }
+    }
+    
+    @IBAction func onGuestBonusLongPressed(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            buttonLongPressed = true
+            controller.sendData(cmd: CommandCodes.CMD_GUEST_BONUS_LONGPRESSED)
+        } else {
+            buttonLongPressed = false
+        }
+    }
+    
+    
     @IBAction func onBuzzerButtonClicked(_ sender: UIButton) {
         print("onBuzzerButtonClicked\n")
-        if !ModeCheckUtils.canControlScoreboard() || buzzerLongPressed {
+        if !ModeCheckUtils.canControlScoreboard() || buttonLongPressed {
             return
         }
         if TcpConnection.sharedInstance.isConnected() {
@@ -569,10 +677,10 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
             return
         }
         if sender.state == .began {
-            buzzerLongPressed = true
+            buttonLongPressed = true
             TcpConnection.sharedInstance.send(cmd: "button", value: "\(CommandCodes.CMD_BUZZER_LONGPRESSED)", extra: nil)
-        } else if sender.state == .ended {
-            buzzerLongPressed = false
+        } else {
+            buttonLongPressed = false
             TcpConnection.sharedInstance.send(cmd: "button", value: "\(CommandCodes.CMD_BUZZER_LONGPRESS_RELEASE)", extra: nil)
         }
     }
@@ -580,6 +688,19 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
     
     @IBAction func connectToDevice(_ sender: UIButton) {
         print("connectToDevice\n")
+        
+        //检查是否已连接到计分板Ap
+        let ip = WifiUtils.getWiFiAddress()
+        if ip == nil {
+            openWifiSettingsDialog()
+            return
+        } else {
+            if !ip!.contains("192.168.222") {
+                openWifiSettingsDialog()
+                return
+            }
+        }
+        
         if !TcpConnection.sharedInstance.isConnected() {
             let alert = UIAlertController(title: "Connect to GameTimer", message: "Connect to GameTimer?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -619,17 +740,53 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
         
     }
     
+    @IBAction func onInfoButtonClicked(_ sender: UIButton) {
+        infoView.isHidden = false
+    }
+    
+    @IBAction func onInfoViewClicked(_ sender: UITapGestureRecognizer) {
+        infoView.isHidden = true
+    }
+    
+    
+    
     //MARK UIPickerViewDelegate
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         if pickerView.tag == 0 {
-            return 50
+            return 55
         } else if pickerView.tag == 1 {
-            return 150
+            return 160
         }
         return 0
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        var title:String? = nil
+        if pickerView.tag == 0 {
+            switch component {
+            case 0:
+                if setTimer {
+                    title = minutes[row]
+                } else {
+                    title = hours[row]
+                }
+            case 1:
+                if setTimer {
+                    title = seconds[row]
+                } else {
+                    title = minutes[row]
+                }
+            default:
+                break
+            }
+        } else if pickerView.tag == 1 {
+            title = periodNames[row]
+        }
+        
+        return NSAttributedString(string: title!, attributes: [NSForegroundColorAttributeName:UIColor.white])
+    }
+    
+    /*func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView.tag == 0 {
             switch component {
             case 0:
@@ -651,7 +808,7 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
             return periodNames[row]
         }
         return nil
-    }
+    }*/
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView.tag == 0 {
@@ -672,7 +829,13 @@ class ScoreboardView:UIView, UIPickerViewDelegate, UIPickerViewDataSource, UIIma
                 break
             }
         } else if pickerView.tag == 1 {
-            periodName = periodNames[row]
+            if row == periodNames.count - 1 {
+                periodName = periodNames[0]
+                basketballMode = true
+            } else {
+                periodName = periodNames[row]
+                basketballMode = false
+            }
         }
     }
     

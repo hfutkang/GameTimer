@@ -50,18 +50,23 @@ class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSoc
         speak.setImage(#imageLiteral(resourceName: "icon_mic_normal"), for: .normal)
         speak.setImage(#imageLiteral(resourceName: "icon_mic_clicked"), for: .highlighted)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(getVolumeFromDevice(sender:)), name: NSNotification.Name("sctek.cn.MGameTimer.volume"), object: nil)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         MicroViewController.mUdpSocket = GCDAsyncUdpSocket(delegate: self, delegateQueue: DispatchQueue.main)
         accessView.isHidden = ModeCheckUtils.canControlMic()
+        if ModeCheckUtils.canControlMic() {
+            let msg = "{\"cmd\":\"getVolume\"}"
+            TcpConnection.sharedInstance.send(data: msg.data(using: .utf8)!, tag: 0)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         stopMic()
         MicroViewController.mUdpSocket?.close()
         MicroViewController.mUdpSocket = nil
-        
     }
     
     func  _initVolumeView() -> Void {
@@ -97,7 +102,7 @@ class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSoc
         if userData.recording == true {
             userData.recording = false
             print("stopped\n")
-            //speak.setTitle("Start speak", for: .normal)
+            speak.isHighlighted = false
             stopGrap()
             NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue:"sctek.cn.MGameTimer.mic"), object: nil)
             
@@ -190,11 +195,16 @@ class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSoc
 
         if result == "ok" {
             userData.recording = true
-            //speak.setTitle("Over", for: .normal)
+            speak.isHighlighted = true
             startGrap()
         } else {
             print("mic is buzy now\n")
         }
+    }
+    
+    @objc func getVolumeFromDevice(sender: Notification) {
+        let volume = sender.userInfo?["volume"] as! Int
+        volumeSlider.setValue(Float(volume), animated: true)
     }
     
     //MARK Action
@@ -215,7 +225,7 @@ class MicroViewController: UIViewController,AVAudioPlayerDelegate,GCDAsyncUdpSoc
     
     @IBAction func onSliderValueChanged(_ sender: UISlider) {
         print("onSliderValueChanged\n")
-        TcpConnection.sharedInstance.send(cmd: "vol", value: "\(Int(sender.value))", extra: nil)
+        TcpConnection.sharedInstance.send(cmd: "setVolume", value: "\(Int(sender.value))", extra: nil)
     }
     
     

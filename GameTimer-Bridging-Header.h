@@ -20,4 +20,7 @@
 //Google sdk
 #import <GoogleSignIn/GoogleSignIn.h>
 
+//For wifi ip address
+#include <ifaddrs.h>
+
 #endif /* GameTimer_Bridging_Header_h */

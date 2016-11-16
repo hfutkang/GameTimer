@@ -213,7 +213,8 @@ class SFXViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 try soundPlayer = AVAudioPlayer(contentsOf: url!)
                 soundPlayer.delegate = self
                 soundPlayer.play()
-                sender.setTitle("stop", for: .normal)
+                //sender.setTitle("stop", for: .normal)
+                sender.setImage(#imageLiteral(resourceName: "icon_sfx_stop"), for: .normal)
                 playingRow = sender.tag
                 print("playing\n")
             } catch {
@@ -226,7 +227,8 @@ class SFXViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             print("another playing\n")
             if sender.tag == playingRow {
                 soundPlayer.stop()
-                sender.setTitle("play", for: .normal)
+                //sender.setTitle("play", for: .normal)
+                sender.setImage(#imageLiteral(resourceName: "icon_sfx_play"), for: .normal)
                 playingRow = -1
                 soundPlayer = nil
                 _deinitAvSession()
@@ -235,7 +237,8 @@ class SFXViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 soundPlayer = nil
                 if visibleFor(row: playingRow) {
                     let cell = tableView.cellForRow(at: IndexPath(row: playingRow, section: 0)) as! SoundEffectTableViewCell
-                    cell.play.setTitle("play", for: .normal)
+                    //cell.play.setTitle("play", for: .normal)
+                    cell.play.setImage(#imageLiteral(resourceName: "icon_sfx_play"), for: .normal)
                 }
                 do {
                     print("another playing \(url)\n")
@@ -247,7 +250,8 @@ class SFXViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     return
                 }
                 soundPlayer.play()
-                sender.setTitle("stop", for: .normal)
+                //sender.setTitle("stop", for: .normal)
+                sender.setImage(#imageLiteral(resourceName: "icon_sfx_stop"), for: .normal)
                 playingRow = sender.tag
             }
         }
@@ -315,9 +319,11 @@ class SFXViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         cell.switchButton.addTarget(self, action: #selector(onSwitchChangde(sender:)), for: UIControlEvents.valueChanged)
         
         if indexPath.row == playingRow {
-            cell.play.setTitle("stop", for: .normal)
+            //cell.play.setTitle("stop", for: .normal)
+            cell.play.setImage(#imageLiteral(resourceName: "icon_sfx_stop"), for: .normal)
         } else {
-            cell.play.setTitle("play", for: .normal)
+            //cell.play.setTitle("play", for: .normal)
+            cell.play.setImage(#imageLiteral(resourceName: "icon_sfx_play"), for: .normal)
         }
         
         cell.play.tag = indexPath.row
@@ -337,7 +343,8 @@ class SFXViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
         if visibleFor(row: playingRow) {
             let cell = tableView.cellForRow(at: IndexPath(row: playingRow, section: 0)) as! SoundEffectTableViewCell
-            cell.play.setTitle("play", for: .normal)
+            //cell.play.setTitle("play", for: .normal)
+            cell.play.setImage(#imageLiteral(resourceName: "icon_sfx_play"), for: .normal)
         }
         playingRow = -1
         soundPlayer = nil
@@ -348,7 +355,8 @@ class SFXViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         print("audioPlayerDidFinishPlaying\n")
         if visibleFor(row: playingRow) {
             let cell = tableView.cellForRow(at: IndexPath(row: playingRow, section: 0)) as! SoundEffectTableViewCell
-            cell.play.setTitle("play", for: .normal)
+            //cell.play.setTitle("play", for: .normal)
+            cell.play.setImage(#imageLiteral(resourceName: "icon_sfx_play"), for: .normal)
         }
         soundPlayer = nil
         playingRow = -1
